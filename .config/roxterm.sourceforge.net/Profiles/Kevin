@@ -1,0 +1,9 @@
+
+[roxterm profile]
+full_screen=0
+background_type=0
+saturation=0.121154
+true_translucence=1
+show_menubar=0
+font=Monospace 10
+login_shell=0

@@ -1,0 +1,32 @@
+# fdisk -l
+Disk /dev/sda: 128.0 GB, 128035676160 bytes
+255 heads, 63 sectors/track, 15566 cylinders, total 250069680 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000c5e12
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048      976895      487424   83  Linux
+/dev/sda2          978942   165040127    82030593    5  Extended
+/dev/sda5          978944     8790015     3905536   82  Linux swap / Solaris
+/dev/sda6         8792064    86915071    39061504   83  Linux
+/dev/sda7        86917120   165040127    39061504   83  Linux
+
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+proc            /proc           proc    nodev,noexec,nosuid 0       0
+# / was on /dev/sda6 during installation
+UUID=e4678c20-3293-40ac-b0c5-b6ab95e7aea7 /               ext4    errors=remount-ro 0       1
+# /boot was on /dev/sda1 during installation
+UUID=97a7400a-7916-45be-ac40-ba8c1a81c390 /boot           ext4    defaults        0       2
+# /home was on /dev/sda7 during installation
+UUID=09ef17d7-173e-4b22-9cf3-e0a57f7cdeb5 /home           ext4    defaults        0       2
+# swap was on /dev/sda5 during installation
+UUID=36413075-3507-4b66-9ebc-e0cc472eff90 none            swap    sw              0       0
+
