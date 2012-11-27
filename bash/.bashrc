@@ -110,6 +110,9 @@ fi
 EDITOR=vi; 
 export EDITOR
 
+## vi keybindings for bash
+set -o vi
+
 ## Gardens
 export GARDENS_GITTOOLS=/var/www/gittools
 
