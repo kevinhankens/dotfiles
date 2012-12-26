@@ -1,11 +1,13 @@
 #!/bin/bash
 
 echo "Generating archive of dotfiles."
-cp -pPr $HOME/.drush .
+mkdir -p .drush
+cp -pPr $HOME/.drush/*.php .drush/
 cp -pPr $HOME/codes .
 cp -pPr $HOME/.config/openbox .config/
 cp -pPr $HOME/.config/roxterm.sourceforge.net/* .config/roxterm.sourceforge.net/
 cp -pPr $HOME/.vim* .
+rm .viminfo
 cp $HOME/.bash_aliases bash/
 cp $HOME/.bashrc bash/
 cp -pPr /etc/conky etc/
