@@ -117,6 +117,7 @@ set -o vi
 export GARDENS_GITTOOLS=/var/www/gittools
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 ## Android
 export PATH=$PATH:/usr/local/src/android-sdk-linux/tools:/usr/local/src/android-sdk-linux/platform-tools
@@ -130,3 +131,6 @@ function phptime {
   eval env php -r \"$PHPCMD\"
   echo ''
 }
+
+# libboost
+export PATH=$PATH:/home/khankens/codes/cpp/boost_1_52_0

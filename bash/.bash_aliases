@@ -15,10 +15,17 @@ alias psg='ps aux | grep'
 # Statsd
 alias statstestg='echo -n "kevin.dev.gauge:600|g"  | nc -w 1 -u 127.0.0.1 8125'
 alias statstestc='echo -n "kevin.dev.counter:900|c"  | nc -w 1 -u 127.0.0.1 8125'
+alias statsdstart='cd /usr/local/src/statsd/ && node stats.js /etc/statsd/config.js'
 alias carbonstart='sudo /opt/graphite/bin/carbon-cache.py start &'
 alias carbonstop='cat /opt/graphite/storage/carbon-cache-a.pid | sudo xargs kill -9'
 alias carbonrestart='cat /opt/graphite/storage/carbon-cache-a.pid | sudo xargs kill -9 && carbonstart'
 alias carbonstartdebug='sudo /opt/graphite/bin/carbon-cache.py --debug start &'
+
+# Redis
+alias redistest='(echo -en "incr kevin\r\nincr kevin\r\n"; sleep 1) | nc localhost 6379'
+
+# Jekyll
+alias jc='jekyll --no-server'
 
 # Gardens
 alias drush='/var/www/gardens/drush5/drush'
