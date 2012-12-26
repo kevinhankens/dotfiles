@@ -1,0 +1,33 @@
+From e5796cee446addcd21a7f1723b4cfd8636a93843 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?"J.=20Rene=CC=81e=20Beach"?= <splendidnoise@gmail.com>
+Date: Wed, 23 May 2012 13:48:14 -0400
+Subject: [PATCH] Issue #1597398 by jessebeach: Removed code that set the
+ access value for email fields to false in order to make the
+ default email configuration fields visible.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+
+Signed-off-by: J. Renée Beach <splendidnoise@gmail.com>
+---
+ webform_alt_ui.module |    3 ---
+ 1 files changed, 0 insertions(+), 3 deletions(-)
+
+diff --git a/webform_alt_ui.module b/webform_alt_ui.module
+index a93bbae..7250419 100644
+--- a/webform_alt_ui.module
++++ b/webform_alt_ui.module
+@@ -1502,9 +1502,6 @@ function webform_alt_ui_form_webform_admin_settings_alter(&$form, &$form_state,
+   $form['components']['time']['#printed'] = TRUE;
+   $form['components']['time']['#default_value'] = FALSE;
+ 
+-  // Hide the email settings
+-  $form['email']['#access'] = FALSE;
+-
+   // Retheme the table
+   $form['#theme'] = array('webform_alt_ui_admin_settings');
+ }
+-- 
+1.7.7.3
+

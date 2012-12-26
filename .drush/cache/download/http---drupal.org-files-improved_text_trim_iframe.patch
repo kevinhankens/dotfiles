@@ -1,0 +1,45 @@
+diff --git a/improved_text_trim.module b/improved_text_trim.module
+index 76d818b..d033593 100644
+--- a/improved_text_trim.module
++++ b/improved_text_trim.module
+@@ -122,6 +122,9 @@ function improved_text_trim_summary($text, $size = NULL) {
+     // until $size limit is reached.
+     _improved_text_trim_summarize($body_node, $size, $summary_doc, $summary_doc);
+ 
++    // Makes sure that iframes won't be converted to <iframe /> form.
++    _improved_text_trim_ensure_tag($summary_doc, 'iframe');
++
+     // Convert the summary document back to XHTML.
+     $output = filter_dom_serialize($summary_doc);
+   }
+@@ -137,6 +140,30 @@ function improved_text_trim_summary($text, $size = NULL) {
+ }
+ 
+ /**
++ * Ensures that a certain tag keeps it open-close pair form.
++ *
++ * Example:
++ * <tag></tag> won't get sqashed to <tag />
++ *
++ * There are certain HTML tags which behaves badly in their short form.
++ * A good example is the <iframe> tag.
++ *
++ * @param DOMDocument $document
++ *   The source DOMDocument
++ * @param string $tagname
++ *   The name of the tag which should be preserved.
++ */
++function _improved_text_trim_ensure_tag($document, $tagname) {
++  $xpath = new DOMXPath($document);
++  $tags = $xpath->query("//{$tagname}");
++  foreach ($tags as $tag) {
++    if (!strlen($tag->textContent)) {
++      $tag->appendChild(new DOMText(' '));
++    }
++  }
++}
++
++/**
+  * Helper function for improved_text_trim_summary().
+  *
+  * Recursively copies elements from $body to $summary, subtracting the length

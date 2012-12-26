@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Google Analytics</title>
+<short_name>google_analytics</short_name>
+<dc:creator>budda</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/google_analytics</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>google_analytics 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1108406</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.2.tar.gz</download_link>
+  <date>1301340367</date>
+  <mdhash>a3bac699f10fe454f237bc999dbd43bc</mdhash>
+  <filesize>28312</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a3bac699f10fe454f237bc999dbd43bc</md5>
+    <size>28312</size>
+    <filedate>1301340367</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>1d644130c9d161ebb9a3dcf09d6da653</md5>
+    <size>32786</size>
+    <filedate>1301340367</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>google_analytics 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1053972</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.1.tar.gz</download_link>
+  <date>1297103606</date>
+  <mdhash>66ddbf256ba8acd4a1c8d2801de1eaa9</mdhash>
+  <filesize>27422</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>66ddbf256ba8acd4a1c8d2801de1eaa9</md5>
+    <size>27422</size>
+    <filedate>1297103606</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>101da24fa7fbef9c1815f699a3f6a574</md5>
+    <size>32711</size>
+    <filedate>1297103606</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>google_analytics 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1034536</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.0.tar.gz</download_link>
+  <date>1295564196</date>
+  <mdhash>b5b4a16d5dd4a180faf6ccd38626e730</mdhash>
+  <filesize>24111</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>b5b4a16d5dd4a180faf6ccd38626e730</md5>
+    <size>24111</size>
+    <filedate>1295564196</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>7233ebf5e469519bffc9927339fb71c8</md5>
+    <size>29078</size>
+    <filedate>1295564196</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>google_analytics 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/96089</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.x-dev.tar.gz</download_link>
+  <date>1347841942</date>
+  <mdhash>a63bbf90b2b2c5cdc5d88096d64eebc5</mdhash>
+  <filesize>29909</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a63bbf90b2b2c5cdc5d88096d64eebc5</md5>
+    <size>29909</size>
+    <filedate>1347841942</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/google_analytics-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>ff497d1a0afd69d02800c550577b99c3</md5>
+    <size>34921</size>
+    <filedate>1347841942</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

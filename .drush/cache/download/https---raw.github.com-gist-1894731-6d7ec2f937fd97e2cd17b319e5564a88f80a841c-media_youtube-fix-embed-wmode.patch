@@ -1,0 +1,35 @@
+Index: includes/themes/media_youtube.theme.inc
+===================================================================
+--- includes/themes/media_youtube.theme.inc	(revision 40780)
++++ includes/themes/media_youtube.theme.inc	(working copy)
+@@ -22,6 +22,7 @@
+   $variables['fullscreen'] = isset($variables['fullscreen']) ? $variables['fullscreen'] : media_youtube_variable_get('fullscreen');
+   $variables['autoplay'] = $variables['autoplay'] ? 1 : 0;
+   $variables['fullscreen'] = $variables['fullscreen'] ? 'true' : 'false';
++  $variables['wmode'] = isset($variables['wmode']) ? $variables['wmode'] : media_youtube_variable_get('wmode');
+ 
+   $variables['wrapper_id'] = 'media_youtube_' . $variables['video_id'] . '_' . $variables['id'];
+ 
+@@ -31,8 +32,8 @@
+     <object width="{$variables['width']}" height="{$variables['height']}">
+       <param name="movie" value="http://www.youtube.com/v/{$variables['video_id']}"></param>
+       <param name="allowFullScreen" value="{$variables['fullscreen']}"></param>
+-      <param name="wmode" value="transparent" />
+-      <embed src="http://www.youtube.com/v/{$variables['video_id']}" type="application/x-shockwave-flash" width="{$variables['width']}" height="{$variables['height']}" allowfullscreen="{$variables['fullscreen']}"></embed>
++      <param name="wmode" value="{$variables['wmode']}" />
++      <embed src="http://www.youtube.com/v/{$variables['video_id']}" type="application/x-shockwave-flash" width="{$variables['width']}" height="{$variables['height']}" allowfullscreen="{$variables['fullscreen']}" wmode="{$variables['wmode']}"></embed>
+     </object>
+ OUTPUT;
+ 
+Index: includes/media_youtube.variables.inc
+===================================================================
+--- includes/media_youtube.variables.inc	(revision 40780)
++++ includes/media_youtube.variables.inc	(working copy)
+@@ -105,6 +105,7 @@
+       'height' =>340,
+       'autoplay' => FALSE,
+       'fullscreen' => TRUE,
++      'wmode' => 'transparent',
+       'preview_uri' => 'youtube://v/-jubiv7QUco',
+     );
+   }

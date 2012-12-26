@@ -1,0 +1,121 @@
+Index: xmlsitemap_engines/xmlsitemap_engines.admin.css
+===================================================================
+RCS file: xmlsitemap_engines/xmlsitemap_engines.admin.css
+diff -N xmlsitemap_engines/xmlsitemap_engines.admin.css
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ xmlsitemap_engines/xmlsitemap_engines.admin.css	16 Jun 2010 02:43:43 -0000
+@@ -0,0 +1,9 @@
++/* $Id$ */
++
++#xmlsitemap-engines-settings-form .form-item-xmlsitemap-engines-engines {
++  margin-bottom: 0;
++}
++
++#xmlsitemap-engines-settings-form .form-item-xmlsitemap-engines-custom-urls {
++  padding-top: 0;
++}
+Index: xmlsitemap_engines/xmlsitemap_engines.admin.inc
+===================================================================
+RCS file: /cvs/drupal/contributions/modules/xmlsitemap/xmlsitemap_engines/xmlsitemap_engines.admin.inc,v
+retrieving revision 1.5
+diff -u -p -r1.5 xmlsitemap_engines.admin.inc
+--- xmlsitemap_engines/xmlsitemap_engines.admin.inc	2 May 2010 21:59:52 -0000	1.5
++++ xmlsitemap_engines/xmlsitemap_engines.admin.inc	16 Jun 2010 02:43:43 -0000
+@@ -24,6 +24,19 @@ function xmlsitemap_engines_settings_for
+     '#default_value' => variable_get('xmlsitemap_engines_engines', array()),
+     '#options' => $engine_options,
+   );
++  $form['xmlsitemap_engines_custom_urls'] = array(
++    '#type' => 'textarea',
++    '#title' => t('Custom submission URLs'),
++    '#description' => t('Enter one URL per line. The token [sitemap] will be replaced with the URL to your sitemap. For example: %example-before would become %example-after.', array('%example-before' => 'http://example.com/ping?[sitemap]', '%example-after' => xmlsitemap_engines_prepare_url('http://example.com/ping?[sitemap]', url('sitemap.xml', array('absolute' => TRUE))))),
++    '#default_value' => variable_get('xmlsitemap_engines_custom_urls', ''),
++    '#rows' => 2,
++    '#wysiwyg' => FALSE,
++    '#element_validate' => array('xmlsitemap_engines_validate_custom_urls'),
++    '#attached' => array(
++      'js' => array(drupal_get_path('module', 'xmlsitemap_engines') . '/xmlsitemap_engines.admin.js'),
++      'css' => array(drupal_get_path('module', 'xmlsitemap_engines') . '/xmlsitemap_engines.admin.css'),
++    ),
++  );
+   $form['xmlsitemap_engines_minimum_lifetime'] = array(
+     '#type' => 'select',
+     '#title' => t('Do not submit more often than every'),
+@@ -35,15 +48,6 @@ function xmlsitemap_engines_settings_for
+     '#title' => t('Only submit if the sitemap has been updated since the last submission.'),
+     '#default_value' => variable_get('xmlsitemap_engines_submit_updated', TRUE),
+   );
+-  $form['xmlsitemap_engines_custom_urls'] = array(
+-    '#type' => 'textarea',
+-    '#title' => t('Custom submission URLs'),
+-    '#description' => t('Enter one URL per line. The token [sitemap] will be replaced with the URL to your sitemap. For example: %example-before would become %example-after.', array('%example-before' => 'http://example.com/ping?[sitemap]', '%example-after' => xmlsitemap_engines_prepare_url('http://example.com/ping?[sitemap]', url('sitemap.xml', array('absolute' => TRUE))))),
+-    '#default_value' => variable_get('xmlsitemap_engines_custom_urls', ''),
+-    '#rows' => 2,
+-    '#wysiwyg' => FALSE,
+-    '#element_validate' => array('xmlsitemap_engines_validate_custom_urls'),
+-  );
+ 
+   // Ensure the xmlsitemap_engines variable gets filterd to a simple array.
+   $form['array_filter'] = array('#type' => 'value', '#value' => TRUE);
+Index: xmlsitemap_engines/xmlsitemap_engines.admin.js
+===================================================================
+RCS file: xmlsitemap_engines/xmlsitemap_engines.admin.js
+diff -N xmlsitemap_engines/xmlsitemap_engines.admin.js
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ xmlsitemap_engines/xmlsitemap_engines.admin.js	16 Jun 2010 02:43:43 -0000
+@@ -0,0 +1,55 @@
++// $Id$
++(function ($) {
++
++/**
++ * Allow the custom URL textarea to be shown or hidden by the user.
++ */
++Drupal.behaviors.xmlsitemapAddMoreLink = {
++  attach: function(context) {
++    $('.form-item-xmlsitemap-engines-custom-urls', context).once('xmlsitemap-add-more-link', function () {
++      // Define initial selectors associated with the custom URL textarea.
++      var $textarea_wrapper = $(this);
++      var $textarea_label = $('label[for="edit-xmlsitemap-engines-custom-urls"]', $textarea_wrapper);
++      var $textarea = $('#edit-xmlsitemap-engines-custom-urls', $textarea_wrapper);
++
++      // The link text for showing the textarea depends on whether or not the
++      // textarea is already populated with URLs.
++      if ($textarea.val()) {
++        var add_more_link_text = Drupal.t('Show more');
++      }
++      else {
++        var add_more_link_text = Drupal.t('Add more');
++      }
++
++      // Insert the links for showing or hiding the textarea.
++      $textarea_wrapper.before('<a href="#" class="xmlsitemap-add-more-custom-urls">' + add_more_link_text + '</a>');
++      $textarea_label.html(Drupal.t('!label (<a href="#" class="xmlsitemap-hide-custom-urls">hide</a>)', {'!label': $textarea_label.html()}));
++
++      // Attach handlers to the links so that they show or hide the textarea,
++      // as appropriate.
++      $add_more_link = $('.xmlsitemap-add-more-custom-urls', context);
++      $hide_link = $('.xmlsitemap-hide-custom-urls', context);
++      $add_more_link.click(function () {
++        $textarea_wrapper.show();
++        $(this).hide();
++        return false;
++      });
++      $hide_link.click(function () {
++        $textarea_wrapper.hide();
++        $add_more_link.show();
++        return false;
++      });
++
++      // Start off by hiding the textarea when it is empty, and showing it
++      // otherwise.
++      if ($textarea.val()) {
++        $add_more_link.trigger('click');
++      }
++      else {
++        $hide_link.trigger('click');
++      }
++    });
++  }
++};
++
++})(jQuery);

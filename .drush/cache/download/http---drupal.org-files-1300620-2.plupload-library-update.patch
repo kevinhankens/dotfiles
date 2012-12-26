@@ -1,0 +1,13 @@
+diff --git a/plupload.module b/plupload.module
+index a37a62a..a57b307 100644
+--- a/plupload.module
++++ b/plupload.module
+@@ -241,7 +241,7 @@ function plupload_library() {
+   $libraries['plupload'] = array(
+     'title' => 'Plupload',
+     'website' => 'http://www.plupload.com',
+-    'version' => '1.4.3.2',
++    'version' => '1.5.1.1',
+     'js' => array(
+       // @todo - only add gears JS if gears is an enabled runtime.
+       // $library_path . '/js/gears_init.js' => array(),

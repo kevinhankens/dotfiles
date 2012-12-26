@@ -1,0 +1,37 @@
+From 23cfa94254b4ebdbac901477f3d46a1603c5dcd0 Mon Sep 17 00:00:00 2001
+From: Kevin Hankens <email@kevinhankens.com>
+Date: Wed, 14 Nov 2012 16:41:22 -0500
+Subject: [PATCH] DG-6413 - Adding statsd tracking to antivirus.
+
+---
+ docroot/sites/all/modules/antivirus/antivirus.module |   15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/docroot/sites/all/modules/antivirus/antivirus.module b/docroot/sites/all/modules/antivirus/antivirus.module
+index c0d6ddf..571c839 100644
+--- a/docroot/sites/all/modules/antivirus/antivirus.module
++++ b/docroot/sites/all/modules/antivirus/antivirus.module
+@@ -159,6 +159,21 @@ function antivirus_file_validate($file) {
+     ->addTargets(array($file))
+     ->scan();
+ 
++  // Begin Gardens antivirus tracking via statsd.
++  switch ($scan) {
++    case ANTIVIRUS_SCAN_OK:
++      $stat_type = 'ok';
++      break;
++    case ANTIVIRUS_SCAN_FOUND:
++      $stat_type = 'virus';
++      break;
++    default:
++      $stat_type = 'error';
++      break;
++  }
++  gardens_statsd_send("clamd.$stat_type", 1, GARDENS_STATSD_COUNTER, 1);
++  // End Gardens antivirus tracking via statsd.
++
+   if ($scan == ANTIVIRUS_SCAN_FOUND) {
+     return array(t('The file contains a virus.'));
+   }
+-- 
+1.7.10

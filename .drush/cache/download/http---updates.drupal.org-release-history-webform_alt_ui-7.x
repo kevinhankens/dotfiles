@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Webform Alternate UI</title>
+<short_name>webform_alt_ui</short_name>
+<dc:creator>David_Rothstein</dc:creator>
+<api_version>7.x</api_version>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/webform_alt_ui</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Administration</value></term>
+   <term><name>Projects</name><value>Content</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>webform_alt_ui 7.x-1.0-alpha5</name>
+  <version>7.x-1.0-alpha5</version>
+  <tag>7.x-1.0-alpha5</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha5</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1509598</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha5.tar.gz</download_link>
+  <date>1333114862</date>
+  <mdhash>cb931ee99c59cc5447541de3f2960d84</mdhash>
+  <filesize>71101</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha5.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>cb931ee99c59cc5447541de3f2960d84</md5>
+    <size>71101</size>
+    <filedate>1333114862</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha5.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>e5541f2ed03cefc5bef3d2d666606042</md5>
+    <size>73798</size>
+    <filedate>1333114862</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>webform_alt_ui 7.x-1.0-alpha4</name>
+  <version>7.x-1.0-alpha4</version>
+  <tag>7.x-1.0-alpha4</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha4</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1503038</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha4.tar.gz</download_link>
+  <date>1332781251</date>
+  <mdhash>f76af94d64be63497faa53c4a0a4a6b2</mdhash>
+  <filesize>71039</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>f76af94d64be63497faa53c4a0a4a6b2</md5>
+    <size>71039</size>
+    <filedate>1332781251</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>2a43b53587e0b9a1a23daec216723553</md5>
+    <size>73731</size>
+    <filedate>1332781251</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>webform_alt_ui 7.x-1.0-alpha3</name>
+  <version>7.x-1.0-alpha3</version>
+  <tag>7.x-1.0-alpha3</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha3</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1481624</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha3.tar.gz</download_link>
+  <date>1331719843</date>
+  <mdhash>2053f2c54ad136f4b4aee18181d23c19</mdhash>
+  <filesize>71021</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>2053f2c54ad136f4b4aee18181d23c19</md5>
+    <size>71021</size>
+    <filedate>1331719843</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>a65a256126191be57b38347632f11dea</md5>
+    <size>73718</size>
+    <filedate>1331719843</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>webform_alt_ui 7.x-1.0-alpha2</name>
+  <version>7.x-1.0-alpha2</version>
+  <tag>7.x-1.0-alpha2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1471794</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha2.tar.gz</download_link>
+  <date>1331133353</date>
+  <mdhash>a329434ec497eceaf74ea6b305cd3df2</mdhash>
+  <filesize>70995</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a329434ec497eceaf74ea6b305cd3df2</md5>
+    <size>70995</size>
+    <filedate>1331133353</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>e8aaa5a217e977bc69c9c6bbd517797d</md5>
+    <size>73693</size>
+    <filedate>1331133353</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>webform_alt_ui 7.x-1.0-alpha1</name>
+  <version>7.x-1.0-alpha1</version>
+  <tag>7.x-1.0-alpha1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1414754</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha1.tar.gz</download_link>
+  <date>1327360850</date>
+  <mdhash>48e3d2b7b889db834e5979ec79ebb1ad</mdhash>
+  <filesize>70803</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>48e3d2b7b889db834e5979ec79ebb1ad</md5>
+    <size>70803</size>
+    <filedate>1327360850</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.0-alpha1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3f8b11c340bbb62785782f4bc1bcd83f</md5>
+    <size>73497</size>
+    <filedate>1327360850</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>webform_alt_ui 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>master</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1023182</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.x-dev.tar.gz</download_link>
+  <date>1333155321</date>
+  <mdhash>3e6c66a3e7074d23ac55dd17a0a7b67f</mdhash>
+  <filesize>71101</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>3e6c66a3e7074d23ac55dd17a0a7b67f</md5>
+    <size>71101</size>
+    <filedate>1333155321</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/webform_alt_ui-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>91426daf7d30e849d76e6544ad0e96ed</md5>
+    <size>73794</size>
+    <filedate>1333155321</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

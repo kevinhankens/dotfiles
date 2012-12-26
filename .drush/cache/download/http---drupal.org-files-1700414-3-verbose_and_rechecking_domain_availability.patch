@@ -1,0 +1,126 @@
+diff --git a/domain_301_redirect.admin.inc b/domain_301_redirect.admin.inc
+index 70c4097..9bbe7e5 100644
+--- a/domain_301_redirect.admin.inc
++++ b/domain_301_redirect.admin.inc
+@@ -9,6 +9,16 @@
+  * Admin form for configuring Domain 301 Redirect.
+  */
+ function domain_301_redirect_admin_form($form_state) {
++  $disabled_by_check = variable_get('domain_301_redirect_disabled_by_check', false);
++  $enabled = variable_get('domain_301_redirect_enabled', 0);
++
++  // Warn the user if the redirect was disabled by cron.
++  if (!$enabled && $disabled_by_check) {
++    $domain = variable_get('domain_301_redirect_domain', '');
++    $last_checked = variable_get('domain_301_redirect_last_checked', 0);
++    drupal_set_message(t('Redirects have been disabled by cron because the domain was not available at: %date.', array('%date' => format_date($last_checked))), 'warning');
++  }
++
+   $form['domain_301_redirect_enabled'] = array(
+       '#type' => 'radios',
+       '#title' => t('Status'),
+@@ -29,6 +39,19 @@ function domain_301_redirect_admin_form($form_state) {
+       '#options' => array(0 => t('Disabled'), 3600 => t('1 hour'), 7200 => t('2 hours'), 10800 => t('3 hours'), 21600 => t('6 hours'), 43200 => t('12 hours'), 86400 => t('1 day')),
+       '#default_value' => variable_get('domain_301_redirect_check_period', 60 * 60 * 3), // default of 3 horus
+   );
++  $form['domain_301_redirect_domain_check_retries'] = array(
++      '#type' => 'select',
++      '#title' => t('Domain retries'),
++      '#description' => t('Number of times to check domain availability before disabling redirects.'),
++      '#options' => array(1 => 1, 2 => 2, 3 => 3),
++      '#default_value' => variable_get('domain_301_redirect_domain_check_retries', 3),
++  );
++  $form['domain_301_redirect_domain_check_reenable'] = array(
++      '#type' => 'checkbox',
++      '#title' => t('Re-enable domain redirection'),
++      '#description' => t('Turn domain redirection on when the domain becomes available.'),
++      '#default_value' => variable_get('domain_301_redirect_domain_check_reenable', true),
++  );
+ 
+   // Per-path configuration settings to apply the redirect to specific paths.
+   $form['applicability']['path'] = array(
+@@ -83,6 +106,11 @@ function domain_301_redirect_admin_form_validate(&$form, &$form_state) {
+       if (!domain_301_redirect_check_domain($domain)) {
+         form_set_error('domain_301_redirect_enabled', 'Domain 301 redirection can not be enabled as the domain you set does not currently point to this site.');
+       }
++      else {
++        // Clean up if someone is manually disabling. We don't want the system to
++        // re-enable if the disabling was via the admin form.
++        variable_set('domain_301_redirect_disabled_by_check', false);
++      }
+ 
+       if (domain_301_redirect_check_loop($domain)) {
+         form_set_error('domain_301_redirect_domain', t('The domain cannot be set, as it causes a redirect loop (within @num redirects).', array('@num' => variable_get('domain_301_redirect_loop_max_redirects', 3))));
+diff --git a/domain_301_redirect.module b/domain_301_redirect.module
+index 9b675f7..b925455 100644
+--- a/domain_301_redirect.module
++++ b/domain_301_redirect.module
+@@ -147,20 +147,32 @@ function domain_301_redirect_global_exclude() {
+ function domain_301_redirect_cron() {
+   $check_period = variable_get('domain_301_redirect_check_period', 60 * 60 * 3);
+   $last_checked = variable_get('domain_301_redirect_last_checked', 0);
+-  $domain_301_redirect_enabled = variable_get('domain_301_redirect_enabled', false);
+-  if ($domain_301_redirect_enabled && !empty($check_period) && $last_checked < time() - $check_period) {
+-    $domain_301_redirect_domain = variable_get('domain_301_redirect_domain', '');
+-    if (!preg_match('|^https?://|', $domain_301_redirect_domain)) {
+-      $domain_301_redirect_domain = 'http://' . $domain_301_redirect_domain;
++  $enabled = variable_get('domain_301_redirect_enabled', false);
++  $reenable = variable_get('domain_301_redirect_check_reenable', true);
++  $disabled_by_check = variable_get('domain_301_redirect_disabled_by_check', false);
++
++  // If the redirect is enabled (or has been previously disabled) and we are checking for domain
++  // availability on cron, then attempt to request the test url using the redirect domain.
++  if (($enabled || ($disabled_by_check && $reenable)) && !empty($check_period) && $last_checked < time() - $check_period) {
++    $domain = variable_get('domain_301_redirect_domain', '');
++    if (!preg_match('|^https?://|', $domain)) {
++      $domain = 'http://' . $domain;
+     }
+-    $domain_parts = parse_url($domain_301_redirect_domain);
+-    $domain_301_redirect_domain = $domain_parts['scheme'] . '://' . $domain_parts['host'];
+-    if (!domain_301_redirect_check_domain($domain_301_redirect_domain)) {
+-      variable_set('domain_301_redirect_enabled', false);
+-      watchdog('Domain 301 Redirect', 'The domain %domain no longer points to this site. Domain 301 redirection was disabled.', array('%domain' => $domain_301_redirect_domain), WATCHDOG_ERROR);
++    $domain_parts = parse_url($domain);
++    $domain = $domain_parts['scheme'] . '://' . $domain_parts['host'];
++    if (!domain_301_redirect_check_domain($domain)) {
++      variable_set('domain_301_redirect_enabled', 0);
++      variable_set('domain_301_redirect_disabled_by_check', true);
++      watchdog('Domain 301 Redirect', 'The domain %domain no longer points to this site. Domain 301 redirection was disabled.', array('%domain' => $domain), WATCHDOG_ERROR);
+     }
+     else {
+       watchdog('Domain 301 Redirect', 'Domain 301 redirect check passed.');
++      // If the redirect was disabled by cron, and it has now passed, re-enable it.
++      if (!$enabled && $reenable && $disabled_by_check) {
++        variable_set('domain_301_redirect_enabled', 1);
++        variable_set('domain_301_redirect_disabled_by_check', false);
++        watchdog('Domain 301 Redirect', 'The domain %domain has become available again. Domain 301 redirection was re-enabled.', array('%domain' => $domain), WATCHDOG_ERROR);
++      }
+     }
+     variable_set('domain_301_redirect_last_checked', time());
+   }
+@@ -180,11 +192,20 @@ function domain_301_redirect_cron() {
+  */
+ function domain_301_redirect_check_domain($domain) {
+   if (!empty($domain)) {
+-    $hash = md5(time());
+-    variable_set('domain_301_redirect_domain_check', $hash);
+-    $result = @file_get_contents($domain . '/domain_301_redirect_check');
+-    if (!empty($result) && $result == $hash) {
+-      return TRUE;
++    $retries = variable_get('domain_301_redirect_domain_check_retries', 3);
++
++    // Try to contact the redirect domain, if this fails, retry N times after a pause.
++    for ($i = 1; $i <= $retries; $i++) {
++      $hash = md5(time());
++      variable_set('domain_301_redirect_domain_check', $hash);
++      $result = drupal_http_request($domain . '/domain_301_redirect_check');
++      if (!empty($result) && $result->data == $hash) {
++        return TRUE;
++      }
++      elseif ($i < $retries) {
++        // Pause between retries.
++        sleep(10);
++      }
+     }
+   }
+   return FALSE;

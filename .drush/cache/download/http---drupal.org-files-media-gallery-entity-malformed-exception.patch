@@ -1,0 +1,17 @@
+diff --git a/media_gallery.fields.inc b/media_gallery.fields.inc
+index f172915..9aeb9c1 100644
+--- a/media_gallery.fields.inc
++++ b/media_gallery.fields.inc
+@@ -89,6 +89,12 @@ function media_gallery_field_formatter_view($entity_type, $entity, $field, $inst
+   // Prepare the referenced file entities for viewing.
+   $files = array();
+   foreach ($items as $delta => $item) {
++    // Don't try to display files which no longer exist.
++    if (!isset($item['file'])) {
++      unset($items[$delta]);
++      continue;
++    }
++
+     $file = $item['file'];
+ 
+     // Pass along formatter reference field values from the gallery to the file.

@@ -1,0 +1,168 @@
+From 4424cbef199236175a79d5cf62d983ece17d6b06 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?"J.=20Rene=CC=81e=20Beach"?= <splendidnoise@gmail.com>
+Date: Fri, 18 May 2012 12:02:34 -0400
+Subject: [PATCH] Issue #1585864 - Added code that heals the module when the
+ default Gallery collections vocabulary is deleted, which is
+ possible to do when the module is disabled.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: J. Renée Beach <splendidnoise@gmail.com>
+---
+ media_gallery.install |  125 ++++++++++++++++++++++++++++++++++++-------------
+ 1 files changed, 93 insertions(+), 32 deletions(-)
+
+diff --git a/media_gallery.install b/media_gallery.install
+index dce80b4..12819a1 100644
+--- a/media_gallery.install
++++ b/media_gallery.install
+@@ -9,9 +9,49 @@
+  * Implements hook_enable().
+  */
+ function media_gallery_enable() {
+-  // Work around http://drupal.org/node/727876. (See also
+-  // http://drupal.org/node/882364.)
+-  //field_associate_fields('taxonomy');
++  // Determine if the "Gallery collections" taxonomy exists. It might not exist
++  // if a user (1) disabled this module and then (2) deleted the "Gallery
++  // collections" taxonomy.
++  $vid = variable_get('media_gallery_collection_vid', FALSE);
++  if (!empty($vid)) {
++    $vocabulary = taxonomy_vocabulary_load($vid);
++  }
++  // If the taxonomy vocabulary for media gallery collections doesn't exist,
++  // create one.
++  if (empty($vocabulary)) {
++    $vocabulary = media_gallery_create_taxonomy_vocab();
++
++    // Make sure the standard 'field_tags' field exists.
++    _media_gallery_ensure_field_tags();
++
++    // Create fields (but not instances yet) for media_gallery nodes and
++    // for the gallery collection vocabulary.
++    foreach (_media_gallery_controlled_fields() as $field) {
++      _media_gallery_ensure_field($field);
++    }
++    // Attach fields to gallery_collection taxonomy terms.
++    foreach (_media_gallery_controlled_instances('taxonomy_term') as $instance) {
++      _media_gallery_ensure_instance($instance);
++    }
++
++    // Now that the gallery_collection vocabulary exists and has fields attached,
++    // create an "All galleries" term for galleries to belong to by default.
++    media_gallery_create_taxonomy_term($vocabulary);
++
++    // Associate orphaned galleries with the default gallery term. Galleries can
++    // become orphaned if a user (1) disabled this module and then (2) deleted
++    // the "Gallery collections" taxonomy.
++    _media_gallery_retag_orphaned_galleries();
++
++    // Attach fields to the media gallery node type (including a term reference
++    // for the default collection).
++    foreach (_media_gallery_controlled_instances('node') as $instance) {
++      _media_gallery_ensure_instance($instance);
++    }
++
++    // Make sure all media bundles have the instances we expect.
++    _media_gallery_ensure_media_instances();
++  }
+ }
+ 
+ /**
+@@ -64,35 +104,6 @@ function media_gallery_install() {
+     styles_style_flush();
+   }
+ 
+-  // Add the taxonomy vocabulary for media gallery collections.
+-  $vocabulary = media_gallery_create_taxonomy_vocab();
+-
+-  // Make sure the standard 'field_tags' field exists.
+-  _media_gallery_ensure_field_tags();
+-
+-  // Create fields (but not instances yet) for media_gallery nodes and
+-  // for the gallery collection vocabulary.
+-  foreach (_media_gallery_controlled_fields() as $field) {
+-    _media_gallery_ensure_field($field);
+-  }
+-  // Attach fields to gallery_collection taxonomy terms.
+-  foreach (_media_gallery_controlled_instances('taxonomy_term') as $instance) {
+-    _media_gallery_ensure_instance($instance);
+-  }
+-
+-  // Now that the gallery_collection vocabulary exists and has fields attached,
+-  // create an "All galleries" term for galleries to belong to by default.
+-  media_gallery_create_taxonomy_term($vocabulary);
+-
+-  // Attach fields to the media gallery node type (including a term reference
+-  // for the default collection).
+-  foreach (_media_gallery_controlled_instances('node') as $instance) {
+-    _media_gallery_ensure_instance($instance);
+-  }
+-
+-  // Make sure all media bundles have the instances we expect.
+-  _media_gallery_ensure_media_instances();
+-
+   // Set variables for the media gallery node type.
+   variable_set('node_submitted_media_gallery', FALSE);
+   variable_set('node_options_media_gallery', array('status'));
+@@ -933,6 +944,56 @@ function media_gallery_create_taxonomy_term($vocabulary) {
+ }
+ 
+ /**
++ * Associate orphaned galleries with the default gallery term. Galleries can
++ * become orphaned if a user (1) disables this module and then (2) deletes
++ * the "Gallery collections" taxonomy.
++ *
++ * The default gallery term is used to assemble a list of all galleries for the
++ * /galleries view.
++ *
++ * This function is called during hook_enable().
++ */
++function _media_gallery_retag_orphaned_galleries() {
++  // Get the default galleries tag.
++  $tid = variable_get('media_gallery_default_collection_tid', FALSE);
++  if (!empty($tid)) {
++    // Get a list of node ids of type media_gallery.
++    $result = db_query('SELECT n.nid FROM {node} n WHERE type = :type', array(':type' => 'media_gallery'));
++    // Pull the node ids out of the sql query.
++    $nodes = array();
++    foreach ($result as $record) {
++      $nodes[] = $record->nid;
++    }
++    // There is no need to proceed if no media gallery nodes exist.
++    if (empty($nodes)) {
++      return;
++    }
++    // Get the list of nodes tagged with the default tid.
++    $result = db_query('SELECT ti.nid FROM {taxonomy_index} ti WHERE tid = :tid AND nid IN (:nodes)', array(':tid' => $tid, ':nodes' => $nodes,));
++
++    // Remove the reference to nodes that have the default tag applied to them.
++    $nodes = array_flip(array_unique($nodes));
++    foreach ($result as $record) {
++      unset($nodes[$record->nid]);
++    }
++    $nodes = array_flip($nodes);
++    // For galleries missing the media_gallery_default_collection_tid tag, apply
++    // the tag.
++    $insert = db_insert('taxonomy_index')
++    ->fields(array('nid', 'tid', 'sticky', 'created'));
++    foreach ($nodes as $node) {
++      $insert->values(array(
++        'nid' => (int)$node,
++        'tid' => (int)$tid,
++        'sticky' => 0,
++        'created' => REQUEST_TIME,
++      ));
++    }
++    $insert->execute();
++  }
++}
++
++/**
+  * Implements hook_uninstall().
+  */
+ function media_gallery_uninstall() {
+-- 
+1.7.7.3
+

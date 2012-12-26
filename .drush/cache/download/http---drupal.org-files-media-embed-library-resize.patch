@@ -1,0 +1,79 @@
+diff --git a/css/media.embed.css b/css/media.embed.css
+new file mode 100644
+index 0000000..37a63fb
+--- /dev/null
++++ b/css/media.embed.css
+@@ -0,0 +1,16 @@
++
++.media-embed-resize .media-embed-wrapper {
++  padding: 0;
++  position: relative;
++  width: 100%;
++}
++
++.media-embed-resize .media-embed-wrapper iframe,
++.media-embed-resize .media-embed-wrapper object,
++.media-embed-resize .media-embed-wrapper embed{
++  height: 100%;
++  left: 0;
++  position: absolute;
++  top: 0;
++  width: 100%;
++}
+diff --git a/js/media.embed.js b/js/media.embed.js
+new file mode 100644
+index 0000000..47e58cc
+--- /dev/null
++++ b/js/media.embed.js
+@@ -0,0 +1,27 @@
++
++(function( $ ){
++
++  Drupal.behaviors.media_embed = {
++    attach: function (context, settings) {
++      // Fluidly size embedded media within wrappers containing the
++      // 'media-embed-resize' class to fit in their containing block element.
++      // This logic is based on http://fitvidsjs.com/.
++      $('.media-embed-resize', context).find('object, embed, iframe').each(function(i, element) {
++        var $this = $(this),
++            height = this.tagName == 'OBJECT' ? $this.attr('height') : $this.height(),
++            aspectRatio = height / $this.width();
++
++        var dimensions = {
++          'max-height': height,
++          'max-width': $this.width()
++        };
++
++        $this
++          .wrap('<div class="media-embed-wrapper" />').parent().css({'padding-top' : (aspectRatio * 100)+"%"})
++          .wrap('<div class="media-embed-wrapper-outer" />').parent().css(dimensions);
++        $this.removeAttr('height').removeAttr('width');
++      });
++    }
++  }
++
++})( jQuery );
+diff --git a/media.module b/media.module
+index 045036c..5cf3f3f 100644
+--- a/media.module
++++ b/media.module
+@@ -581,6 +581,19 @@ function media_library() {
+     ),
+   );
+ 
++  /**
++   * Resources for interacting with embedded media.
++   */
++  $libraries['media_embed'] = array(
++    'title' => t('Media embed'),
++    'js' => array(
++      $path . '/js/media.embed.js' => array('group' => JS_LIBRARY),
++    ),
++    'css' => array(
++      $path . '/css/media.embed.css' => array('group' => CSS_DEFAULT),
++    ),
++  );
++
+   foreach ($libraries as &$library) {
+     $library += $common;
+   }

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+ORIG_PATH="/var/www/gardens/docroot/themes/acquia/barebones"
+
+CWD=`pwd`
+
+# Make sure that the user is in the correct directory.
+echo -n "You are currently in $CWD, do you wish to fix files in this directory? [Y,n]: "
+read CONTINUE
+
+# Allow them to bail out.
+if [[ "$CONTINUE" = "y" || "$CONTINUE" = "Y" || "$CONTINUE" = "" ]]; then
+  echo "Continued"
+else
+  echo "Terminated."
+  exit 0
+fi
+
+# Iterate over the empty template files and if we can
+# find a suitable replacement, copy it in.
+for FILE in `find . -name '*.tpl.php' -size 0`; do
+  ORIG_FILE="$ORIG_PATH/$FILE"
+  if [ -f $ORIG_FILE ]; then
+    echo "Replacing $FILE with $ORIG_FILE"
+    cp $ORIG_FILE $FILE
+  else
+    echo "Replacement not found at: $ORIG_FILE"
+  fi
+done

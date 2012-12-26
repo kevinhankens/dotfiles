@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Mailing List</title>
+<short_name>mailing_list</short_name>
+<dc:creator>litwol</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/mailing_list</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Mail</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>mailing_list 7.x-1.0-beta1</name>
+  <version>7.x-1.0-beta1</version>
+  <tag>7.x-1.0-beta1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/950062</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/mailing_list-7.x-1.0-beta1.tar.gz</download_link>
+  <date>1287782732</date>
+  <mdhash>fe019f429031b0e76a92ddf923958cdd</mdhash>
+  <filesize>13696</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/mailing_list-7.x-1.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>fe019f429031b0e76a92ddf923958cdd</md5>
+    <size>13696</size>
+    <filedate>1287782732</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/mailing_list-7.x-1.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>0d5549cfbee7908c90580d3ce9ed1539</md5>
+    <size>15490</size>
+    <filedate>1293232770</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>mailing_list 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/705992</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/mailing_list-7.x-1.x-dev.tar.gz</download_link>
+  <date>1298619595</date>
+  <mdhash>38228c0f8d26fbcfda7bc19376119a8d</mdhash>
+  <filesize>13534</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/mailing_list-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>38228c0f8d26fbcfda7bc19376119a8d</md5>
+    <size>13534</size>
+    <filedate>1298619595</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/mailing_list-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>fdacaac981885c5dddfb6e981f821f95</md5>
+    <size>15278</size>
+    <filedate>1298619595</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

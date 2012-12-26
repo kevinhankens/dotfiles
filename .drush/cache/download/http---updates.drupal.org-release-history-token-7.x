@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Token</title>
+<short_name>token</short_name>
+<dc:creator>eaton</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/token</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Utility</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Projects</name><value>Rules</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>token 7.x-1.3</name>
+  <version>7.x-1.3</version>
+  <tag>7.x-1.3</tag>
+  <version_major>1</version_major>
+  <version_patch>3</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1782538</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.3.tar.gz</download_link>
+  <date>1347466790</date>
+  <mdhash>efe130120435cf38d33e6ae005ad0956</mdhash>
+  <filesize>43666</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>efe130120435cf38d33e6ae005ad0956</md5>
+    <size>43666</size>
+    <filedate>1347466790</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>0eb504261aa827d0af03e23fa962ade8</md5>
+    <size>47890</size>
+    <filedate>1347466790</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+   <term><name>Release type</name><value>Security update</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1722888</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.2.tar.gz</download_link>
+  <date>1344634643</date>
+  <mdhash>0cb93d8a597acd5f99acdc7cb42b6332</mdhash>
+  <filesize>43170</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>0cb93d8a597acd5f99acdc7cb42b6332</md5>
+    <size>43170</size>
+    <filedate>1344634643</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>4977924f5dcab2a9ba82188b119a6b3b</md5>
+    <size>47361</size>
+    <filedate>1344634643</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1580482</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.1.tar.gz</download_link>
+  <date>1337115392</date>
+  <mdhash>8d4c96128ab3ef9f4e76fbdb73900e35</mdhash>
+  <filesize>42496</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>8d4c96128ab3ef9f4e76fbdb73900e35</md5>
+    <size>42496</size>
+    <filedate>1337115392</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>a6acbca69d704b175a74874d33a8f311</md5>
+    <size>46556</size>
+    <filedate>1337115392</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1517088</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0.tar.gz</download_link>
+  <date>1333672577</date>
+  <mdhash>21709598974906287ea5bd68f2b94815</mdhash>
+  <filesize>42264</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>21709598974906287ea5bd68f2b94815</md5>
+    <size>42264</size>
+    <filedate>1333672577</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>9aabf6ee234b7e5a925ed77ff5cf2e6e</md5>
+    <size>46345</size>
+    <filedate>1333672577</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-rc1</name>
+  <version>7.x-1.0-rc1</version>
+  <tag>7.x-1.0-rc1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1422936</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-rc1.tar.gz</download_link>
+  <date>1328022364</date>
+  <mdhash>b63435f4a943cb013aa34339f5ce8bb0</mdhash>
+  <filesize>41089</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-rc1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>b63435f4a943cb013aa34339f5ce8bb0</md5>
+    <size>41089</size>
+    <filedate>1328022364</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-rc1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>ab6d4d780b024fcd38f9ee09e0deebf2</md5>
+    <size>45097</size>
+    <filedate>1328022364</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta7</name>
+  <version>7.x-1.0-beta7</version>
+  <tag>7.x-1.0-beta7</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta7</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1325314</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta7.tar.gz</download_link>
+  <date>1319825735</date>
+  <mdhash>9d5644d212720e8c9db7fcbcf4559468</mdhash>
+  <filesize>40531</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta7.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>9d5644d212720e8c9db7fcbcf4559468</md5>
+    <size>40531</size>
+    <filedate>1319825735</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta7.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d8bf270f8c61d347fa2d73aa6edb917a</md5>
+    <size>44525</size>
+    <filedate>1319825735</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta6</name>
+  <version>7.x-1.0-beta6</version>
+  <tag>7.x-1.0-beta6</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta6</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1295968</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta6.tar.gz</download_link>
+  <date>1317397307</date>
+  <mdhash>797c619140cdcc00004ce5e64b25eb02</mdhash>
+  <filesize>40155</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta6.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>797c619140cdcc00004ce5e64b25eb02</md5>
+    <size>40155</size>
+    <filedate>1317397307</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta6.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>fcc04edc859e3563dc27be764c64ee0b</md5>
+    <size>44128</size>
+    <filedate>1317397307</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta5</name>
+  <version>7.x-1.0-beta5</version>
+  <tag>7.x-1.0-beta5</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta5</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1265604</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta5.tar.gz</download_link>
+  <date>1314804722</date>
+  <mdhash>42b75e49ecfe3945cf3971b20d64e21f</mdhash>
+  <filesize>38428</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta5.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>42b75e49ecfe3945cf3971b20d64e21f</md5>
+    <size>38428</size>
+    <filedate>1314804722</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta5.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>bcec3f0ca927d9d5b84ed6e280aa36ca</md5>
+    <size>42483</size>
+    <filedate>1314804722</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta4</name>
+  <version>7.x-1.0-beta4</version>
+  <tag>7.x-1.0-beta4</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta4</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1252544</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta4.tar.gz</download_link>
+  <date>1313614619</date>
+  <mdhash>00aea5ce506db5a5308e4881cc16a650</mdhash>
+  <filesize>36328</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>00aea5ce506db5a5308e4881cc16a650</md5>
+    <size>36328</size>
+    <filedate>1313614619</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>5b409e3b7ccd88a94c04dca3eea697be</md5>
+    <size>40373</size>
+    <filedate>1313614619</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta3</name>
+  <version>7.x-1.0-beta3</version>
+  <tag>7.x-1.0-beta3</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta3</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1230300</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta3.tar.gz</download_link>
+  <date>1311709319</date>
+  <mdhash>236041ef8c6249adae04f0af98e8aa8b</mdhash>
+  <filesize>34573</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>236041ef8c6249adae04f0af98e8aa8b</md5>
+    <size>34573</size>
+    <filedate>1311709319</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>a2a543bcdc372bc9755f7917b7effd3f</md5>
+    <size>38638</size>
+    <filedate>1311709319</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta2</name>
+  <version>7.x-1.0-beta2</version>
+  <tag>7.x-1.0-beta2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1162954</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta2.tar.gz</download_link>
+  <date>1305833216</date>
+  <mdhash>33678788042e89887c17f072f22b360e</mdhash>
+  <filesize>32677</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>33678788042e89887c17f072f22b360e</md5>
+    <size>32677</size>
+    <filedate>1305833216</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>9988b90f67ffea1225aedf3788259d2b</md5>
+    <size>36569</size>
+    <filedate>1305833216</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-beta1</name>
+  <version>7.x-1.0-beta1</version>
+  <tag>7.x-1.0-beta1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1023874</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta1.tar.gz</download_link>
+  <date>1294805791</date>
+  <mdhash>0c597a7a17a7a27a725cf076bbae25e4</mdhash>
+  <filesize>31159</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>0c597a7a17a7a27a725cf076bbae25e4</md5>
+    <size>31159</size>
+    <filedate>1294805791</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>90dae3d5e4306e564e3f8f899d2a9cd3</md5>
+    <size>35986</size>
+    <filedate>1294805791</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-alpha3</name>
+  <version>7.x-1.0-alpha3</version>
+  <tag>7.x-1.0-alpha3</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha3</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/934904</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha3.tar.gz</download_link>
+  <date>1286469965</date>
+  <mdhash>16096ce5c4a1f7e0b70c31026d88238a</mdhash>
+  <filesize>23473</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>16096ce5c4a1f7e0b70c31026d88238a</md5>
+    <size>23473</size>
+    <filedate>1286469965</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>08b1463170f3ab4e857ab5bd4b307593</md5>
+    <size>27970</size>
+    <filedate>1293235014</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-alpha2</name>
+  <version>7.x-1.0-alpha2</version>
+  <tag>7.x-1.0-alpha2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/880354</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha2.tar.gz</download_link>
+  <date>1281549992</date>
+  <mdhash>788bb2827e595fa41387afbe116f462d</mdhash>
+  <filesize>21523</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>788bb2827e595fa41387afbe116f462d</md5>
+    <size>21523</size>
+    <filedate>1281549992</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3045b7afcb465db2979070a015c509ba</md5>
+    <size>25917</size>
+    <filedate>1293235012</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token 7.x-1.0-alpha1</name>
+  <version>7.x-1.0-alpha1</version>
+  <tag>7.x-1.0-alpha1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/774356</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha1.tar.gz</download_link>
+  <date>1271567107</date>
+  <mdhash>622a57e2ef607da3010c9e94d76af3fc</mdhash>
+  <filesize>17032</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>622a57e2ef607da3010c9e94d76af3fc</md5>
+    <size>17032</size>
+    <filedate>1271567107</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.0-alpha1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>5d557ccb13579542b17b75d4eadd8335</md5>
+    <size>21105</size>
+    <filedate>1293235011</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>token 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/734592</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token-7.x-1.x-dev.tar.gz</download_link>
+  <date>1347499387</date>
+  <mdhash>096ed9cf9253157b941af474f21dafa1</mdhash>
+  <filesize>43687</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>096ed9cf9253157b941af474f21dafa1</md5>
+    <size>43687</size>
+    <filedate>1347499387</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d464823e34c8ce18726b07b0204da970</md5>
+    <size>47900</size>
+    <filedate>1347499388</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

@@ -1,0 +1,435 @@
+diff --git a/editors/js/ckeditor-3.0.js b/editors/js/ckeditor-3.0.js
+index d2cf300..6e5362a 100644
+--- a/editors/js/ckeditor-3.0.js
++++ b/editors/js/ckeditor-3.0.js
+@@ -139,16 +139,19 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
+  *   containing all instances or the passed in params.field instance, but
+  *   always return an array to simplify all detach functions.
+  */
+-Drupal.wysiwyg.editor.detach.ckeditor = function(context, params) {
++Drupal.wysiwyg.editor.detach.ckeditor = function (context, params, trigger) {
++  var method = (trigger && trigger == 'serialize') ? 'updateElement' : 'destroy';
+   if (typeof params != 'undefined') {
+     var instance = CKEDITOR.instances[params.field];
+     if (instance) {
+-      instance.destroy();
++      instance[method]();
+     }
+   }
+   else {
+     for (var instanceName in CKEDITOR.instances) {
+-      CKEDITOR.instances[instanceName].destroy();
++      if (CKEDITOR.instances.hasOwnProperty(instanceName)) {
++        CKEDITOR.instances[instanceName][method]();
++      }
+     }
+   }
+ };
+diff --git a/editors/js/fckeditor-2.6.js b/editors/js/fckeditor-2.6.js
+index 4ee2cff..a2c7e59 100644
+--- a/editors/js/fckeditor-2.6.js
++++ b/editors/js/fckeditor-2.6.js
+@@ -21,7 +21,8 @@ Drupal.wysiwyg.editor.attach.fckeditor = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.fckeditor = function(context, params) {
++Drupal.wysiwyg.editor.detach.fckeditor = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   var instances = [];
+   if (typeof params != 'undefined' && typeof FCKeditorAPI != 'undefined') {
+     var instance = FCKeditorAPI.GetInstance(params.field);
+@@ -36,6 +37,11 @@ Drupal.wysiwyg.editor.detach.fckeditor = function(context, params) {
+   for (var instanceName in instances) {
+     var instance = instances[instanceName];
+     instance.UpdateLinkedField();
++    if (trigger == 'serialize') {
++      // The editor is not being removed from the DOM, so updating the linked
++      // field is the only action necessary.
++      continue;
++    }
+     // Since we already detach the editor and update the textarea, the submit
+     // event handler needs to be removed to prevent data loss (in IE).
+     // FCKeditor uses 2 nested iFrames; instance.EditingArea.Window is the
+diff --git a/editors/js/jwysiwyg.js b/editors/js/jwysiwyg.js
+index ae47853..3d0d625 100644
+--- a/editors/js/jwysiwyg.js
++++ b/editors/js/jwysiwyg.js
+@@ -11,7 +11,8 @@ Drupal.wysiwyg.editor.attach.jwysiwyg = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.jwysiwyg = function(context, params) {
++Drupal.wysiwyg.editor.detach.jwysiwyg = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   var $field = $('#' + params.field);
+   var editor = $field.data('wysiwyg');
+   if (typeof editor != 'undefined') {
+diff --git a/editors/js/markitup.js b/editors/js/markitup.js
+index 6691811..e52d7da 100644
+--- a/editors/js/markitup.js
++++ b/editors/js/markitup.js
+@@ -17,7 +17,10 @@ Drupal.wysiwyg.editor.attach.markitup = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.markitup = function(context, params) {
++Drupal.wysiwyg.editor.detach.markitup = function (context, params, trigger) {
++  if (trigger && trigger == 'serialize') {
++    return;
++  }
+   if (typeof params != 'undefined') {
+     $('#' + params.field, context).markItUpRemove();
+   }
+diff --git a/editors/js/nicedit.js b/editors/js/nicedit.js
+index d5d9795..69139c9 100644
+--- a/editors/js/nicedit.js
++++ b/editors/js/nicedit.js
+@@ -30,12 +30,18 @@ Drupal.wysiwyg.editor.attach.nicedit = function(context, params, settings) {
+  *
+  * See Drupal.wysiwyg.editor.detach.none() for a full description of this hook.
+  */
+-Drupal.wysiwyg.editor.detach.nicedit = function(context, params) {
++Drupal.wysiwyg.editor.detach.nicedit = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   if (typeof params != 'undefined') {
+     var instance = nicEditors.findEditor(params.field);
+     if (instance) {
+-      instance.ne.removeInstance(params.field);
+-      instance.ne.removePanel();
++      if (trigger == 'serialize') {
++        instance.saveContent();
++      }
++      else {
++        instance.ne.removeInstance(params.field);
++        instance.ne.removePanel();
++      }
+     }
+   }
+   else {
+@@ -43,10 +49,17 @@ Drupal.wysiwyg.editor.detach.nicedit = function(context, params) {
+       // Save contents of all editors back into textareas.
+       var instances = nicEditors.editors[e].nicInstances;
+       for (var i = 0; i < instances.length; i++) {
+-        instances[i].remove();
++        if (trigger == 'serialize') {
++          instances[i].saveContent();
++        }
++        else {
++          instances[i].remove();
++        }
+       }
+       // Remove all editor instances.
+-      nicEditors.editors[e].nicInstances = [];
++      if (trigger != 'serialize') {
++        nicEditors.editors[e].nicInstances = [];
++      }
+     }
+   }
+ };
+diff --git a/editors/js/none.js b/editors/js/none.js
+index 3402024..3c12b74 100644
+--- a/editors/js/none.js
++++ b/editors/js/none.js
+@@ -33,9 +33,17 @@ Drupal.wysiwyg.editor.attach.none = function(context, params, settings) {
+  *   only the editor instance in params.field should be detached. Otherwise,
+  *   all editors should be detached and saved, so they can be submitted in
+  *   AJAX/AHAH applications.
++ * @param trigger
++ *   (optional) A string describing why the editor is being detached. May be one
++ *   of 'unload' (default), 'move', or 'serialize'. Editors need to be destroyed
++ *   when their element is being removed from the DOM ('unload') or moved
++ *   ('move'). If detach was called simply because of an AJAX request to
++ *   serialize the form and send it to the server ('serialize'), we can leave
++ *   the WYSIWYG in place, and just update the underlying element with the new
++ *   text.
+  */
+-Drupal.wysiwyg.editor.detach.none = function(context, params) {
+-  if (typeof params != 'undefined') {
++Drupal.wysiwyg.editor.detach.none = function (context, params, trigger) {
++  if (typeof params != 'undefined' && (trigger != 'serialize')) {
+     var $wrapper = $('#' + params.field).parents('.form-textarea-wrapper:first');
+     $wrapper.removeOnce('textarea').removeClass('.resizable-textarea')
+       .find('.grippie').remove();
+diff --git a/editors/js/openwysiwyg.js b/editors/js/openwysiwyg.js
+index 89a5337..24df27d 100644
+--- a/editors/js/openwysiwyg.js
++++ b/editors/js/openwysiwyg.js
+@@ -45,22 +45,29 @@ Drupal.wysiwyg.editor.attach.openwysiwyg = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.openwysiwyg = function(context, params) {
++Drupal.wysiwyg.editor.detach.openwysiwyg = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   if (typeof params != 'undefined') {
+     var instance = WYSIWYG.config[params.field];
+     if (typeof instance != 'undefined') {
+       WYSIWYG.updateTextArea(params.field);
+-      jQuery('#wysiwyg_div_' + params.field).remove();
+-      delete instance;
++      if (trigger != 'serialize') {
++        jQuery('#wysiwyg_div_' + params.field).remove();
++        delete instance;
++      }
++    }
++    if (trigger != 'serialize') {
++      jQuery('#' + params.field).show();
+     }
+-    jQuery('#' + params.field).show();
+   }
+   else {
+     jQuery.each(WYSIWYG.config, function(field) {
+       WYSIWYG.updateTextArea(field);
+-      jQuery('#wysiwyg_div_' + field).remove();
+-      delete this;
+-      jQuery('#' + field).show();
++      if (trigger != 'serialize') {
++        jQuery('#wysiwyg_div_' + field).remove();
++        delete this;
++        jQuery('#' + field).show();
++      }
+     });
+   }
+ };
+diff --git a/editors/js/tinymce-2.js b/editors/js/tinymce-2.js
+index 088021f..0710f13 100644
+--- a/editors/js/tinymce-2.js
++++ b/editors/js/tinymce-2.js
+@@ -67,7 +67,8 @@ Drupal.wysiwyg.editor.attach.tinymce = function(context, params, settings) {
+  *
+  * See Drupal.wysiwyg.editor.detach.none() for a full desciption of this hook.
+  */
+-Drupal.wysiwyg.editor.detach.tinymce = function(context, params) {
++Drupal.wysiwyg.editor.detach.tinymce = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   if (typeof params != 'undefined') {
+     tinyMCE.removeMCEControl(tinyMCE.getEditorId(params.field));
+     $('#' + params.field).removeAttr('style');
+diff --git a/editors/js/tinymce-3.js b/editors/js/tinymce-3.js
+index b04a4ce..88f3b50 100644
+--- a/editors/js/tinymce-3.js
++++ b/editors/js/tinymce-3.js
+@@ -79,20 +79,25 @@ Drupal.wysiwyg.editor.attach.tinymce = function(context, params, settings) {
+  *
+  * See Drupal.wysiwyg.editor.detach.none() for a full desciption of this hook.
+  */
+-Drupal.wysiwyg.editor.detach.tinymce = function(context, params) {
++Drupal.wysiwyg.editor.detach.tinymce = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   if (typeof params != 'undefined') {
+     var instance = tinyMCE.get(params.field);
+     if (instance) {
+       instance.save();
+-      instance.remove();
++      if (trigger != 'serialize') {
++        instance.remove();
++      }
+     }
+   }
+   else {
+     // Save contents of all editors back into textareas.
+     tinyMCE.triggerSave();
+-    // Remove all editor instances.
+-    for (var instance in tinyMCE.editors) {
+-      tinyMCE.editors[instance].remove();
++    if (trigger != 'serialize') {
++      // Remove all editor instances.
++      for (var instance in tinyMCE.editors) {
++        tinyMCE.editors[instance].remove();
++      }
+     }
+   }
+ };
+diff --git a/editors/js/whizzywig-56.js b/editors/js/whizzywig-56.js
+index 229a70b..111dd6f 100644
+--- a/editors/js/whizzywig-56.js
++++ b/editors/js/whizzywig-56.js
+@@ -89,7 +89,8 @@ Drupal.wysiwyg.editor.attach.whizzywig = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.whizzywig = function(context, params) {
++Drupal.wysiwyg.editor.detach.whizzywig = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   var detach = function (index) {
+     var id = whizzies[index];
+     var instance = $('#whizzy' + id).get(0);
+@@ -105,6 +106,10 @@ Drupal.wysiwyg.editor.detach.whizzywig = function(context, params) {
+ 
+     // Save contents of editor back into textarea.
+     $field.val(tidyH(editingArea));
++    // If the editor is just being serialized (not detached), our work is done.
++    if (trigger == 'serialize') {
++      return;
++    }
+     // Remove editor instance.
+     $('#' + id + '-whizzywig').remove();
+     whizzies.splice(index, 1);
+diff --git a/editors/js/whizzywig-60.js b/editors/js/whizzywig-60.js
+index dc995f6..8c4cd55 100644
+--- a/editors/js/whizzywig-60.js
++++ b/editors/js/whizzywig-60.js
+@@ -38,7 +38,8 @@ Drupal.wysiwyg.editor.attach.whizzywig = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.whizzywig = function(context, params) {
++Drupal.wysiwyg.editor.detach.whizzywig = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   var detach = function (index) {
+     var id = whizzies[index];
+     var instance = $('#whizzy' + id).get(0);
+@@ -54,6 +55,10 @@ Drupal.wysiwyg.editor.detach.whizzywig = function(context, params) {
+ 
+     // Save contents of editor back into textarea.
+     $field.val(tidyH(editingArea));
++    // If the editor is just being serialized (not detached), our work is done.
++    if (trigger == 'serialize') {
++      return;
++    }
+     // Move original textarea back to its previous location.
+     $container = $('#CONTAINER' + id);
+     $field.insertBefore($container);
+diff --git a/editors/js/whizzywig.js b/editors/js/whizzywig.js
+index e98bc4d..2bafbab 100644
+--- a/editors/js/whizzywig.js
++++ b/editors/js/whizzywig.js
+@@ -80,7 +80,8 @@ Drupal.wysiwyg.editor.attach.whizzywig = function(context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.whizzywig = function(context, params) {
++Drupal.wysiwyg.editor.detach.whizzywig = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   var detach = function (index) {
+     var id = whizzies[index];
+     var instance = $('#whizzy' + id).get(0);
+@@ -98,6 +99,10 @@ Drupal.wysiwyg.editor.detach.whizzywig = function(context, params) {
+     // Save contents of editor back into textarea.
+     $field.val(window.get_xhtml ? get_xhtml(body) : body.innerHTML);
+     $field.val($field.val().replace(location.href + '#', '#'));
++    // If the editor is just being serialized (not detached), our work is done.
++    if (trigger == 'serialize') {
++      return;
++    }
+     // Remove editor instance.
+     $('#' + id + '-whizzywig').remove();
+     whizzies.splice(index, 1);
+diff --git a/editors/js/wymeditor.js b/editors/js/wymeditor.js
+index ed66784..31559af 100644
+--- a/editors/js/wymeditor.js
++++ b/editors/js/wymeditor.js
+@@ -19,25 +19,32 @@ Drupal.wysiwyg.editor.attach.wymeditor = function (context, params, settings) {
+ /**
+  * Detach a single or all editors.
+  */
+-Drupal.wysiwyg.editor.detach.wymeditor = function (context, params) {
++Drupal.wysiwyg.editor.detach.wymeditor = function (context, params, trigger) {
++  trigger = trigger || 'unload';
+   if (typeof params != 'undefined') {
+     var $field = $('#' + params.field);
+     var index = $field.data(WYMeditor.WYM_INDEX);
+     if (typeof index != 'undefined') {
+       var instance = WYMeditor.INSTANCES[index];
+       instance.update();
+-      $(instance._box).remove();
+-      $(instance._element).show();
+-      delete instance;
++      if (trigger != 'serialize') {
++        $(instance._box).remove();
++        $(instance._element).show();
++        delete instance;
++      }
++    }
++    if (trigger != 'serialize') {
++      $field.show();
+     }
+-    $field.show();
+   }
+   else {
+     jQuery.each(WYMeditor.INSTANCES, function () {
+       this.update();
+-      $(this._box).remove();
+-      $(this._element).show();
+-      delete this;
++      if (trigger != 'serialize') {
++        $(this._box).remove();
++        $(this._element).show();
++        delete this;
++      }
+     });
+   }
+ };
+diff --git a/editors/js/yui.js b/editors/js/yui.js
+index ad8be36..3a0c5a4 100644
+--- a/editors/js/yui.js
++++ b/editors/js/yui.js
+@@ -16,18 +16,19 @@ Drupal.wysiwyg.editor.attach.yui = function(context, params, settings) {
+  *
+  * See Drupal.wysiwyg.editor.detach.none() for a full desciption of this hook.
+  */
+-Drupal.wysiwyg.editor.detach.yui = function(context, params) {
++Drupal.wysiwyg.editor.detach.yui = function (context, params, trigger) {
++  var method = (trigger && trigger == 'serialize') ? 'saveHTML' : 'destroy';
+   if (typeof params != 'undefined') {
+     var instance = YAHOO.widget.EditorInfo.getEditorById(params.field);
+     if (instance) {
+-      instance.destroy();
++      instance[method]();
+     }
+   }
+   else {
+     for (var e in YAHOO.widget.EditorInfo._instances) {
+       // Save contents of all editors back into textareas.
+       var instance = YAHOO.widget.EditorInfo._instances[e];
+-      instance.destroy();
++      instance[method]();
+     }
+   }
+ };
+diff --git a/wysiwyg.js b/wysiwyg.js
+index cb04757..7422b1e 100644
+--- a/wysiwyg.js
++++ b/wysiwyg.js
+@@ -81,10 +81,21 @@ Drupal.behaviors.attachWysiwyg = {
+     });
+   },
+ 
+-  detach: function (context, settings) {
+-    $('.wysiwyg', context).removeOnce('wysiwyg', function () {
++  detach: function (context, settings, trigger) {
++    var wysiwygs;
++    // The 'serialize' trigger indicates that we should simply update the
++    // underlying element with the new text, without destroying the editor.
++    if (trigger == 'serialize') {
++      // Removing the wysiwyg-processed class guarantees that the editor will
++      // be reattached. Only do this if we're planning to destroy the editor.
++      wysiwygs = $('.wysiwyg-processed', context);
++    }
++    else {
++      wysiwygs = $('.wysiwyg', context).removeOnce('wysiwyg');
++    }
++    wysiwygs.each(function () {
+       var params = Drupal.settings.wysiwyg.triggers[this.id];
+-      Drupal.wysiwygDetach(context, params);
++      Drupal.wysiwygDetach(context, params, trigger);
+     });
+   }
+ };
+@@ -143,11 +154,13 @@ Drupal.wysiwygAttach = function(context, params) {
+  *   A DOM element, supplied by Drupal.attachBehaviors().
+  * @param params
+  *   An object containing input format parameters.
++ * @param trigger
++ *   A string describing what is causing the editor to be detached.
+  */
+-Drupal.wysiwygDetach = function(context, params) {
++Drupal.wysiwygDetach = function (context, params, trigger) {
+   var editor = Drupal.wysiwyg.instances[params.field].editor;
+   if (jQuery.isFunction(Drupal.wysiwyg.editor.detach[editor])) {
+-    Drupal.wysiwyg.editor.detach[editor](context, params);
++    Drupal.wysiwyg.editor.detach[editor](context, params, trigger);
+   }
+ };
+ 

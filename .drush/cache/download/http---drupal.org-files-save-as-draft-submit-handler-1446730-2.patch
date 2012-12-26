@@ -1,0 +1,31 @@
+diff --git a/save_draft.module b/save_draft.module
+index 6e0123a..6f773cd 100644
+--- a/save_draft.module
++++ b/save_draft.module
+@@ -54,7 +54,7 @@ function save_draft_form_node_form_alter(&$form, &$form_state) {
+     $form['actions']['draft'] = array(
+       '#type' => 'submit',
+       '#class' => 'form-submit',
+-      '#submit' => $form['actions']['submit']['#submit'],
++      '#submit' => array('save_draft_submit'),
+       // Between the default Save and Preview buttons.
+       '#weight' => 9,
+     );
+@@ -81,6 +81,17 @@ function save_draft_form_node_form_alter(&$form, &$form_state) {
+ }
+ 
+ /**
++ * Submit handler for the save as draft button.
++ *
++ * Calls all submit handlers on the save button.
++ */
++function save_draft_submit($form, &$form_state) {
++  foreach ($form['actions']['submit']['#submit'] as $submit) {
++    $submit($form, $form_state);
++  }
++}
++
++/**
+  * Handles save draft form validation
+  */
+ function save_draft_validate($form, &$form_state) {

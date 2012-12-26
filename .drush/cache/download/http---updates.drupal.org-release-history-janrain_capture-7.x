@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Janrain Capture</title>
+<short_name>janrain_capture</short_name>
+<dc:creator>bhamrick</dc:creator>
+<api_version>7.x</api_version>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/janrain_capture</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>User Management</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>janrain_capture 7.x-1.4</name>
+  <version>7.x-1.4</version>
+  <tag>7.x-1.4</tag>
+  <version_major>1</version_major>
+  <version_patch>4</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1706722</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.4.tar.gz</download_link>
+  <date>1343753823</date>
+  <mdhash>e7a4d5bd18d33a0cb90ace646a19462a</mdhash>
+  <filesize>32180</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>e7a4d5bd18d33a0cb90ace646a19462a</md5>
+    <size>32180</size>
+    <filedate>1343753823</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>e6d76fc1df68fb46bba6343c8baea257</md5>
+    <size>41171</size>
+    <filedate>1343753823</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>janrain_capture 7.x-1.3</name>
+  <version>7.x-1.3</version>
+  <tag>7.x-1.3</tag>
+  <version_major>1</version_major>
+  <version_patch>3</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1648080</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.3.tar.gz</download_link>
+  <date>1340151385</date>
+  <mdhash>b5681ccd5f0828fee2a8e083834af9e3</mdhash>
+  <filesize>24786</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>b5681ccd5f0828fee2a8e083834af9e3</md5>
+    <size>24786</size>
+    <filedate>1340151385</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>c7b010d14c338333454654bbea9d532d</md5>
+    <size>30862</size>
+    <filedate>1340151385</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>janrain_capture 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1635716</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.2.tar.gz</download_link>
+  <date>1339712479</date>
+  <mdhash>de992287e4bce0b9dfe9b7c44c9ded02</mdhash>
+  <filesize>21114</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>de992287e4bce0b9dfe9b7c44c9ded02</md5>
+    <size>21114</size>
+    <filedate>1339712479</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>6d1e1157c0783da6abb0168e44347e6b</md5>
+    <size>26344</size>
+    <filedate>1339712480</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>janrain_capture 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1632702</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.1.tar.gz</download_link>
+  <date>1339607182</date>
+  <mdhash>be2a60c2b17681340c9a9ce74fe075f5</mdhash>
+  <filesize>18534</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>be2a60c2b17681340c9a9ce74fe075f5</md5>
+    <size>18534</size>
+    <filedate>1339607182</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>6cab53547e8c27e4461a45c51c84d2d8</md5>
+    <size>22948</size>
+    <filedate>1339607182</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+   <term><name>Release type</name><value>Security update</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>janrain_capture 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1578506</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.0.tar.gz</download_link>
+  <date>1337031055</date>
+  <mdhash>c24f04e4e310e57b20e4bb6528a949dc</mdhash>
+  <filesize>18029</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>c24f04e4e310e57b20e4bb6528a949dc</md5>
+    <size>18029</size>
+    <filedate>1337031055</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>eb98ee71b3e0d041d6d87ae7b4b2adc5</md5>
+    <size>22776</size>
+    <filedate>1337031055</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>janrain_capture 7.x-1.0-rc1</name>
+  <version>7.x-1.0-rc1</version>
+  <tag>7.x-1.0-rc1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1552358</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.0-rc1.tar.gz</download_link>
+  <date>1335647758</date>
+  <mdhash>216fe87b16045bc97ce70f40792e1666</mdhash>
+  <filesize>18034</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.0-rc1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>216fe87b16045bc97ce70f40792e1666</md5>
+    <size>18034</size>
+    <filedate>1335647758</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.0-rc1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>5e0a0a6d14e7c48ae2e6b1ad8ad3e742</md5>
+    <size>22784</size>
+    <filedate>1335647758</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>janrain_capture 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1552330</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.x-dev.tar.gz</download_link>
+  <date>1346978426</date>
+  <mdhash>4eda9ee9423e0c4ed06c4a9692d9c27d</mdhash>
+  <filesize>32219</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>4eda9ee9423e0c4ed06c4a9692d9c27d</md5>
+    <size>32219</size>
+    <filedate>1346978426</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/janrain_capture-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>f762bda3f945b60caa48a6373109585c</md5>
+    <size>41194</size>
+    <filedate>1346978426</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

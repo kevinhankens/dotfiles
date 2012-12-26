@@ -1,0 +1,15 @@
+diff --git a/plupload.module b/plupload.module
+index a37a62a..e7f5b8c 100644
+--- a/plupload.module
++++ b/plupload.module
+@@ -256,8 +256,8 @@ function plupload_library() {
+           // @todo Provide a settings page for configuring these.
+           'runtimes' => 'html5,flash,html4',
+           'url' => url('plupload-handle-uploads', array('query' => array('plupload_token' => drupal_get_token('plupload-handle-uploads')))),
+-          'max_file_size' => '10mb',
+-          'chunk_size' => '1mb',
++          'max_file_size' => file_upload_max_size() . 'b',
++          'chunk_size' => parse_size(ini_get('post_max_size')) . 'b',
+           'unique_names' => TRUE,
+           'flash_swf_url' => file_create_url($library_path . '/js/plupload.flash.swf'),
+           'silverlight_xap_url' => file_create_url($library_path . '/js/plupload.silverlight.xap'),

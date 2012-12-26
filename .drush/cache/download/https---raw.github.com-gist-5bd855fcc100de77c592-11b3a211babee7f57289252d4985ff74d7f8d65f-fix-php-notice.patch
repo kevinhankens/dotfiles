@@ -1,0 +1,13 @@
+diff --git a/includes/fivestar.field.inc b/includes/fivestar.field.inc
+index deb261c..f82ad02 100644
+--- a/includes/fivestar.field.inc
++++ b/includes/fivestar.field.inc
+@@ -719,7 +719,7 @@ function _fivestar_get_widget($widgets, $display, $instance) {
+       // (which is the same as nothing).
+       $fivestar_widget = 'default';
+     }
+-    else if ($type == 'stars') {
++    else if ($type == 'stars' && isset($instance['widget']['settings']['widget']['fivestar_widget'])) {
+       // Stars rated while editing, that is, $type = stars,
+       // falls back on whatever the user selected to be displayed on node/add and node/%/edit
+       $fivestar_widget = $instance['widget']['settings']['widget']['fivestar_widget'];

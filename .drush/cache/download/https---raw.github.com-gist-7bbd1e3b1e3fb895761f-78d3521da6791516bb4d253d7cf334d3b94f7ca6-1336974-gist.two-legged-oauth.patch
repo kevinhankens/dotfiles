@@ -1,0 +1,58 @@
+diff --git a/auth/services_oauth/services_oauth.inc b/auth/services_oauth/services_oauth.inc
+index c439215..bc26d0d 100644
+--- a/auth/services_oauth/services_oauth.inc
++++ b/auth/services_oauth/services_oauth.inc
+@@ -18,10 +18,17 @@
+  *  Returns nothing, or a error message if authentication fails
+  */
+ function _services_oauth_authenticate_call($settings, $method, $args) {
+-  $endpoint   = $method['endpoint']['services_oauth'];
+-  $cred       = isset($endpoint['credentials']) ? $endpoint['credentials'] : 'token';
++  $type       = isset($settings['oauth_type']) ? $settings['oauth_type'] : 'three-legged';
++  $endpoint   = isset($method['endpoint']['services_oauth']) ? $method['endpoint']['services_oauth'] : array();
+   $auth_level = isset($endpoint['authorization']) ? $endpoint['authorization'] : '*';
+ 
++  if ($type === 'two-legged') {
++    $cred = isset($endpoint['credentials']) ? $endpoint['credentials'] : 'consumer';
++  }
++  else {
++    $cred = isset($endpoint['credentials']) ? $endpoint['credentials'] : 'token';
++  }
++
+   // If no credentials are needed we'll pass this one through
+   if ($cred == 'none') {
+     return FALSE;
+@@ -62,10 +69,16 @@ function _services_oauth_authenticate_call($settings, $method, $args) {
+ 
+     // Load the user if the request was authenticated using a token
+     // that's associated with a account.
+-    if ($token->uid) {
++    if (!empty($token->uid)) {
+       global $user;
+       $user = user_load($token->uid);
+     }
++    // If this is two-legged oAuth, load the user associated with the API key.
++    elseif ($type === 'two-legged') {
++      global $user;
++      $user = user_load($consumer->uid);
++    }
++
+   }
+   catch (OAuthException $e) {
+     drupal_add_http_header('WWW-Authenticate', sprintf('OAuth realm="%s"', url('', array('absolute' => TRUE))));
+@@ -88,6 +101,15 @@ function _services_oauth_security_settings($settings) {
+   foreach ($contexts as $context) {
+     $form['oauth_context']['#options'][$context->name] = $context->title;
+   }
++  $form['oauth_type'] = array(
++    '#type' => 'select',
++    '#options' => array(
++      'two-legged' => t('Two-legged oAuth (API key authentication only)'),
++      'three-legged' => t('Three-legged oAuth (end user provides authorization)')
++    ),
++    '#default_value' => 'three-legged',
++    '#title' => t('oAuth type')
++  );
+ 
+   return $form;
+ }

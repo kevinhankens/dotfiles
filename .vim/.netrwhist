@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/var/www/gardener/docroot/sites/all/modules/custom'
-let g:netrw_dirhist_2='/var/www/gardener/docroot/sites/all/modules/custom/permission_control'
-let g:netrw_dirhist_3='/var/www/gardener/docroot/sites/all/modules/custom'
-let g:netrw_dirhist_4='/var/www/gardener/docroot/sites/all/modules/custom/features'
-let g:netrw_dirhist_5='/var/www/gardener/docroot/sites/all/modules/custom'
-let g:netrw_dirhist_6='/var/www/gardener/docroot/sites/all/modules/custom/gardener_base'
+let g:netrw_dirhist_cnt =0

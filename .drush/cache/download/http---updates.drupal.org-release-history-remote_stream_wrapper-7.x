@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Remote stream wrapper</title>
+<short_name>remote_stream_wrapper</short_name>
+<dc:creator>Dave Reid</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/remote_stream_wrapper</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Developer</value></term>
+   <term><name>Projects</name><value>File Management</value></term>
+   <term><name>Projects</name><value>Utility</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>remote_stream_wrapper 7.x-1.0-beta4</name>
+  <version>7.x-1.0-beta4</version>
+  <tag>7.x-1.0-beta4</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta4</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1481088</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta4.tar.gz</download_link>
+  <date>1331680243</date>
+  <mdhash>83d1e3b9f14d557824d22d5fb110cc89</mdhash>
+  <filesize>15045</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>83d1e3b9f14d557824d22d5fb110cc89</md5>
+    <size>15045</size>
+    <filedate>1331680243</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>1b3b4ce566144477e106cceb43216345</md5>
+    <size>17719</size>
+    <filedate>1331680243</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>remote_stream_wrapper 7.x-1.0-beta3</name>
+  <version>7.x-1.0-beta3</version>
+  <tag>7.x-1.0-beta3</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta3</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1444438</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta3.tar.gz</download_link>
+  <date>1329501642</date>
+  <mdhash>2eb8c3c7a72c52b7e409364ee647fd95</mdhash>
+  <filesize>14966</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>2eb8c3c7a72c52b7e409364ee647fd95</md5>
+    <size>14966</size>
+    <filedate>1329501642</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>7b325a9e5bafea4e57905c70d4e99ae9</md5>
+    <size>17637</size>
+    <filedate>1329501642</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>remote_stream_wrapper 7.x-1.0-beta2</name>
+  <version>7.x-1.0-beta2</version>
+  <tag>7.x-1.0-beta2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1232730</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta2.tar.gz</download_link>
+  <date>1311874920</date>
+  <mdhash>d07c1fb12560c05b105b7451d5368fc3</mdhash>
+  <filesize>13690</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>d07c1fb12560c05b105b7451d5368fc3</md5>
+    <size>13690</size>
+    <filedate>1311874920</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d98c5a16876d92cc0eb8a5a54f1faf86</md5>
+    <size>16013</size>
+    <filedate>1311874920</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>remote_stream_wrapper 7.x-1.0-beta1</name>
+  <version>7.x-1.0-beta1</version>
+  <tag>7.x-1.0-beta1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1231616</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta1.tar.gz</download_link>
+  <date>1311800826</date>
+  <mdhash>9fddca6b5e849497b48828f5becff28b</mdhash>
+  <filesize>10776</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>9fddca6b5e849497b48828f5becff28b</md5>
+    <size>10776</size>
+    <filedate>1311800826</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>25cd7dc2855e7cb224b7ab796c223040</md5>
+    <size>11951</size>
+    <filedate>1311800826</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>remote_stream_wrapper 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1231614</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.x-dev.tar.gz</download_link>
+  <date>1331685405</date>
+  <mdhash>582939adccc66cfa6a8e901263ef1437</mdhash>
+  <filesize>15059</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>582939adccc66cfa6a8e901263ef1437</md5>
+    <size>15059</size>
+    <filedate>1331685405</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/remote_stream_wrapper-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>aac5fcf2af975aa4c07e439cca2706fc</md5>
+    <size>17725</size>
+    <filedate>1331685405</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

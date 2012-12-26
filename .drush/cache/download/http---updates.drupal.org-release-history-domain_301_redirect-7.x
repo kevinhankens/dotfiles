@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Domain 301 Redirect</title>
+<short_name>domain_301_redirect</short_name>
+<dc:creator>timhilliard</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/domain_301_redirect</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Utility</value></term>
+   <term><name>Projects</name><value>Search</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>domain_301_redirect 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1540074</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.1.tar.gz</download_link>
+  <date>1334867798</date>
+  <mdhash>458fd0d38362f3ff8d83db8a9842760f</mdhash>
+  <filesize>11219</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>458fd0d38362f3ff8d83db8a9842760f</md5>
+    <size>11219</size>
+    <filedate>1334867798</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>e454ddebb998a90715485885dcde9a32</md5>
+    <size>13196</size>
+    <filedate>1334867798</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>domain_301_redirect 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1505356</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.0.tar.gz</download_link>
+  <date>1332896746</date>
+  <mdhash>3d2683a53361143aeed3124449d3cf97</mdhash>
+  <filesize>10053</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>3d2683a53361143aeed3124449d3cf97</md5>
+    <size>10053</size>
+    <filedate>1332896746</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>f7d4dc5e41214c52ee2ef468214d41b7</md5>
+    <size>11798</size>
+    <filedate>1332896746</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>domain_301_redirect 7.x-1.0-beta1</name>
+  <version>7.x-1.0-beta1</version>
+  <tag>7.x-1.0-beta1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1383952</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.0-beta1.tar.gz</download_link>
+  <date>1324753538</date>
+  <mdhash>25bcca2f049adfd81eaa8a6dc148931a</mdhash>
+  <filesize>9547</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>25bcca2f049adfd81eaa8a6dc148931a</md5>
+    <size>9547</size>
+    <filedate>1324753538</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3b66746cb4cefbddb76f77f86b71d076</md5>
+    <size>11241</size>
+    <filedate>1324753538</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>domain_301_redirect 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1376516</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.x-dev.tar.gz</download_link>
+  <date>1334923996</date>
+  <mdhash>db642c8299fae009b787f2e31553cee8</mdhash>
+  <filesize>11225</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>db642c8299fae009b787f2e31553cee8</md5>
+    <size>11225</size>
+    <filedate>1334923996</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/domain_301_redirect-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>ff25b65d241a828f5d697faab60cde2b</md5>
+    <size>13202</size>
+    <filedate>1334923996</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

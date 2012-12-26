@@ -1,0 +1,216 @@
+diff --git a/drush/views.drush.inc b/drush/views.drush.inc
+index 569cf6d..056b278 100644
+--- a/drush/views.drush.inc
++++ b/drush/views.drush.inc
+@@ -20,9 +20,13 @@ function views_drush_help($section) {
+     case 'drush:views-list':
+       return dt('Show a list of available views with information about them.');
+     case 'drush:views-enable':
+-      return dt('Enable the specified views. Follow the command with a space delimited list of view names');
++      return dt('Enable the specified views. Follow the command with a space delimited list of view names.');
+     case 'drush:views-disable':
+-      return dt('Disable the specified views. Follow the command with a space delimited list of view names');
++      return dt('Disable the specified views. Follow the command with a space delimited list of view names.');
++    case 'drush:views-export':
++      return dt('Export the specified views to the --destination directory. Follow the command with a space delimited list of view names.');
++    case 'drush:views-import':
++      return dt('Import the specified views from the --source directory. Follow the command with a space delimited list of view names.');
+   }
+ }
+ 
+@@ -102,6 +106,34 @@ function views_drush_command() {
+       'drush vdis frontpage taxonomy_term' => 'Disable the frontpage and taxonomy_term views.',
+     ),
+   );
++  $items['views-export'] = array(
++    'drupal dependencies' => array('views'),
++    'description' => 'Export the specified views.',
++    'arguments' => array(
++      'views' => 'A space delimited list of view names.',
++    ),
++    'aliases' => array('vex'),
++    'options' => array(
++      'destination' => 'The directory to which to write the export files.',
++    ),
++    'examples' => array(
++      'drush vex --destination=/path/to/exports frontpage taxonomy_term' => 'Exports the frontpage view to /path/to/exports/frontpage.view.inc and the taxonomy_term view to /path/to/exports/taxonomy_term.view.inc.',
++    ),
++  );
++  $items['views-import'] = array(
++    'drupal dependencies' => array('views'),
++    'description' => 'Import the specified views.',
++    'arguments' => array(
++      'views' => 'A space delimited list of view names.',
++    ),
++    'aliases' => array('vim'),
++    'options' => array(
++      'source' => 'The directory from which to read the export files.',
++    ),
++    'examples' => array(
++      'drush vim --source=/path/to/exports frontpage taxonomy_term' => 'Imports the frontpage view from /path/to/exports/frontpage.view.inc and the taxonomy_term view from /path/to/exports/taxonomy_term.view.inc.',
++    ),
++  );
+ 
+   return $items;
+ }
+@@ -431,29 +463,156 @@ function drush_views_analyze() {
+ }
+ 
+ /**
+- * Enables views
++ * Enables views.
+  */
+ function drush_views_enable() {
+   $viewnames = _convert_csv_to_array(func_get_args());
+   // Return early if no view names were specified.
+   if (empty($viewnames)) {
+-    return drush_set_error(dt('Please specify a space delimited list of view names to enable'));
++    return drush_set_error(dt('Please specify a space delimited list of view names to enable.'));
+   }
+   _views_drush_changestatus($viewnames, FALSE);
+ }
+ 
+ /**
+- * Disables views
++ * Disables views.
+  */
+ function drush_views_disable() {
+   $viewnames = _convert_csv_to_array(func_get_args());
+   // Return early if no view names were specified.
+   if (empty($viewnames)) {
+-    return drush_set_error(dt('Please specify a space delimited list of view names to disable'));
++    return drush_set_error(dt('Please specify a space delimited list of view names to disable.'));
+   }
+   _views_drush_changestatus($viewnames, TRUE);
+ }
+ 
++/**
++ * Exports views.
++ */
++function drush_views_export() {
++  $viewnames = _convert_csv_to_array(func_get_args());
++  $destination = drush_get_option('destination');
++
++  // Return early if no view names were specified or the destination directory
++  // is invalid.
++  if (empty($viewnames)) {
++    return drush_set_error(dt('Please specify a space delimited list of view names to export.'));
++  }
++  if (empty($destination) || !is_dir($destination) || !is_writable($destination)) {
++    return drush_set_error(dt('Please specify a writable --destination directory.'));
++  }
++
++  // Return if any passed in view name doesn't exist, or if any export file
++  // already exists.
++  if (substr($destination, -1) != "/") {
++    $destination .= '/';
++  }
++  $exports = array();
++  foreach ($viewnames as $viewname) {
++    $view = views_get_view($viewname);
++    if (!is_object($view)) {
++      return drush_set_error(dt('View @view not found.', array('@view' => $viewname)));
++    }
++    $filename = $destination . $view->name . '.view.inc';
++    if (file_exists($filename)) {
++      return drush_set_error(dt('File @file already exists.', array('@file' => $filename)));
++    }
++    $exports[$filename] = $view;
++  }
++
++  // Write the export files.
++  drush_log(dt('Exporting @count views to directory @destination:', array('@count' => count($exports), '@destination' => $destination)), 'ok');
++  foreach ($exports as $filename => $view) {
++    drush_log(dt('- Exporting view @view to file @file.', array('@view' => $view->name, '@file' => $filename)), 'ok');
++    file_put_contents($filename, $view->export());
++  }
++  drush_log(dt('Done.'), 'ok');
++}
++
++/**
++ * Imports views.
++ */
++function drush_views_import() {
++  $viewnames = _convert_csv_to_array(func_get_args());
++  $source = drush_get_option('source');
++
++  // Return early if no view names were specified or the source directory
++  // is invalid.
++  if (empty($viewnames)) {
++    return drush_set_error(dt('Please specify a space delimited list of view names to export.'));
++  }
++  if (empty($source) || !is_dir($source)) {
++    return drush_set_error(dt('Please specify a valid --source directory.'));
++  }
++
++  // Return if any import file is unreadable.
++  if (substr($source, -1) != "/") {
++    $source .= '/';
++  }
++  foreach ($viewnames as $viewname) {
++    $filename = $source . $viewname . '.view.inc';
++    $import = file_get_contents($filename);
++    if ($import === FALSE) {
++      return drush_set_error(dt('Cannot read file @file.', array('@file' => $filename)));
++    }
++    $imports[$viewname] = $import;
++  }
++
++  // Initialize Views.
++  views_include('view');
++  ctools_include('object-cache');
++  foreach ($imports as $viewname => $import) {
++    $filename = $source . $viewname . '.view.inc';
++    drush_log(dt('- Importing view from file @file.', array('@file' => $filename)), 'ok');
++
++    // Get the view object. Ensure it has the expected name.
++    $view = _drush_views_import_eval($import);
++    if (!is_object($view)) {
++      drush_set_error(dt('Unable to interpret view code from file @file.', array('@file' => $filename)));
++      continue;
++    }
++    elseif ($view->name !== $viewname) {
++      drush_set_error(dt('View name mismatch in @file (expected: @expected, actual: @actual).', array('@file' => $filename, '@expected' => $viewname, '@actual' => $view->name)));
++      continue;
++    }
++
++    // If a view of this name already exists on this site, inform the user of
++    // what's happening to it.
++    if (is_object($old_view = views_get_view($view->name))) {
++      if ($old_view->type == dt('Default')) {
++        drush_log(dt('    View @view is a default view, overriding.', array('@view' => $old_view->name)), 'ok');
++      }
++      else {
++        drush_log(dt('    View @view already exists, deleting.', array('@view' => $old_view->name)), 'ok');
++        $old_view->delete();
++        ctools_object_cache_clear('view', $view->name);
++      }
++    }
++
++    // Save the imported view and clear affected caches.
++    drush_log(dt('    Saving new view @view.', array('@view' => $view->name)), 'ok');
++    $view->save();
++    menu_rebuild();
++    cache_clear_all('*', 'cache_views');
++    cache_clear_all();
++    ctools_object_cache_clear('view', $view->name);
++  }
++  drush_log(dt('Done.'), 'ok');
++}
++
++/**
++ * Evaluates the code of an exported view and return the $view object.
++ *
++ * Using this helper function prevents variables within the passed in code from
++ * overriding the caller's local variables.
++ */
++function _drush_views_import_eval($code) {
++  ob_start();
++  eval($code);
++  ob_end_clean();
++  return $view;
++}
++
+ /*
+ * Helper function to enable / disable views
+  * @param $viewnames: array of viewnames to process

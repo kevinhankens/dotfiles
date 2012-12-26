@@ -1,0 +1,16 @@
+diff --git a/oauth_common.pages.inc b/oauth_common.pages.inc
+index ec07abc..baba1e3 100644
+--- a/oauth_common.pages.inc
++++ b/oauth_common.pages.inc
+@@ -226,7 +228,10 @@ function oauth_common_form_authorize() {
+   else {
+     $query = $_GET;
+     unset($query['q']); // why are there so few q's?
+-    drupal_goto('user/login', array('query' => array(
++    // Allow this path to be set to something other than the standard
++    // login page in case the site has a mobile-enhanced login page.
++    $path = variable_get('oauth_common_login_path', 'user/login');
++    drupal_goto($path, array('query' => array(
+       'destination' => url('oauth/authorize', array(
+         'query' => $query,
+       )),

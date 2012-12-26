@@ -1,0 +1,15 @@
+diff --git a/jquery.treeTable.js b/jquery.treeTable.js
+index 847b8f3..9ce3e83 100644
+--- a/jquery.treeTable.js
++++ b/jquery.treeTable.js
+@@ -177,7 +177,9 @@
+         });
+ 
+         if(options.expandable) {
+-          cell.prepend('<span style="margin-left: -' + options.indent + 'px; padding-left: ' + options.indent + 'px" class="expander"></span>');
++          var cellText = cell.text(); 
++          cell.empty();
++          cell.prepend('<span style="color: #0074BD;font-weight: bold;margin-left: -' + options.indent + 'px; padding-left: ' + options.indent + 'px" class="expander">'+cellText+'</span>');
+           $(cell[0].firstChild).click(function() { node.toggleBranch(); });
+ 
+           if(options.clickableNodeNames) {

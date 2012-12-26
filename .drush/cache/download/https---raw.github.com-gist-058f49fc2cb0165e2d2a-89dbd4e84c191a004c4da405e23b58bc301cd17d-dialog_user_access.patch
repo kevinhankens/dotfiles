@@ -1,0 +1,19 @@
+diff --git a/modules/dialog_user/dialog_user.module b/modules/dialog_user/dialog_user.module
+index 8019dc6..60e3d80 100644
+--- a/modules/dialog_user/dialog_user.module
++++ b/modules/dialog_user/dialog_user.module
+@@ -12,14 +12,12 @@ function dialog_user_menu() {
+   $items['user/register/%dialog_js'] = array(
+     'page callback' => 'dialog_user_ajax_callback',
+     'page arguments' => array(1, 2),
+-    'access arguments' => 'access content',
+     'access callback' => TRUE,
+     'type' => MENU_CALLBACK,
+   );
+   $items['user/password/%dialog_js'] = array(
+     'page callback' => 'dialog_user_ajax_callback',
+     'page arguments' => array(1, 2),
+-    'access arguments' => 'access content',
+     'access callback' => TRUE,
+     'type' => MENU_CALLBACK,
+   );

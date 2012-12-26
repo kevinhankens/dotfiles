@@ -1,0 +1,43 @@
+diff --git a/media_gallery.module b/media_gallery.module
+index 70f3932..133a1bd 100644
+--- a/media_gallery.module
++++ b/media_gallery.module
+@@ -504,8 +504,10 @@ function media_gallery_node_info() {
+  */
+ function media_gallery_update($node) {
+   // If the media gallery node is being saved and is configured to not provide
+-  // a block, remove all blocks associated with it from the database.
+-  if (empty($node->media_gallery_expose_block[LANGUAGE_NONE][0]['value'])) {
++  // a block, remove all blocks associated with it from the database. The block
++  // module might not be installed, so we need to check that the database table
++  // exists before querying it.
++  if (empty($node->media_gallery_expose_block[LANGUAGE_NONE][0]['value']) && db_table_exists('block')) {
+     db_delete('block')
+       ->condition('module', 'media_gallery')
+       ->condition('delta', $node->nid)
+@@ -548,9 +550,15 @@ function media_gallery_block_info() {
+  */
+ function media_gallery_block_view($delta = '') {
+   $node = node_load($delta);
+-  $block['subject'] = check_plain($node->title);
+-  if (empty($node->media_gallery_media_original)) {
++  if (empty($node->media_gallery_expose_block[LANGUAGE_NONE][0]['value'])) {
++    // Bail out now if the node doesn't exist or if it is configured not to
++    // display a block.
++    $block['subject'] = NULL;
++    $block['content'] = '';
++  }
++  elseif (empty($node->media_gallery_media_original)) {
+     // Bail out now if there won't be any media items to show.
++    $block['subject'] = check_plain($node->title);
+     $block['content'] = t('No content available.');
+   }
+   else {
+@@ -596,6 +604,7 @@ function media_gallery_block_view($delta = '') {
+     // Perform the sort.
+     usort($files, '_media_gallery_sort_by_recent');
+     // Display the block.
++    $block['subject'] = check_plain($node->title);
+     $block['content']['gallery'] = node_view($node, 'media_gallery_block');
+     // Move the node's contextual links so that they display on the block
+     // rather than the node (i.e., in the same dropdown as the "Configure

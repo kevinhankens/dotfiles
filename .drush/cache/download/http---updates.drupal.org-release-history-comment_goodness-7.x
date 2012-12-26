@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Comment goodness</title>
+<short_name>comment_goodness</short_name>
+<dc:creator>jessebeach</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/comment_goodness</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Maintenance status</name><value>Seeking co-maintainer(s)</value></term>
+   <term><name>Development status</name><value>Maintenance fixes only</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>comment_goodness 7.x-1.3</name>
+  <version>7.x-1.3</version>
+  <tag>7.x-1.3</tag>
+  <version_major>1</version_major>
+  <version_patch>3</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1541016</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.3.tar.gz</download_link>
+  <date>1334940677</date>
+  <mdhash>f232da7b72e469738fce06874451bf63</mdhash>
+  <filesize>12520</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>f232da7b72e469738fce06874451bf63</md5>
+    <size>12520</size>
+    <filedate>1334940677</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3cb1a11c1550a38646b64a27b2d4ac08</md5>
+    <size>13933</size>
+    <filedate>1334940677</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>comment_goodness 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1436462</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.2.tar.gz</download_link>
+  <date>1328911837</date>
+  <mdhash>002814008f07abae328df04e07d59917</mdhash>
+  <filesize>11480</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>002814008f07abae328df04e07d59917</md5>
+    <size>11480</size>
+    <filedate>1328911837</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>4992cc2323886114b9ff4267bdae0f3f</md5>
+    <size>12927</size>
+    <filedate>1328911837</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>comment_goodness 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1420486</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.1.tar.gz</download_link>
+  <date>1327861538</date>
+  <mdhash>aeeb20c84b2d7ab18302564500904f56</mdhash>
+  <filesize>11497</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>aeeb20c84b2d7ab18302564500904f56</md5>
+    <size>11497</size>
+    <filedate>1327861538</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>20aee7f56627b5526957482b1bd7bc41</md5>
+    <size>12949</size>
+    <filedate>1327861538</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>comment_goodness 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1389532</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.0.tar.gz</download_link>
+  <date>1325260540</date>
+  <mdhash>6d9b25139dacff3a2001c6b4720ec284</mdhash>
+  <filesize>11458</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>6d9b25139dacff3a2001c6b4720ec284</md5>
+    <size>11458</size>
+    <filedate>1325260540</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3d48843d78f3c77cad21782c4240c0c4</md5>
+    <size>12936</size>
+    <filedate>1325260540</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>comment_goodness 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1376904</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.x-dev.tar.gz</download_link>
+  <date>1334966924</date>
+  <mdhash>90b1d88615d943470b7f12c764fece85</mdhash>
+  <filesize>12528</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>90b1d88615d943470b7f12c764fece85</md5>
+    <size>12528</size>
+    <filedate>1334966924</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/comment_goodness-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>b7cb01f33160b370408cec3ba3ec36bf</md5>
+    <size>13938</size>
+    <filedate>1334966924</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

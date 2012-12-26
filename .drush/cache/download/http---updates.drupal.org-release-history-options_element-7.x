@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Options Element</title>
+<short_name>options_element</short_name>
+<dc:creator>quicksketch</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/options_element</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Administration</value></term>
+   <term><name>Projects</name><value>Utility</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>options_element 7.x-1.8</name>
+  <version>7.x-1.8</version>
+  <tag>7.x-1.8</tag>
+  <version_major>1</version_major>
+  <version_patch>8</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1783172</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.8.tar.gz</download_link>
+  <date>1347551745</date>
+  <mdhash>c90c8771fbc0d76739735d81a1853fdc</mdhash>
+  <filesize>20786</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.8.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>c90c8771fbc0d76739735d81a1853fdc</md5>
+    <size>20786</size>
+    <filedate>1347551745</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.8.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>2a8d0617b79eabb0066c1daf468d3c47</md5>
+    <size>22400</size>
+    <filedate>1347551745</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.7</name>
+  <version>7.x-1.7</version>
+  <tag>7.x-1.7</tag>
+  <version_major>1</version_major>
+  <version_patch>7</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1487996</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.7.tar.gz</download_link>
+  <date>1332018945</date>
+  <mdhash>29baf657b7dd174f8f4e1979524ad47d</mdhash>
+  <filesize>20682</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.7.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>29baf657b7dd174f8f4e1979524ad47d</md5>
+    <size>20682</size>
+    <filedate>1332018945</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.7.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>271e92cec507e23745b109a9874162a0</md5>
+    <size>22280</size>
+    <filedate>1332018945</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.6</name>
+  <version>7.x-1.6</version>
+  <tag>7.x-1.6</tag>
+  <version_major>1</version_major>
+  <version_patch>6</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1472560</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.6.tar.gz</download_link>
+  <date>1331180153</date>
+  <mdhash>edf49e2bd77cd7f9d545696793ccca09</mdhash>
+  <filesize>20664</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.6.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>edf49e2bd77cd7f9d545696793ccca09</md5>
+    <size>20664</size>
+    <filedate>1331180153</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.6.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>6a524230fc022f78e32ad2f603b8aba9</md5>
+    <size>22261</size>
+    <filedate>1331180153</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.5</name>
+  <version>7.x-1.5</version>
+  <tag>7.x-1.5</tag>
+  <version_major>1</version_major>
+  <version_patch>5</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1406194</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.5.tar.gz</download_link>
+  <date>1326701745</date>
+  <mdhash>ba3024165b3aaa05bc1f6288f0b3c0d7</mdhash>
+  <filesize>20620</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.5.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>ba3024165b3aaa05bc1f6288f0b3c0d7</md5>
+    <size>20620</size>
+    <filedate>1326701745</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.5.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>fc36a9b903f6f0b1ea6f2f3b1fe4b2e7</md5>
+    <size>22217</size>
+    <filedate>1326701745</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.4</name>
+  <version>7.x-1.4</version>
+  <tag>7.x-1.4</tag>
+  <version_major>1</version_major>
+  <version_patch>4</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1023976</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.4.tar.gz</download_link>
+  <date>1294818407</date>
+  <mdhash>7d728b6044519dc900f89e603e7b2e0e</mdhash>
+  <filesize>20685</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>7d728b6044519dc900f89e603e7b2e0e</md5>
+    <size>20685</size>
+    <filedate>1294818407</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>47063591cfb23cc5194037e9eb1796b3</md5>
+    <size>23694</size>
+    <filedate>1294818407</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.3</name>
+  <version>7.x-1.3</version>
+  <tag>7.x-1.3</tag>
+  <version_major>1</version_major>
+  <version_patch>3</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/902602</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.3.tar.gz</download_link>
+  <date>1283654508</date>
+  <mdhash>4f564522681ed78f34806840ef34eeb5</mdhash>
+  <filesize>20362</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>4f564522681ed78f34806840ef34eeb5</md5>
+    <size>20362</size>
+    <filedate>1283654508</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>fabe662a895221f2b2823e69d10e9160</md5>
+    <size>23177</size>
+    <filedate>1293233628</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/902550</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.2.tar.gz</download_link>
+  <date>1283649708</date>
+  <mdhash>a6a904dfa152c6aae6a5c6eec3bf354d</mdhash>
+  <filesize>20318</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a6a904dfa152c6aae6a5c6eec3bf354d</md5>
+    <size>20318</size>
+    <filedate>1283649708</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>dd9fde24062860174d4b1ff1358f9b17</md5>
+    <size>23170</size>
+    <filedate>1293233627</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/755848</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.1.tar.gz</download_link>
+  <date>1269833423</date>
+  <mdhash>a701f3f0687296660963e8f4aa79cf73</mdhash>
+  <filesize>18531</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a701f3f0687296660963e8f4aa79cf73</md5>
+    <size>18531</size>
+    <filedate>1269833423</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>243bd750e20f20ade4750f2be6cd98ba</md5>
+    <size>20574</size>
+    <filedate>1293233627</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>options_element 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/752256</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/options_element-7.x-1.0.tar.gz</download_link>
+  <date>1269475226</date>
+  <mdhash>787f14d7a5708a10069a8ebd998d66f1</mdhash>
+  <filesize>18359</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>787f14d7a5708a10069a8ebd998d66f1</md5>
+    <size>18359</size>
+    <filedate>1269475226</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/options_element-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>4b7f3c83d80cb1fc18d7b238efd07cbc</md5>
+    <size>20406</size>
+    <filedate>1293233628</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

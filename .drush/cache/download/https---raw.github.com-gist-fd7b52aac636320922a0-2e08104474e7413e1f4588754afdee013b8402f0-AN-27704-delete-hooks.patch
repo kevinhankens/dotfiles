@@ -1,0 +1,69 @@
+diff --git a/includes/fivestar.field.inc b/includes/fivestar.field.inc
+index 75fb048..deb261c 100644
+--- a/includes/fivestar.field.inc
++++ b/includes/fivestar.field.inc
+@@ -121,9 +121,64 @@ function fivestar_field_update($entity_type, $entity, $field, $instance, $langco
+  * Implementation of hook_field_delete().
+  */
+ function fivestar_field_delete($entity_type, $entity, $field, $instance, $langcode, &$items) {
++  // @todo _fivestar_field_helper() doesn't actually delete votes from votingapi_votes table.
++  //   Once we come to a conclusion about how to handle this for all entities (see hook_field_delete_instance)
++  //   make sure votes get deleted as individual entities get deleted here.
+   _fivestar_field_helper($entity_type, $entity, $field, $instance, $langcode, $items, 'delete');
+ }
+ 
++/**
++ * Implementation of hook_field_delete_instance().
++ *
++ * When a Fivestar field is removed from a content type, delete the votes cast with
++ * that field on that content type.
++ *
++ * @todo Right now, this only works right now for nodes. EntityFieldQuery doesn't work for
++ * comments and taxonomy_term entities. This is documented in entity.inc:
++ * Comment and taxonomy_term entities have to be handled specially.
++ *  " Note: The "comment" and "taxonomy_term" entity types don't support bundle
++ *    conditions. For "taxonomy_term", propertyCondition('vid') can be used
++ *    instead. "
++ *    See discussion about this here: http://drupal.org/node/938462#comment-3626794.
++ */
++function fivestar_field_delete_instance($instance) {
++  $is_fivestar = ($instance['widget']['module'] == 'fivestar') ? TRUE : FALSE;
++  if ($is_fivestar) {
++
++    $entity_type = $instance['entity_type'];
++    $bundle = $instance['bundle'];
++    $field_name = $instance['field_name'];
++    $tag = substr($field_name, 6);
++
++    // @todo Decide how to handle other types of entities.
++    if ($entity_type == 'node') {
++
++      // Get entity ids.
++      $query = new EntityFieldQuery();
++      $results = $query
++        ->entityCondition('entity_type', $entity_type)
++        ->entityCondition('bundle', $bundle)
++        ->deleted(TRUE)
++        ->execute();
++      $entity_ids = array_keys($results[$entity_type]);
++
++      // Get vote_ids for votes cast on the field being deleted.
++      $results = db_query("SELECT vote_id FROM {votingapi_vote} WHERE tag = :tag AND entity_id IN (:entity_ids)",
++                            array(':tag' => $tag, ':entity_ids' => $entity_ids))->fetchAllKeyed();
++      foreach (array_keys($results) as $vote_id) {
++        $votes[] = array('vote_id' => $vote_id);
++      }
++    }
++
++    // @todo Voting API recommends using votingapi_set_votes() for CRUD. But this seems
++    // clunky. We should probably submit a patch to votingapi module
++    // to make the CRUD interface a little easier to work with, then re-write the next line
++    // to conform with whatever votingapi's standard CRUD function is.
++    votingapi_delete_votes($votes);
++
++  }
++}
++
+ function _fivestar_field_helper($entity_type, $entity, $field, $instance, $langcode, &$items, $op = '') {
+   foreach ($items as $delta => $item) {
+     if ((isset($entity->status) && !$entity->status) || $op == 'delete') {

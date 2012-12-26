@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>OAuth</title>
+<short_name>oauth</short_name>
+<dc:creator>heyrocker</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>3</recommended_major>
+<supported_majors>3</supported_majors>
+<default_major>3</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/oauth</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Third-party Integration</value></term>
+   <term><name>Projects</name><value>Administration</value></term>
+   <term><name>Projects</name><value>Security</value></term>
+   <term><name>Projects</name><value>User Access &amp; Authentication</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Seeking co-maintainer(s)</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>oauth 7.x-3.1-beta1</name>
+  <version>7.x-3.1-beta1</version>
+  <tag>7.x-3.1-beta1</tag>
+  <version_major>3</version_major>
+  <version_patch>1</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1434566</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/oauth-7.x-3.1-beta1.tar.gz</download_link>
+  <date>1328817341</date>
+  <mdhash>4661093be4d56e9aac249a1ed3b3cee7</mdhash>
+  <filesize>41411</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.1-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>4661093be4d56e9aac249a1ed3b3cee7</md5>
+    <size>41411</size>
+    <filedate>1328817341</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.1-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>0208757807b4344316a1e47abfa84636</md5>
+    <size>50587</size>
+    <filedate>1328817341</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>oauth 7.x-3.0</name>
+  <version>7.x-3.0</version>
+  <tag>7.x-3.0</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1433136</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/oauth-7.x-3.0.tar.gz</download_link>
+  <date>1328724350</date>
+  <mdhash>918c67d420e4a1e61da5205199894e68</mdhash>
+  <filesize>41392</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>918c67d420e4a1e61da5205199894e68</md5>
+    <size>41392</size>
+    <filedate>1328724350</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>9a51905005fa2799fadf992f612df10d</md5>
+    <size>50538</size>
+    <filedate>1328724350</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>oauth 7.x-3.0-beta1</name>
+  <version>7.x-3.0-beta1</version>
+  <tag>7.x-3.0-beta1</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1434552</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-beta1.tar.gz</download_link>
+  <date>1328816743</date>
+  <mdhash>0059d1ec62bf7bd54a209725ccdc4279</mdhash>
+  <filesize>41398</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>0059d1ec62bf7bd54a209725ccdc4279</md5>
+    <size>41398</size>
+    <filedate>1328816743</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>68b033d0cedb09360f261bdffe41dc6c</md5>
+    <size>50580</size>
+    <filedate>1328816743</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>oauth 7.x-3.0-alpha2</name>
+  <version>7.x-3.0-alpha2</version>
+  <tag>7.x-3.0-alpha2</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1320580</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-alpha2.tar.gz</download_link>
+  <date>1319522135</date>
+  <mdhash>1c92b7ef9e0b61d9bd14e4244c1b0465</mdhash>
+  <filesize>40958</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-alpha2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>1c92b7ef9e0b61d9bd14e4244c1b0465</md5>
+    <size>40958</size>
+    <filedate>1319522135</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-alpha2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>f7e6b0df05461cd095ba78c17e541c41</md5>
+    <size>50092</size>
+    <filedate>1319522135</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>oauth 7.x-3.0-alpha1</name>
+  <version>7.x-3.0-alpha1</version>
+  <tag>7.x-3.0-alpha1</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1195326</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-alpha1.tar.gz</download_link>
+  <date>1308670019</date>
+  <mdhash>655985af450f8a36ecac159bc04cf2fe</mdhash>
+  <filesize>39597</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-alpha1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>655985af450f8a36ecac159bc04cf2fe</md5>
+    <size>39597</size>
+    <filedate>1308670019</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.0-alpha1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>cda114a8da6216251e65d95fdd160039</md5>
+    <size>48777</size>
+    <filedate>1308670019</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>oauth 7.x-3.x-dev</name>
+  <version>7.x-3.x-dev</version>
+  <tag>7.x-3.x</tag>
+  <version_major>3</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1167740</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/oauth-7.x-3.x-dev.tar.gz</download_link>
+  <date>1347627007</date>
+  <mdhash>08cf01d5a90b6ca23c1b9fadfc48cf4b</mdhash>
+  <filesize>42865</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>08cf01d5a90b6ca23c1b9fadfc48cf4b</md5>
+    <size>42865</size>
+    <filedate>1347627007</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/oauth-7.x-3.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>c994b508224efb0511b1e3ec2bf75a15</md5>
+    <size>52951</size>
+    <filedate>1347627007</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

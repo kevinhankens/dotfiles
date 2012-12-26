@@ -1,0 +1,31 @@
+From 25c1b395d449d5da51effe8f3fa9d95820c6680a Mon Sep 17 00:00:00 2001
+From: Jesse Beach <splendidnoise@gmail.com>
+Date: Thu, 1 Dec 2011 16:05:08 -0500
+Subject: [PATCH] Issue #1358624 by jessebeach: Altered a call to dialog_display. The ajax parameter is now an empty object instead of a reference to Drupal.ajax.prototype.commands
+
+---
+ dialog.js |    8 +++++++-
+ 1 files changed, 7 insertions(+), 1 deletions(-)
+
+diff --git a/dialog.js b/dialog.js
+index 475215c..ad6d533 100644
+--- a/dialog.js
++++ b/dialog.js
+@@ -39,7 +39,13 @@ Drupal.theme.prototype.DialogThrobber = function () {
+  * Command to open a loading dialog.
+  */
+ Drupal.ajax.prototype.commands.dialog_loading = function(ajax, response, status) {
+-  Drupal.ajax.prototype.commands.dialog_display(this, {
++  // @see http://drupal.org/node/1358624
++  // For some reason, the ajax parameter is undefined. In the subsequent call to
++  // dialog_display, ajax.settings is checked, so pass an empty object to
++  // prevent an error.
++  // @todo Refactor this to use the Drupal AJAX API's standard throbber instead
++  // of injecting a custom one.
++  Drupal.ajax.prototype.commands.dialog_display({}, {
+     content: Drupal.theme('DialogThrobber'),
+     title: Drupal.t('Loading...')
+   });
+-- 
+1.7.3.4
+

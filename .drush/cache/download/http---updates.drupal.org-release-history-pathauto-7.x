@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Pathauto</title>
+<short_name>pathauto</short_name>
+<dc:creator>Dave Reid</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/pathauto</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Administration</value></term>
+   <term><name>Projects</name><value>Utility</value></term>
+   <term><name>Projects</name><value>Path Management</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>pathauto 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1721024</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.2.tar.gz</download_link>
+  <date>1344525185</date>
+  <mdhash>abdb73c49803aefe3c87774a92c42b87</mdhash>
+  <filesize>38900</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>abdb73c49803aefe3c87774a92c42b87</md5>
+    <size>38900</size>
+    <filedate>1344525185</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>7391c3e56e45b855c0f85f8396b47cf0</md5>
+    <size>44266</size>
+    <filedate>1344525185</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1576582</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.1.tar.gz</download_link>
+  <date>1336950382</date>
+  <mdhash>ee42c248db62f384871cb526d72005f2</mdhash>
+  <filesize>38652</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>ee42c248db62f384871cb526d72005f2</md5>
+    <size>38652</size>
+    <filedate>1336950382</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>9901bd574ea6f83f1a627d9486f4cc09</md5>
+    <size>43970</size>
+    <filedate>1336950382</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1327340</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0.tar.gz</download_link>
+  <date>1320072936</date>
+  <mdhash>6edd617da0cfa31ddde247933d670ef4</mdhash>
+  <filesize>37196</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>6edd617da0cfa31ddde247933d670ef4</md5>
+    <size>37196</size>
+    <filedate>1320072936</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>584227b59ad419fda9104fa60d19aab3</md5>
+    <size>42479</size>
+    <filedate>1320072937</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.0-rc2</name>
+  <version>7.x-1.0-rc2</version>
+  <tag>7.x-1.0-rc2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1190628</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-rc2.tar.gz</download_link>
+  <date>1308241021</date>
+  <mdhash>376c28fa39f3b383ad5134c5a1360be7</mdhash>
+  <filesize>35681</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-rc2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>376c28fa39f3b383ad5134c5a1360be7</md5>
+    <size>35681</size>
+    <filedate>1308241021</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-rc2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>18a21c9cd1602458342241dee2566abf</md5>
+    <size>40916</size>
+    <filedate>1308241021</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.0-rc1</name>
+  <version>7.x-1.0-rc1</version>
+  <tag>7.x-1.0-rc1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1188914</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-rc1.tar.gz</download_link>
+  <date>1308121619</date>
+  <mdhash>a53a56cffaaa67c8775c085d542f162c</mdhash>
+  <filesize>35350</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-rc1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a53a56cffaaa67c8775c085d542f162c</md5>
+    <size>35350</size>
+    <filedate>1308121619</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-rc1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>f23cc54f03d49040e0bbe34364d2fe7b</md5>
+    <size>40467</size>
+    <filedate>1308121619</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.0-beta1</name>
+  <version>7.x-1.0-beta1</version>
+  <tag>7.x-1.0-beta1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1025104</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-beta1.tar.gz</download_link>
+  <date>1294891602</date>
+  <mdhash>37c8eaa37d69d60303e702c271f99f9e</mdhash>
+  <filesize>56885</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>37c8eaa37d69d60303e702c271f99f9e</md5>
+    <size>56885</size>
+    <filedate>1294891602</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>accdc36ae5df30fe685b8ef27d2e0103</md5>
+    <size>65744</size>
+    <filedate>1294891602</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.0-alpha2</name>
+  <version>7.x-1.0-alpha2</version>
+  <tag>7.x-1.0-alpha2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/880470</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-alpha2.tar.gz</download_link>
+  <date>1281556294</date>
+  <mdhash>5f4aecc1b5d6a6e4365fafcc7f0efe15</mdhash>
+  <filesize>122301</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-alpha2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>5f4aecc1b5d6a6e4365fafcc7f0efe15</md5>
+    <size>122301</size>
+    <filedate>1281556294</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-alpha2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>31fa3326400a36a7337ae9a6f947a626</md5>
+    <size>151471</size>
+    <filedate>1293233736</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+   <term><name>Release type</name><value>Security update</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.0-alpha1</name>
+  <version>7.x-1.0-alpha1</version>
+  <tag>7.x-1.0-alpha1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/727822</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-alpha1.tar.gz</download_link>
+  <date>1267300506</date>
+  <mdhash>ec86f7a12f9b4daa02967a3d7ccedef6</mdhash>
+  <filesize>121249</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-alpha1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>ec86f7a12f9b4daa02967a3d7ccedef6</md5>
+    <size>121249</size>
+    <filedate>1267300506</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.0-alpha1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>2d607db89911cafc065b4958ceefc4d4</md5>
+    <size>152963</size>
+    <filedate>1293233737</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>pathauto 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/273527</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/pathauto-7.x-1.x-dev.tar.gz</download_link>
+  <date>1344559640</date>
+  <mdhash>5a170447bcbe0b2ffb25f39d18e85b10</mdhash>
+  <filesize>38920</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>5a170447bcbe0b2ffb25f39d18e85b10</md5>
+    <size>38920</size>
+    <filedate>1344559640</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/pathauto-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>c58f5232241c34f48d8b606cd4bd1ff3</md5>
+    <size>44271</size>
+    <filedate>1344559640</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

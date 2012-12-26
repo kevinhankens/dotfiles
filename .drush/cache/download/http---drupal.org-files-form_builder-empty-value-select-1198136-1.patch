@@ -1,0 +1,38 @@
+diff --git a/includes/form_builder.properties.inc b/includes/form_builder.properties.inc
+index af4efeb..c1ee2ba 100644
+--- a/includes/form_builder.properties.inc
++++ b/includes/form_builder.properties.inc
+@@ -178,6 +178,21 @@ function form_builder_property_options_form_submit(&$form, &$form_state) {
+     $form_state['values']['key_type_toggled'] = $form_state['values']['options']['custom_keys'];
+   }
+ 
++  // Select elements with no default value sometimes want a "None" option to
++  // automatically be added to the list, which we achieve by adding the
++  // #empty_value property to the element. This is an opt-in feature; it will
++  // only take effect if 'empty_value' is also declared as an allowed property
++  // in the element's hook_form_builder_types() implementation.
++  if ($form['#_edit_element']['#type'] == 'select' && empty($form['#_edit_element']['#multiple']) && !isset($default_value)) {
++    // This would normally be set to an empty string, but if we did that,
++    // form_builder_field_configure_submit() would remove the property and it
++    // would not take effect. Since this is only used for display purposes in
++    // the form builder editing interface, any value works as long as it
++    // doesn't correspond to one of the #options, so we choose one that is very
++    // unlikely to conflict.
++    $form_state['values']['empty_value'] = 'form-builder-empty-value';
++  }
++
+   $form_state['values']['options'] = $options;
+   $form_state['values']['default_value'] = $default_value;
+ }
+diff --git a/modules/webform/form_builder_webform.components.inc b/modules/webform/form_builder_webform.components.inc
+index b9ad09b..bfbeb63 100644
+--- a/modules/webform/form_builder_webform.components.inc
++++ b/modules/webform/form_builder_webform.components.inc
+@@ -525,6 +529,7 @@ function _form_builder_webform_form_builder_types_select() {
+       'required',
+       'options',
+       'multiple',
++      'empty_value',
+       'key',
+       'title_display',
+     ),

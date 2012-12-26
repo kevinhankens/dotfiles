@@ -1,0 +1,13 @@
+diff --git a/includes/ajax.inc b/includes/ajax.inc
+index 8b80d4f..157aa27 100644
+--- a/includes/ajax.inc
++++ b/includes/ajax.inc
+@@ -50,7 +50,7 @@ function views_ajax() {
+ 
+       // Add all $_POST data, because AJAX is always a post and many things,
+       // such as tablesorts, exposed filters and paging assume $_GET.
+-      $_GET += $_POST;
++      $_GET = $_POST + $_GET;
+ 
+       // Overwrite the destination.
+       // @see drupal_get_destination()

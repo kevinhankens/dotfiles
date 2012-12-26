@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Form Builder</title>
+<short_name>form_builder</short_name>
+<dc:creator>quicksketch</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/form_builder</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Administration</value></term>
+   <term><name>Projects</name><value>Content</value></term>
+   <term><name>Projects</name><value>Developer</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>form_builder 7.x-1.2</name>
+  <version>7.x-1.2</version>
+  <tag>7.x-1.2</tag>
+  <version_major>1</version_major>
+  <version_patch>2</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1722974</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/form_builder-7.x-1.2.tar.gz</download_link>
+  <date>1344641528</date>
+  <mdhash>eb10b4536604a119aef7e11309b0a0eb</mdhash>
+  <filesize>53738</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>eb10b4536604a119aef7e11309b0a0eb</md5>
+    <size>53738</size>
+    <filedate>1344641528</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>409171e126251421e1c5cc4d00e95079</md5>
+    <size>70539</size>
+    <filedate>1344641528</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>form_builder 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1699576</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/form_builder-7.x-1.1.tar.gz</download_link>
+  <date>1343197970</date>
+  <mdhash>13d80abee9530cc12fec3ca130b6859e</mdhash>
+  <filesize>53482</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>13d80abee9530cc12fec3ca130b6859e</md5>
+    <size>53482</size>
+    <filedate>1343197970</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d86cfab59a420ab591444c095f6bd2be</md5>
+    <size>70326</size>
+    <filedate>1343197970</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>form_builder 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1472572</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/form_builder-7.x-1.0.tar.gz</download_link>
+  <date>1331181344</date>
+  <mdhash>22c67069be79ed619340ddf5cbeb0942</mdhash>
+  <filesize>53504</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>22c67069be79ed619340ddf5cbeb0942</md5>
+    <size>53504</size>
+    <filedate>1331181344</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3b53c83adc19df6af4d60eec39458879</md5>
+    <size>70334</size>
+    <filedate>1331181344</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>form_builder 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1010006</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/form_builder-7.x-1.x-dev.tar.gz</download_link>
+  <date>1347366644</date>
+  <mdhash>62691890b57fdde21622a5d0cabb80d3</mdhash>
+  <filesize>53826</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>62691890b57fdde21622a5d0cabb80d3</md5>
+    <size>53826</size>
+    <filedate>1347366644</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>b1a4954b2c5ba5d349aaac7418e997d0</md5>
+    <size>70644</size>
+    <filedate>1347366644</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>form_builder 7.x-0.9</name>
+  <version>7.x-0.9</version>
+  <tag>7.x-0.9</tag>
+  <version_major>0</version_major>
+  <version_patch>9</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1148814</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/form_builder-7.x-0.9.tar.gz</download_link>
+  <date>1304663518</date>
+  <mdhash>8abdc7ae08726f7bdf79b39acf3152a6</mdhash>
+  <filesize>59772</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-0.9.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>8abdc7ae08726f7bdf79b39acf3152a6</md5>
+    <size>59772</size>
+    <filedate>1304663518</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/form_builder-7.x-0.9.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>3904d5224b5be8b1a3661a88f93dad38</md5>
+    <size>81031</size>
+    <filedate>1304663518</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

@@ -1,0 +1,29 @@
+diff --git a/jquery.treeTable.js b/jquery.treeTable.js
+index 9ce3e83..29bead7 100644
+--- a/jquery.treeTable.js
++++ b/jquery.treeTable.js
+@@ -177,9 +177,9 @@
+         });
+ 
+         if(options.expandable) {
+-          var cellText = cell.text(); 
+-          cell.empty();
+-          cell.prepend('<span style="color: #0074BD;font-weight: bold;margin-left: -' + options.indent + 'px; padding-left: ' + options.indent + 'px" class="expander">'+cellText+'</span>');
++          cell.wrapInner($('<span>', {
++            style: 'margin-left: -' + options.indent + 'px; padding-left:' + options.indent + 'px;'
++          }).addClass('expander'));
+           $(cell[0].firstChild).click(function() { node.toggleBranch(); });
+ 
+           if(options.clickableNodeNames) {
+diff --git a/token.css b/token.css
+index 8596ce5..06841b9 100644
+--- a/token.css
++++ b/token.css
+@@ -1,7 +1,6 @@
+ 
+ .token-tree {
+   font-size: 0.85em;
+-  margin-left: 19px;
+ }
+ 
+ .token-tree td, .token-tree th {

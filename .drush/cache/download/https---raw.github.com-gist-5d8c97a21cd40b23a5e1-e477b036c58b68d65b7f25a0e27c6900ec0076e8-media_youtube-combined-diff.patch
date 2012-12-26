@@ -1,0 +1,390 @@
+diff --git a/css/media_youtube.css b/css/media_youtube.css
+index bb5407a..3569176 100644
+--- a/css/media_youtube.css
++++ b/css/media_youtube.css
+@@ -1,16 +1,4 @@
+ 
+-.media-youtube-preview-wrapper {
+-  max-width: 100%;
+-  min-height: 50px;
+-  position: relative;
+-}
+-
+-.media-youtube-preview-wrapper object,
+-.media-youtube-preview-wrapper iframe {
+-  max-width: 100%;
+-  position: relative;
+-}
+-
+ .media-youtube-preview-wrapper .js-fallback {
+   left: 0;
+   margin-top: -0.5em;
+diff --git a/includes/MediaInternetYouTubeHandler.inc b/includes/MediaInternetYouTubeHandler.inc
+index fbc92ec..d93af55 100644
+--- a/includes/MediaInternetYouTubeHandler.inc
++++ b/includes/MediaInternetYouTubeHandler.inc
+@@ -28,28 +28,19 @@ class MediaInternetYouTubeHandler extends MediaInternetBaseHandler {
+     }
+   }
+ 
+-  public function validate() {
+-    // @todo Media module currently fails when two files try to have the same
+-    //   URI, so catch that in the validation step. Some day, it would be nice
+-    //   to allow it, however. See http://drupal.org/node/952422.
+-    $uri = $this->parse($this->embedCode);
+-    $existing_files = file_load_multiple(array(), array('uri' => $uri));
+-    if (count($existing_files)) {
+-      throw new MediaInternetValidationException(t('You have entered a URL for a video that is already in your library.'));
+-    }
+-  }
+-
+   public function save() {
+     $file = $this->getFileObject();
++    // If a user enters a duplicate YouTube URL, the object will be saved again.
++    // Set the timestamp to the current time, so that the media item shows up
++    // at the top of the media library, where they would expect to see it.
++    $file_obj->timestamp = REQUEST_TIME;
+     file_save($file);
+     return $file;
+   }
+ 
+   public function getFileObject() {
+     $uri = $this->parse($this->embedCode);
+-    //@todo: this is terribly broken in some ways because the function is really
+-    // made for local files which are 'real'
+-    return file_uri_to_object($uri);
++    return file_uri_to_object($uri, TRUE);
+   }
+ 
+   /**
+diff --git a/includes/MediaYouTubeStreamWrapper.inc b/includes/MediaYouTubeStreamWrapper.inc
+index ad500f3..2da6244 100644
+--- a/includes/MediaYouTubeStreamWrapper.inc
++++ b/includes/MediaYouTubeStreamWrapper.inc
+@@ -25,14 +25,52 @@ class MediaYouTubeStreamWrapper extends MediaReadOnlyStreamWrapper {
+     return 'http://img.youtube.com/vi/'. check_plain($parts['v']) .'/0.jpg';
+   }
+ 
+-  function getLocalThumbnailPath() {
++  function getLocalThumbnailPath($create = TRUE) {
+     $parts = $this->get_parameters();
+     $local_path = 'public://media-youtube/' . check_plain($parts['v']) . '.jpg';
+-    if (!file_exists($local_path)) {
++    if ($create && !file_exists($local_path)) {
+       $dirname = drupal_dirname($local_path);
+       file_prepare_directory($dirname, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+       @copy($this->getOriginalThumbnailPath(), $local_path);
+     }
+     return $local_path;
+   }
++
++  protected function getImageStyleURI($uri) {
++    if ($target = file_uri_target($uri)) {
++      $target_parts = explode('/', $target);
++      if ($target_parts[0] == 'styles') {
++        $style_name = $target_parts[1];
++        $v = check_plain($target_parts[4]);
++        return "public://styles/$style_name/public/media-youtube/$v.jpg";
++      }
++    }
++  }
++
++  public function url_stat($uri, $flags) {
++    if ($image_style_uri = $this->getImageStyleURI($uri)) {
++      $instance = file_stream_wrapper_get_instance_by_uri($image_style_uri);
++      return $instance->url_stat($image_style_uri, $flags);
++    }
++    else {
++      $stat = parent::url_stat($uri, $flags);
++      $stat[2] = $stat['mode'] = 0100444;
++      return $stat;
++    }
++  }
++
++  public function unlink($uri) {
++    if ($image_style_uri = $this->getImageStyleURI($uri)) {
++      $instance = file_stream_wrapper_get_instance_by_uri($image_style_uri);
++      return $instance->unlink($image_style_uri);
++    }
++    else {
++      $instance = file_stream_wrapper_get_instance_by_uri($uri);
++      $local_thumbnail = $instance->getLocalThumbnailPath(FALSE);
++      if ($local_thumbnail && file_exists($local_thumbnail)) {
++        file_unmanaged_delete($local_thumbnail);
++      }
++      return TRUE;
++    }
++  }
+ }
+diff --git a/includes/themes/media-youtube-video.tpl.php b/includes/themes/media-youtube-video.tpl.php
+index 5e93033..e4de602 100644
+--- a/includes/themes/media-youtube-video.tpl.php
++++ b/includes/themes/media-youtube-video.tpl.php
+@@ -17,8 +17,6 @@
+  * the JS will respect that when resizing later.
+  */
+ ?>
+-<div class="media-youtube-outer-wrapper" id="media-youtube-<?php print $id; ?>" style="width: <?php print $width; ?>px; height: <?php print $height; ?>px;">
+-  <div class="media-youtube-preview-wrapper" id="<?php print $wrapper_id; ?>">
+-    <?php print $output; ?>
+-  </div>
++<div class="media-youtube-preview-wrapper media-embed-resize" id="<?php print $wrapper_id; ?>">
++  <?php print $output; ?>
+ </div>
+diff --git a/includes/themes/media_youtube.theme.inc b/includes/themes/media_youtube.theme.inc
+index f51cd5b..b744767 100644
+--- a/includes/themes/media_youtube.theme.inc
++++ b/includes/themes/media_youtube.theme.inc
+@@ -36,32 +36,27 @@ function media_youtube_preprocess_media_youtube_video(&$variables) {
+     </object>
+ OUTPUT;
+ 
+-  // @todo Replace this inline JavaScript with at least calls to
+-  //   drupal_add_js()/drupal_get_js(), and ideally, with a behavior. Keep
+-  //   in mind that the solution needs to work when inside a colorbox or
+-  //   otherwise in an AJAX response, but that should now be possible in D7.
+-  $iframe_id = drupal_json_encode($variables['wrapper_id'] .'_iframe');
+-  $wrapper_id = drupal_json_encode($variables['wrapper_id']);
+-  $JSObject = 'Drupal.settings.media_youtube[' . $wrapper_id . ']';
+-  $variables['output'] .= <<<OUTPUT
+-    <script type="text/javascript">
+-      if (Drupal.settings && Drupal.media_youtube) {
+-        Drupal.settings.media_youtube = Drupal.settings.media_youtube || {};
+-        $JSObject = {};
+-        $JSObject.width = {$variables['width']};
+-        $JSObject.height = {$variables['height']};
+-        $JSObject.video_id = "{$variables['video_id']}";
+-        $JSObject.fullscreen = {$variables['fullscreen']};
+-        $JSObject.id = $iframe_id;
+-        $JSObject.options = { autoplay: {$variables['autoplay']} };
+-        Drupal.media_youtube.insertEmbed($wrapper_id);
+-      }
+-    </script>
+-OUTPUT;
+-
++  // Pass the settings to replace the object tag with an iframe.
++  $settings = array(
++    'media_youtube' => array(
++      $variables['wrapper_id'] => array(
++        'video_id' => $variables['video_id'],
++        'fullscreen' => $variables['fullscreen'],
++        'id' => $variables['wrapper_id'] .'_iframe',
++      ),
++    ),
++  );
++  if ($variables['autoplay']) {
++    $settings['media_youtube'][$variables['wrapper_id']]['options'] = array(
++      'autoplay' => $variables['autoplay'],
++    );
++  }
++  drupal_add_js($settings, 'setting');
+   drupal_add_js(drupal_get_path('module', 'media_youtube') . '/js/media_youtube.js');
+   drupal_add_css(drupal_get_path('module', 'media_youtube') . '/css/media_youtube.css');
+   drupal_add_js(drupal_get_path('module', 'media_youtube') . '/js/flash_detect_min.js');
++  // Add the media embed fluid sizing library.
++  drupal_add_library('media', 'media_embed');
+ }
+ 
+ function theme_media_youtube_field_formatter_styles($variables) {
+diff --git a/js/media_youtube.js b/js/media_youtube.js
+index 7a744fd..8d615fc 100644
+--- a/js/media_youtube.js
++++ b/js/media_youtube.js
+@@ -1,99 +1,68 @@
+-
+-/**
+- * @file media_youtube/js/media_youtube.js
+- */
+-
+-(function ($) {
+-
+-Drupal.media_youtube = {};
+-Drupal.behaviors.media_youtube = {
+-  attach: function (context, settings) {
+-    // Check the browser to see if it supports html5 video.
+-    var video = document.createElement('video');
+-    var html5 = video.canPlayType ? true : false;
+-
+-    // If it has video, does it support the correct codecs?
+-    if (html5) {
+-      html5 = false;
+-      if (video.canPlayType( 'video/webm; codecs="vp8, vorbis"' ) || video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')) {
+-        html5 = true;
+-      }
+-    }
+-
+-    // Put a prompt in the video wrappers to let users know they need flash
+-    if (!FlashDetect.installed && !html5){
+-      $('.media-youtube-preview-wrapper').each(Drupal.media_youtube.needFlash);
+-    }
+-  }
+-};
+-
+-Drupal.media_youtube.needFlash = function () {
+-  var id = $(this).attr('id');
+-  var wrapper = $('.media-youtube-preview-wrapper');
+-  var hw = Drupal.settings.media_youtube[id].height / Drupal.settings.media_youtube[id].width;
+-  wrapper.html('<div class="js-fallback">' + Drupal.t('You need Flash to watch this video. <a href="@flash">Get Flash</a>', {'@flash':'http://get.adobe.com/flashplayer'}) + '</div>');
+-  wrapper.height(wrapper.width() * hw);
+-};
+-
+-Drupal.media_youtube.insertEmbed = function (embed_id) {
+-  var videoWrapper = $('#' + embed_id + '.media-youtube-preview-wrapper');
+-  var settings = Drupal.settings.media_youtube[embed_id];
+-
+-  // Calculate the ratio of the dimensions of the embed.
+-  settings.hw = settings.height / settings.width;
+-
+-  // Replace the object embed with YouTube's iframe. This isn't done by the
+-  // theme function because YouTube doesn't have a no-JS or no-Flash fallback.
+-  var video = $('<iframe class="youtube-player" type="text/html" frameborder="0"></iframe>');
+-  var src = 'http://www.youtube.com/embed/' + settings.video_id;
+-
+-  // Allow other modules to modify the video settings.
+-  settings.options.wmode = 'opaque';
+-  $(window).trigger('media_youtube_load', settings);
+-
+-  // Merge YouTube options (such as autoplay) into the source URL.
+-  var query = $.param(settings.options);
+-  if (query) {
+-    src += '?' + query;
+-  }
+-
+-  // Set up the iframe with its contents and add it to the page.
+-  video
+-    .attr('id', settings.id)
+-    .attr('width', settings.width)
+-    .attr('height', settings.height)
+-    .attr('src', src);
+-  videoWrapper.html(video);
+-
+-  // Bind a resize event to handle fluid layouts.
+-  $(window).bind('resize', Drupal.media_youtube.resizeEmbeds);
+-
+-  // For some reason Chrome does not properly size the container around the
+-  // embed and it will just render the embed at full size unless we set this
+-  // timeout.
+-  if (!$('.lightbox-stack').length) {
+-    setTimeout(Drupal.media_youtube.resizeEmbeds, 1);
+-  }
+-};
+-
+-Drupal.media_youtube.resizeEmbeds = function () {
+-  $('.media-youtube-preview-wrapper').each(Drupal.media_youtube.resizeEmbed);
+-};
+-
+-Drupal.media_youtube.resizeEmbed = function () {
+-  var context = $(this).parent();
+-  var video = $(this).children(':first-child');
+-  var hw = Drupal.settings.media_youtube[$(this).attr('id')].hw;
+-  // Change the height of the wrapper that was given a fixed height by the
+-  // YouTube theming function.
+-  $(this)
+-    .height(context.width() * hw)
+-    .width(context.width());
+-
+-  // Change the attributes on the embed to match the new size.
+-  video
+-    .height(context.width() * hw)
+-    .width(context.width());
+-};
+-
+-})(jQuery);
+\ No newline at end of file
++
++/**
++ * @file media_youtube/js/media_youtube.js
++ */
++
++(function ($) {
++
++Drupal.media_youtube = {};
++Drupal.behaviors.media_youtube = {
++  attach: function (context, settings) {
++    // Check the browser to see if it supports html5 video.
++    var video = document.createElement('video');
++    var html5 = video.canPlayType ? true : false;
++
++    // If it has video, does it support the correct codecs?
++    if (html5) {
++      html5 = false;
++      if (video.canPlayType( 'video/webm; codecs="vp8, vorbis"' ) || video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')) {
++        html5 = true;
++      }
++    }
++
++    var $wrappers = $('.media-youtube-preview-wrapper');
++    // Put a prompt in the video wrappers to let users know they need flash
++    if (!FlashDetect.installed && !html5){
++      $wrappers.each(Drupal.media_youtube.needFlash);
++    }
++
++    // Replace all object tags with iframes.
++    $wrappers.each(Drupal.media_youtube.insertEmbed);
++  }
++};
++
++Drupal.media_youtube.needFlash = function (i, element) {
++  var wrapper = $(element);
++  var id = wrapper.attr('id');
++  var hw = Drupal.settings.media_youtube[id].height / Drupal.settings.media_youtube[id].width;
++  wrapper.html('<div class="js-fallback">' + Drupal.t('You need Flash to watch this video. <a href="@flash">Get Flash</a>', {'@flash':'http://get.adobe.com/flashplayer'}) + '</div>');
++  wrapper.height(wrapper.width() * hw);
++};
++
++Drupal.media_youtube.insertEmbed = function (i, element) {
++  var settings = Drupal.settings.media_youtube[element.id];
++
++  // Replace the object embed with YouTube's iframe. This isn't done by the
++  // theme function because YouTube doesn't have a no-JS or no-Flash fallback.
++  var video = $('<iframe class="youtube-player" type="text/html" frameborder="0"></iframe>');
++  var src = 'http://www.youtube.com/embed/' + settings.video_id;
++
++  // Allow other modules to modify the video settings.
++  settings.options = settings.options || {};
++  settings.options.wmode = 'opaque';
++  $(window).trigger('media_youtube_load', settings);
++
++  // Merge YouTube options (such as autoplay) into the source URL.
++  var query = $.param(settings.options);
++  if (query) {
++    src += '?' + query;
++  }
++
++  // Set up the iframe with its contents and add it to the page.
++  video
++    .attr('id', settings.id)
++    .attr('src', src);
++  $(element).find('object').replaceWith(video);
++};
++
++})(jQuery);
+diff --git a/media_youtube.module b/media_youtube.module
+index 2282169..493152e 100644
+--- a/media_youtube.module
++++ b/media_youtube.module
+@@ -100,6 +100,24 @@ function media_youtube_media_parse($embed_code) {
+ }
+ 
+ /**
++ * Implements hook_form_FORM_ID_alter().
++ *
++ * Adds a link to the YouTube video below the preview thumbnail in the media
++ * edit form.
++ */
++function media_youtube_form_media_edit_alter(&$form, &$form_state) {
++  // @todo Integrate this better into media or media_internet module.
++  $media = $form_state['build_info']['args'][0];
++  if ($media->filemime == 'video/youtube' && isset($form['preview'][0])) {
++    if (!isset($form['preview'][0]['#suffix'])) {
++      $form['preview'][0]['#suffix'] = '';
++    }
++    $url = drupal_realpath($media->uri);
++    $form['preview'][0]['#suffix'] .= l($url, $url);
++  }
++}
++
++/**
+  * Implements hook_media_format_form_prepare_alter().
+  */
+ function media_youtube_media_format_form_prepare_alter(&$form, &$form_state, $media) {

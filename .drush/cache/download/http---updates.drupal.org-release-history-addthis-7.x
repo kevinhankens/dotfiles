@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>AddThis</title>
+<short_name>addthis</short_name>
+<dc:creator>wesku</dc:creator>
+<api_version>7.x</api_version>
+<supported_majors>2,4</supported_majors>
+<default_major>2</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/addthis</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>addthis 7.x-4.0-alpha1</name>
+  <version>7.x-4.0-alpha1</version>
+  <tag>7.x-4.0-alpha1</tag>
+  <version_major>4</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>alpha1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1478730</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/addthis-7.x-4.0-alpha1.tar.gz</download_link>
+  <date>1331557237</date>
+  <mdhash>85c2770ce81788c423af24d0c892be55</mdhash>
+  <filesize>23646</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-4.0-alpha1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>85c2770ce81788c423af24d0c892be55</md5>
+    <size>23646</size>
+    <filedate>1331557237</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-4.0-alpha1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>6f38546266e0c5c9c203f7bfade816a5</md5>
+    <size>30531</size>
+    <filedate>1331557237</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>addthis 7.x-4.x-dev</name>
+  <version>7.x-4.x-dev</version>
+  <tag>7.x-4.x</tag>
+  <version_major>4</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1273028</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/addthis-7.x-4.x-dev.tar.gz</download_link>
+  <date>1346500963</date>
+  <mdhash>94db369d7777b9733f7ebd4a5f94430b</mdhash>
+  <filesize>24453</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-4.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>94db369d7777b9733f7ebd4a5f94430b</md5>
+    <size>24453</size>
+    <filedate>1346500963</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-4.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>6f1b62580fdb2cc2bfd02a475fe9d56e</md5>
+    <size>31548</size>
+    <filedate>1346500963</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>addthis 7.x-2.1-beta1</name>
+  <version>7.x-2.1-beta1</version>
+  <tag>7.x-2.1-beta1</tag>
+  <version_major>2</version_major>
+  <version_patch>1</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/948820</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-beta1.tar.gz</download_link>
+  <date>1287691291</date>
+  <mdhash>977f0427aef9cd6d5c9e9d9b0ae1425f</mdhash>
+  <filesize>11546</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>977f0427aef9cd6d5c9e9d9b0ae1425f</md5>
+    <size>11546</size>
+    <filedate>1287691291</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>5b1ccd47f6d4474a580635accd7d3ea4</md5>
+    <size>13844</size>
+    <filedate>1293229522</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>addthis 7.x-2.1-alpha2</name>
+  <version>7.x-2.1-alpha2</version>
+  <tag>7.x-2.1-alpha2</tag>
+  <version_major>2</version_major>
+  <version_patch>1</version_patch>
+  <version_extra>alpha2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/731582</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-alpha2.tar.gz</download_link>
+  <date>1267638605</date>
+  <mdhash>c2dd60ca8b3ef372a2a0cc95ae1555c5</mdhash>
+  <filesize>11528</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-alpha2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>c2dd60ca8b3ef372a2a0cc95ae1555c5</md5>
+    <size>11528</size>
+    <filedate>1267638605</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-alpha2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>a312ce163da4e55262e00a337cce0825</md5>
+    <size>13862</size>
+    <filedate>1293229525</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>addthis 7.x-2.1-alpha1</name>
+  <version>7.x-2.1-alpha1</version>
+  <tag>7.x-2.1-alpha1</tag>
+  <version_major>2</version_major>
+  <version_patch>1</version_patch>
+  <version_extra>alpha1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/632638</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-alpha1.tar.gz</download_link>
+  <date>1258194903</date>
+  <mdhash>c20501aab27e1c1bad0e0121c4796fe6</mdhash>
+  <filesize>11471</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-alpha1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>c20501aab27e1c1bad0e0121c4796fe6</md5>
+    <size>11471</size>
+    <filedate>1258194903</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.1-alpha1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>f140b367f2f405aafe119804bff4dbf7</md5>
+    <size>13824</size>
+    <filedate>1293229525</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>addthis 7.x-2.x-dev</name>
+  <version>7.x-2.x-dev</version>
+  <tag>7.x-2.x</tag>
+  <version_major>2</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/632628</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/addthis-7.x-2.x-dev.tar.gz</download_link>
+  <date>1298618798</date>
+  <mdhash>31c18242671db1d8682be8842a35455a</mdhash>
+  <filesize>11457</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>31c18242671db1d8682be8842a35455a</md5>
+    <size>11457</size>
+    <filedate>1298618798</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/addthis-7.x-2.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d65b04e19a3f4e1de7a2163f6a3d508b</md5>
+    <size>13495</size>
+    <filedate>1298618798</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Media Gallery</title>
+<short_name>media_gallery</short_name>
+<dc:creator>JacobSingh</dc:creator>
+<api_version>7.x</api_version>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/media_gallery</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Actively maintained</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>media_gallery 7.x-1.0-beta8</name>
+  <version>7.x-1.0-beta8</version>
+  <tag>7.x-1.0-beta8</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta8</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1673916</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta8.tar.gz</download_link>
+  <date>1341596197</date>
+  <mdhash>a92ae37b2508052dbf9a9c87dd7c597f</mdhash>
+  <filesize>304947</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta8.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a92ae37b2508052dbf9a9c87dd7c597f</md5>
+    <size>304947</size>
+    <filedate>1341596197</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta8.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>91059911eb61a8c0fd1b71cdcf916cdd</md5>
+    <size>312420</size>
+    <filedate>1341596197</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta7</name>
+  <version>7.x-1.0-beta7</version>
+  <tag>7.x-1.0-beta7</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta7</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1307940</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta7.tar.gz</download_link>
+  <date>1318459310</date>
+  <mdhash>a630a442a18cb0946d9b16ae4e039c44</mdhash>
+  <filesize>304342</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta7.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a630a442a18cb0946d9b16ae4e039c44</md5>
+    <size>304342</size>
+    <filedate>1318459310</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta7.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d840654006976e32314f57a59d0c2354</md5>
+    <size>311725</size>
+    <filedate>1318459310</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta6</name>
+  <version>7.x-1.0-beta6</version>
+  <tag>7.x-1.0-beta6</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta6</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1215846</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta6.tar.gz</download_link>
+  <date>1310441526</date>
+  <mdhash>5cf876272804c3a3e4acd27c7de2902a</mdhash>
+  <filesize>303188</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta6.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>5cf876272804c3a3e4acd27c7de2902a</md5>
+    <size>303188</size>
+    <filedate>1310441526</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta6.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d98150f0072f0dd7fdd7783557dce06b</md5>
+    <size>310515</size>
+    <filedate>1310441526</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta5</name>
+  <version>7.x-1.0-beta5</version>
+  <tag>7.x-1.0-beta5</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta5</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1167878</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta5.tar.gz</download_link>
+  <date>1306283255</date>
+  <mdhash>208c2cb17be1da71a21eeb51c4e579ec</mdhash>
+  <filesize>302273</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta5.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>208c2cb17be1da71a21eeb51c4e579ec</md5>
+    <size>302273</size>
+    <filedate>1306283255</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta5.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>29c79a54bb3dbeb14b291fd373d47867</md5>
+    <size>309501</size>
+    <filedate>1306283255</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta4</name>
+  <version>7.x-1.0-beta4</version>
+  <tag>7.x-1.0-beta4</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta4</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1111116</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta4.tar.gz</download_link>
+  <date>1301514968</date>
+  <mdhash>3853608e49f3a3c8984ea2d111277c80</mdhash>
+  <filesize>302027</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>3853608e49f3a3c8984ea2d111277c80</md5>
+    <size>302027</size>
+    <filedate>1301514968</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>5cea3a0a092bcd2657ed89a523f24cfb</md5>
+    <size>309242</size>
+    <filedate>1301514968</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta3</name>
+  <version>7.x-1.0-beta3</version>
+  <tag>7.x-1.0-beta3</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta3</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1030632</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta3.tar.gz</download_link>
+  <date>1295320004</date>
+  <mdhash>2fc69729ae830242612520cbac339e2b</mdhash>
+  <filesize>295711</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>2fc69729ae830242612520cbac339e2b</md5>
+    <size>295711</size>
+    <filedate>1295320004</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>99dc520b4592d1175353e57521f40341</md5>
+    <size>303510</size>
+    <filedate>1295320004</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta2</name>
+  <version>7.x-1.0-beta2</version>
+  <tag>7.x-1.0-beta2</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/974778</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta2.tar.gz</download_link>
+  <date>1290024977</date>
+  <mdhash>bfb73013e24baac914c41826a48fd226</mdhash>
+  <filesize>295467</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>bfb73013e24baac914c41826a48fd226</md5>
+    <size>295467</size>
+    <filedate>1290024977</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>8c26428eb790097f6e48e36e03e9629a</md5>
+    <size>302739</size>
+    <filedate>1293232847</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.0-beta1</name>
+  <version>7.x-1.0-beta1</version>
+  <tag>7.x-1.0-beta1</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/948916</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta1.tar.gz</download_link>
+  <date>1287697282</date>
+  <mdhash>a35a1e64e19e91fe081780e742536794</mdhash>
+  <filesize>295502</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>a35a1e64e19e91fe081780e742536794</md5>
+    <size>295502</size>
+    <filedate>1287697282</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>60b675f1cb9953f99e418ba5ef0ed735</md5>
+    <size>302791</size>
+    <filedate>1293232848</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>media_gallery 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1030608</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.x-dev.tar.gz</download_link>
+  <date>1341620850</date>
+  <mdhash>44a035ff7184c6e2ab631ae871617862</mdhash>
+  <filesize>304951</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>44a035ff7184c6e2ab631ae871617862</md5>
+    <size>304951</size>
+    <filedate>1341620850</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/media_gallery-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>d1b337176db7623dc97b970fb7850811</md5>
+    <size>312426</size>
+    <filedate>1341620850</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

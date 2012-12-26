@@ -1,0 +1,43 @@
+From c7dd5e3e7fc7b463271144ba98d649b48c56284a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?"J.=20Rene=CC=81e=20Beach"?= <splendidnoise@gmail.com>
+Date: Wed, 5 Sep 2012 14:19:05 -0400
+Subject: [PATCH] Issue #1394342 by jessebeach, amaria: Address warning
+ notices thrown by undefined indices.
+
+---
+ seo_ui.module |   12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/seo_ui.module b/seo_ui.module
+index e3ebf07..d00ebbe 100644
+--- a/seo_ui.module
++++ b/seo_ui.module
+@@ -183,10 +183,12 @@ function _seo_ui_alter_metatags(&$form, $form_state, $form_id) {
+       }
+ 
+       // Move the Available Tokens fieldset into the main SEO vertical tab.
+-      $form['seo_vtab']['token_group'] = $form['metatags']['token_group'];
+-      // sink it to the bottom
+-      $form['seo_vtab']['token_group']['#weight'] = 100;
+-      unset($form['metatags']['token_group']);
++      if (isset($form['metatags']['token_group'])) {
++        $form['seo_vtab']['token_group'] = $form['metatags']['token_group'];
++        // sink it to the bottom
++        $form['seo_vtab']['token_group']['#weight'] = 100;
++        unset($form['metatags']['token_group']);
++      }
+ 
+       // Move the form.
+       $form['seo_vtab']['metatags'] = $form['metatags'];
+@@ -230,7 +232,7 @@ function _seo_ui_fix_metatag_descriptions(&$element, $link){
+       if($key == 'advanced'){
+         _seo_ui_fix_metatag_descriptions($element[$key], $link);
+       }
+-      $element[$key]['value']['#description'] =  $element[$key]['value']['#description'] . ' ' . t('Override this !default_settings. ', array('!default_settings' => l('default setting', $link)));
++      $element[$key]['value']['#description'] = ((!empty($element[$key]['value']['#description'])) ? $element[$key]['value']['#description'] . ' ' :  '') . t('Override this !default_settings. ', array('!default_settings' => l('default setting', $link)));
+     }
+   }
+ }
+-- 
+1.7.10.4
+

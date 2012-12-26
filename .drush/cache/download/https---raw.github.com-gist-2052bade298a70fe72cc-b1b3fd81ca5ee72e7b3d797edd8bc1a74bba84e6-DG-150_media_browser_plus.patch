@@ -1,0 +1,38 @@
+diff --git a/media_browser_plus.module b/media_browser_plus.module
+index 19a2932..9192204 100644
+--- a/media_browser_plus.module
++++ b/media_browser_plus.module
+@@ -143,13 +143,14 @@ function media_browser_plus_submit($form, &$form_state) {
+  * @see MediaInternetYouTubeHandler::getMRSS()
+  */
+ function _media_browser_plus_metadata($provider) {
+-  // @todo This is early, experimental code, still subject to much change. For
+-  //   now, we assume $provider->getMRSS() returns a SimpleXML element. We'll
+-  //   want to change this assumption and have it return an array instead, but
+-  //   that requires fixing media_retrieve_xml() to handle XML namespaces
+-  //   properly.
+   $data = array();
+   if (is_callable(array($provider, 'getMRSS')) && ($rss = $provider->getMRSS())) {
++    // @todo This is early, experimental code, still subject to much change. For
++    //   now, we assume $provider->getMRSS() returns a SimpleXML element. We'll
++    //   want to change this assumption and have it return an array instead, but
++    //   that requires fixing media_retrieve_xml() to handle XML namespaces
++    //   properly.
++
+     // MRSS is an extension of RSS, so the title field is available in the
+     // default (ATOM) namespace.
+     $data['media_title'] = (string) $rss->title;
+@@ -157,6 +158,13 @@ function _media_browser_plus_metadata($provider) {
+     $mrss = $rss->children('http://search.yahoo.com/mrss/');
+     $data['media_description'] = (string) $mrss->group->description;
+   }
++  elseif (is_callable(array($provider, 'getOEmbed')) && ($oembed = $provider->getOEmbed())) {
++    foreach (array('title', 'description') as $key) {
++      if (isset($oembed[$key])) {
++        $data['media_' . $key] = $oembed[$key];
++      }
++    }
++  }
+   $data = array_filter($data, 'strlen');
+   return $data;
+ }

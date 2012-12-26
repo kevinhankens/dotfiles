@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Token Filter</title>
+<short_name>token_filter</short_name>
+<dc:creator>pvhee</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>1</recommended_major>
+<supported_majors>1</supported_majors>
+<default_major>1</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/token_filter</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Maintenance status</name><value>Seeking co-maintainer(s)</value></term>
+   <term><name>Development status</name><value>Maintenance fixes only</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>token_filter 7.x-1.1</name>
+  <version>7.x-1.1</version>
+  <tag>7.x-1.1</tag>
+  <version_major>1</version_major>
+  <version_patch>1</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1394060</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token_filter-7.x-1.1.tar.gz</download_link>
+  <date>1325700944</date>
+  <mdhash>edd38f0b5528745691b4c85f8486e9d0</mdhash>
+  <filesize>8424</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token_filter-7.x-1.1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>edd38f0b5528745691b4c85f8486e9d0</md5>
+    <size>8424</size>
+    <filedate>1325700944</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token_filter-7.x-1.1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>40ecaedca425ff6efba522902b1573bf</md5>
+    <size>9110</size>
+    <filedate>1325700944</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>token_filter 7.x-1.0</name>
+  <version>7.x-1.0</version>
+  <tag>7.x-1.0</tag>
+  <version_major>1</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1176072</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token_filter-7.x-1.0.tar.gz</download_link>
+  <date>1306977717</date>
+  <mdhash>16a08827a20b71df3e356ca61611661b</mdhash>
+  <filesize>6994</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token_filter-7.x-1.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>16a08827a20b71df3e356ca61611661b</md5>
+    <size>6994</size>
+    <filedate>1306977717</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token_filter-7.x-1.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>fc68c13221c9a2e8e5f4cd2226435bc8</md5>
+    <size>7621</size>
+    <filedate>1306977717</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>token_filter 7.x-1.x-dev</name>
+  <version>7.x-1.x-dev</version>
+  <tag>7.x-1.x</tag>
+  <version_major>1</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1176070</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/token_filter-7.x-1.x-dev.tar.gz</download_link>
+  <date>1329179938</date>
+  <mdhash>81fa48e2fca0502c242467095e49d967</mdhash>
+  <filesize>8442</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token_filter-7.x-1.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>81fa48e2fca0502c242467095e49d967</md5>
+    <size>8442</size>
+    <filedate>1329179938</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/token_filter-7.x-1.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>e0172bea83f4a4067125060c86a6b736</md5>
+    <size>9142</size>
+    <filedate>1329179938</filedate>
+   </file>
+  </files>
+ </release>
+</releases>
+</project>

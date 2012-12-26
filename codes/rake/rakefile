@@ -1,0 +1,9 @@
+task :default => [:test]
+
+task :test do
+  ruby "default.rb"
+end
+
+task :another do
+  ruby "another.rb"
+end

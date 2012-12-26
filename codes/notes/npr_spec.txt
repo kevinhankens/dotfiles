@@ -1,0 +1,95 @@
+
+pe is that this high level documentation will help give some insight into the challenges we faced with running a multisite installation. We have local/dev/staging/production environments that we leverage for QA and have a deployment system set up that /should/ scale reasonably well. The end goal is to have 200+ sites running here in a year's time. There will be 130 by the end of 2011 according to the migration schedule.
+
+There are still some challenges that need to be overcome, but nothing insurmountable. One thing that we are discussing is to cluster sites in separate docroots so that when we push code, we can do it to smaller groups of clients, thus reducing downtime. Right now, it can take up to 15 minutes to fully update and test 20 sites. This isn't too bad all in all, but the time will scale by N, so once N=200, it's not feasible. 
+
+Anyway, once we start thinking about a multisite offering, it would be good to use this as an example of what we could train people on. 
+
+NPR Multi-Site Architecture 
+
+Abstract
+NPR has the goal of hosting as many as 200+ sites using Drupal’s multi-site architecture. They have solved some unique problems, but many of their lessons can be applied to any Drupal multi-site installation.
+
+Server Hardware
+
+Hardware load balancer (unknown)
+Referred to as “Foundry”, but not sure if that’s an internal name
+Two Varnish Servers
+Highly customized VCL to account for:
+Saint mode during code pushes
+beresp.grace set to 30 min
+Ignoring certain patterns for JS files and certain Cookies
+Ignoring /refresh url patterns for non-cachable content
+Mobile user_agent detection and new headers sent
+Six Apache Web Servers
+Debian/Apache/APC
+64GB RAM
+One Isilon NFS server
+Two MySQL DB Servers
+64GB RAM
+Master/Slave
+DNS controlled fail over
+One Build Server
+Behind the web layer
+
+
+Drupal Configuration
+As far as “multi-site” it is a standard Drupal installation with multiple databases running from one code-base using the /sites directory to delineate sites.
+
+However, there are several key customizations that have been added to Drupal to help run this environment. We are using dev, staging and production platforms, so we have some good solutions to help us manage code deployment and environment knowledge.
+
+1. Sharing Caches Between Sites
+Each site has the ability to pull content down from the NPR API, so we opted to store all of the data and media files for these stories in a centralized location. We have a custom implementation of Drupal’s cache interface that will connect to a separate, shared database for storage and retrieval. 
+
+2. Sharing Files Between Sites
+Using a custom stream wrapper, we can store images from the NPR API in each site’s database, but serve them from a centralized location.
+
+3. Sites.php
+A lesser known feature of Drupal is the sites.php file that can exist in the /sites directory. This file allows us to specify the location of the settings.php file. In our case, we are using sub-domain pattern to specify. For example, kplu.drupal.publicbroadcasting.net will resolve to /sites/kplu. The benefit is that kplu.stage.publicbroadcasting.net and kplu.dev.publicbroadcasting.net all resolve to a /sites/kplu directory - regardless of the server. This way we can commit each site’s /site/[station] directory to source control and check out on dev, stage or production. Deployments and testing get a lot easier.
+
+4. Sub Themes
+Each site uses a child theme of a single parent theme. When we deploy, we create a skeleton of the sub theme. Each station can then override the common theme. We manage these sub themes in source control so that we can deploy that same theme on dev or stage environments. 
+
+5. Search
+NPR provided two GSA boxes to handle common search, so we have a simple connector module that integrates with them. The GSA crawls non-drupal sites and then we push nodes to it from Drupal. Nothing too crazy there.
+
+6. Table Queue
+They had a very unique requirement for a UI around lists of content. I ended up creating a module called table queue. It is similar in concept to a node queue, except that every queue item is editable from within the queue itself. To create a new queue, you add a hook_tablequeue() to your module describing the location of a tablequeue class. This class describes a table row using normal FAPI arrays. The UI then lets you add an arbitrary number of rows with those form elements. Your class also describes how to theme a table queue block, among other things. We ended up leveraging that module for a number of things such as blocks of people or ordering static homepage content.
+
+7. Drafts
+They had a requirement for an auto-save module, so I ended up creating something similar to drafts in email. The module works by providing an entity field. If you add this field, it will start a timer and using the FAPI ajax API, the module will capture the form_state. Alternately, you can initiate the save by clicking the “save as draft” button. There is a drafts folder located in a tab on the “find content” page to recover drafts, or accidentally lost forms. When the forms are recovered, the saved form_state is put back into the form. I was hoping to contribute this back, but NPR legal dragged their heels for too long, so I quit trying.
+
+8. NPR API
+One of the major features of the platform is the fact that stations can interact with NPR’s REST API to syndicate national content. There are several methods for pulling content down. An individual story may be requested via a form; Links may be embedded in local stories to NPR articles; Cron can be used to regularly pull down stories from a particular category or related to national programs. We also use the NPR API as a CDN for our audio content. When a station creates a news story with audio, we send a request for them to download our file and push it to their CDN. They send a ping to a module we call “listener” which tells us the status of that audio file. They also ping our listener if there is a correction or take-down for a particular story.
+
+9. The Wolf
+One really helpful thing that we use is called “The Wolf” which is a drush command loosely paying homage to the film Pulp Fiction, as it is a clean up script. Each module can emit a hook_thewolf($env) function. When this hook is invoked (only via drush at the moment) it takes into account the specified environment and resets sensitive variables to avoid things like talking to live APIs, using live tracking codes, etc. There are very similar community modules that aim to solve the similar problem. Ours is unique in that the environment is hard-coded in the site’s settings.php file. So, if we copy a database from production to stage, dev or local, we run the wolf and it automatically cleans it to the environment specified in the code. This avoids a lot of confusion.
+
+10. Logging
+We are using syslog for all sites an combining them all in one syslog facility on each web node. Additionally, we enable database logging for certain sites if we need to diagnose problems more quickly. We have a second log that we call the “blame log” that we use for red-flag events such as modules enabled and sensitive configuration items.
+
+Environment/Deployment/Management
+All of our deployment and site management happens via a server that sits behind the webservers. This box has a number of shell scripts that perform setup/management tasks and some that wrap around Drush. These scripts can execute on the stage servers as well as production servers. They live behind the web layer for additional security since they have higher level access to MySQL.Here is a brief synopsis of the main players:
+
+newsite. This script can work interactively or can be called with arguments to spin up a new site. This will create a new database, create a new station directory with theme in source control, then executes a setup script that lives on the web boxes. This handles things like symlinks to files directories and basic filesystem permissions. Finally, it calls drush site-install to execute the database install.
+updatedrupal. This script is what we use to push code and db changes to a platform. It will first put all sites into maintenance mode, then check out the latest code from source control, finally it will run drush updatedb on each installed site. It is up to the admin to then test sites and then pull them out of maintenance mode by running another script.
+push. This script is used by updatedrupal to push source controlled code to a platform on N servers. This allows you to update to latest, or to a specified revision number. This is a nice script for pushing specific changes, such as quickly pushing a hot-fix patch across a number of servers.
+rundrush and drushsingle. These scripts handle the actual calls to Drush. The first script will execute a command on every installed site on a given platform. The second will execute on a single site on that platform. These are utilized by most of the scripts on the build server.
+There are a few other convenience scripts that call rundrush to perform common tasks such as cache clearing, running cron, etc.
+clone_production. This script will copy production databases down to the staging environment. This is very helpful for acceptance of new features, or debugging problems on production. This script also calls “the wolf” to replace sensitive environment variables.
+
+
+In addition to these scripts, we have an “Aegir-like” module, called Omni, that we can use to interact with our deployment scripts and monitor sites that have been created. This module is run on one site in the same multi-site code base. The module is relatively simple, but will play a crucial role in customer support in the future. Here is a quick overview of the key features:
+
+Creating a new “Station” node will validate the namespace and ensure that a unique station is about to be created.
+Once a station node has been created, a row is inserted into a job queue table in an isolated database. A cron job on our deployment server will pick these jobs up and execute the newsite script mentioned above.
+The station list page will show a paginated list of all station sites and one of three status icons (installed, not installed or pending installation). There are also links to view information, edit the station node or view logs for that station.
+The View option will show you a quick synopsis of that site including the amount of content, current version and other “at a glance” tidbits.
+The edit option allows you to change minimal information such as the human-readable title of the station, or to initiate installation if it wasn’t run at creation or failed for some reason.
+The logs will show you the install logs from the deployment scripts as well as the latest items in the blame log, mentioned above.
+
+
+The Omni module creates a “Station” class that can be used to quickly get information about a particular station. Using hook_node_load(), we add in a station object that can be used elsewhere. Here are a couple of the more important things:
+
+Determine whether a station has been installed by looking for their settings.php and initiating a db connection. The installation status constants are PI_STATION_INSTALLED, PI_STATION_NOT_INSTALLED and PI_STATION_PENDING. These are used to throughout to prevent errors.
+Query a station’s database. There is a public method that will set the active db to that of the station, execute a string query or PDO query object and return the results. If, by some chance, it cannot set the active db back to “default” it will throw an exception.

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Node export</title>
+<short_name>node_export</short_name>
+<dc:creator>danielb</dc:creator>
+<api_version>7.x</api_version>
+<recommended_major>3</recommended_major>
+<supported_majors>3</supported_majors>
+<default_major>3</default_major>
+<project_status>published</project_status>
+<link>http://drupal.org/project/node_export</link>
+  <terms>
+   <term><name>Projects</name><value>Modules</value></term>
+   <term><name>Projects</name><value>Content</value></term>
+   <term><name>Projects</name><value>Import/Export</value></term>
+   <term><name>Projects</name><value>Utility</value></term>
+   <term><name>Projects</name><value>Drush</value></term>
+   <term><name>Development status</name><value>Under active development</value></term>
+   <term><name>Maintenance status</name><value>Seeking co-maintainer(s)</value></term>
+  </terms>
+<releases>
+ <release>
+  <name>node_export 7.x-3.0</name>
+  <version>7.x-3.0</version>
+  <tag>7.x-3.0</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1740236</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.0.tar.gz</download_link>
+  <date>1345435979</date>
+  <mdhash>4ec44926abb5aa6504eb5cf9a85faa91</mdhash>
+  <filesize>47329</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>4ec44926abb5aa6504eb5cf9a85faa91</md5>
+    <size>47329</size>
+    <filedate>1345435979</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>c36cba9e0108fb3f2070f368befd11bf</md5>
+    <size>63202</size>
+    <filedate>1345435979</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>node_export 7.x-3.0-rc4</name>
+  <version>7.x-3.0-rc4</version>
+  <tag>7.x-3.0-rc4</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc4</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1714566</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc4.tar.gz</download_link>
+  <date>1344223036</date>
+  <mdhash>b060c09dee077246f5dbd795251033ce</mdhash>
+  <filesize>47340</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc4.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>b060c09dee077246f5dbd795251033ce</md5>
+    <size>47340</size>
+    <filedate>1344223036</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc4.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>35f9abdf10b976a301ca95a3f6ac9b2b</md5>
+    <size>63183</size>
+    <filedate>1344223036</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>node_export 7.x-3.0-rc3</name>
+  <version>7.x-3.0-rc3</version>
+  <tag>7.x-3.0-rc3</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc3</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1597752</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc3.tar.gz</download_link>
+  <date>1337819169</date>
+  <mdhash>0451694b3acf55ea9e15d6ce6367146a</mdhash>
+  <filesize>40641</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc3.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>0451694b3acf55ea9e15d6ce6367146a</md5>
+    <size>40641</size>
+    <filedate>1337819169</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc3.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>aea9395fcd664b8d73b74a3c93b48e8b</md5>
+    <size>53067</size>
+    <filedate>1337819169</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+   <term><name>Release type</name><value>Bug fixes</value></term>
+  </terms>
+ </release>
+ <release>
+  <name>node_export 7.x-3.0-rc2</name>
+  <version>7.x-3.0-rc2</version>
+  <tag>7.x-3.0-rc2</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc2</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1530666</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc2.tar.gz</download_link>
+  <date>1334281015</date>
+  <mdhash>47a150e0e5c1d82dab0170db05d13090</mdhash>
+  <filesize>41710</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc2.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>47a150e0e5c1d82dab0170db05d13090</md5>
+    <size>41710</size>
+    <filedate>1334281015</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc2.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>e90635af77fd5fd889c8c831bee3b795</md5>
+    <size>56773</size>
+    <filedate>1334281016</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>node_export 7.x-3.0-rc1</name>
+  <version>7.x-3.0-rc1</version>
+  <tag>7.x-3.0-rc1</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>rc1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1422476</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc1.tar.gz</download_link>
+  <date>1328001946</date>
+  <mdhash>75930d6f11ab3dd20b345315b213bbf8</mdhash>
+  <filesize>40341</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>75930d6f11ab3dd20b345315b213bbf8</md5>
+    <size>40341</size>
+    <filedate>1328001946</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-rc1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>5719bae6507bc791aa934b06e4edb978</md5>
+    <size>55420</size>
+    <filedate>1328001946</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>node_export 7.x-3.0-beta1</name>
+  <version>7.x-3.0-beta1</version>
+  <tag>7.x-3.0-beta1</tag>
+  <version_major>3</version_major>
+  <version_patch>0</version_patch>
+  <version_extra>beta1</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/1530648</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-beta1.tar.gz</download_link>
+  <date>1334279768</date>
+  <mdhash>ab0c56b1f96cb61e92bde808ffd8d823</mdhash>
+  <filesize>41718</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-beta1.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>ab0c56b1f96cb61e92bde808ffd8d823</md5>
+    <size>41718</size>
+    <filedate>1334279768</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.0-beta1.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>6e341c8450c1e15d2e769286886b1e0d</md5>
+    <size>56801</size>
+    <filedate>1334279768</filedate>
+   </file>
+  </files>
+ </release>
+ <release>
+  <name>node_export 7.x-3.x-dev</name>
+  <version>7.x-3.x-dev</version>
+  <tag>7.x-3.x</tag>
+  <version_major>3</version_major>
+  <version_extra>dev</version_extra>
+  <status>published</status>
+  <release_link>http://drupal.org/node/993196</release_link>
+  <download_link>http://ftp.drupal.org/files/projects/node_export-7.x-3.x-dev.tar.gz</download_link>
+  <date>1344429640</date>
+  <mdhash>dbf5112744bd53c4bbeb7d29871fe0db</mdhash>
+  <filesize>47350</filesize>
+  <files>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.x-dev.tar.gz</url>
+    <archive_type>tar.gz</archive_type>
+    <md5>dbf5112744bd53c4bbeb7d29871fe0db</md5>
+    <size>47350</size>
+    <filedate>1344429640</filedate>
+   </file>
+   <file>
+    <url>http://ftp.drupal.org/files/projects/node_export-7.x-3.x-dev.zip</url>
+    <archive_type>zip</archive_type>
+    <md5>4152ef60bb41c61582e1f18e69cba1b2</md5>
+    <size>63238</size>
+    <filedate>1344429640</filedate>
+   </file>
+  </files>
+  <terms>
+   <term><name>Release type</name><value>New features</value></term>
+  </terms>
+ </release>
+</releases>
+</project>

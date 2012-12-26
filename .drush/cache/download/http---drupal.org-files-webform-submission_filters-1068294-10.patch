@@ -1,0 +1,179 @@
+diff --git a/includes/webform.report.inc b/includes/webform.report.inc
+index 0b32851..9b01153 100644
+--- a/includes/webform.report.inc
++++ b/includes/webform.report.inc
+@@ -13,7 +13,7 @@ module_load_include('inc', 'webform', 'includes/webform.submissions');
+ /**
+  * Retrieve lists of submissions for a given webform.
+  */
+-function webform_results_submissions($node, $user_filter, $pager_count) {
++function webform_results_submissions($node, $user_filter, $pager_count, $extra_filters = array()) {
+   global $user;
+ 
+   if (isset($_GET['results']) && is_numeric($_GET['results'])) {
+@@ -21,7 +21,9 @@ function webform_results_submissions($node, $user_filter, $pager_count) {
+   }
+ 
+   $header = theme('webform_results_submissions_header', array('node' => $node));
++  $filters = array('nid' => $node->nid) + $extra_filters;
+   if ($user_filter) {
++    $filters['uid'] = $user->uid;
+     if ($user->uid) {
+       drupal_set_title(t('Submissions for %user', array('%user' => $user->name)), PASS_THROUGH);
+     }
+@@ -30,13 +32,9 @@ function webform_results_submissions($node, $user_filter, $pager_count) {
+       webform_disable_page_cache();
+     }
+     webform_set_breadcrumb($node);
+-    $submissions = webform_get_submissions(array('nid' => $node->nid, 'uid' => $user->uid), $header, $pager_count);
+-    $count = webform_get_submission_count($node->nid, $user->uid);
+-  }
+-  else {
+-    $submissions = webform_get_submissions($node->nid, $header, $pager_count);
+-    $count = webform_get_submission_count($node->nid);
+   }
++  $submissions = webform_get_submissions($filters, $header, $pager_count);
++  $count = webform_get_submission_count($filters);
+ 
+   $operation_column = end($header);
+   $operation_total = $operation_column['colspan'];
+@@ -171,15 +169,16 @@ function template_preprocess_webform_results_submissions(&$vars) {
+ /**
+  * Create a table containing all submitted values for a webform node.
+  */
+-function webform_results_table($node, $pager_count = 0) {
++function webform_results_table($node, $pager_count = 0, $extra_filters = array()) {
+   if (isset($_GET['results']) && is_numeric($_GET['results'])) {
+     $pager_count = $_GET['results'];
+   }
+ 
+   // Get all the submissions for the node.
+   $header = theme('webform_results_table_header', array('node' => $node));
+-  $submissions = webform_get_submissions($node->nid, $header, $pager_count);
+-  $total_count = webform_get_submission_count($node->nid);
++  $filters = array('nid' => $node->nid) + $extra_filters;
++  $submissions = webform_get_submissions($filters, $header, $pager_count);
++  $total_count = webform_get_submission_count($filters);
+ 
+   $output = theme('webform_results_table', array('node' => $node, 'components' => $node->webform['components'], 'submissions' => $submissions, 'total_count' => $total_count, 'pager_count' => $pager_count));
+   if ($pager_count) {
+@@ -518,7 +517,10 @@ function webform_results_download_form_submit(&$form, &$form_state) {
+     $options['sids'] = webform_download_sids($form_state['values']['node']->nid, $form_state['values']['range']);
+   }
+ 
+-  webform_results_download($form_state['values']['node'], $form_state['values']['format'], $options);
++  // Allow extra filtering if previous form handlers requested it.
++  $extra_filters = isset($form_state['webform']['extra_filters']) ? $form_state['webform']['extra_filters'] : array();
++
++  webform_results_download($form_state['values']['node'], $form_state['values']['format'], $options, $extra_filters);
+ }
+ 
+ /**
+@@ -655,7 +657,7 @@ function theme_webform_results_download_select_format($variables) {
+  *   27 Feb 2005       ,1035,56 ,212   ,X         ,        ,        ,..,       ,X          ,X       ,X       ,..,X       ,How is this?
+  *
+  */
+-function webform_results_download($node, $format = 'delimited', $options = array()) {
++function webform_results_download($node, $format = 'delimited', $options = array(), $extra_filters = array()) {
+   global $user;
+   module_load_include('inc', 'webform', 'includes/webform.export');
+   module_load_include('inc', 'webform', 'includes/webform.components');
+@@ -729,6 +731,7 @@ function webform_results_download($node, $format = 'delimited', $options = array
+   if (!empty($options['sids'])){
+     $filters['sid'] = $options['sids'];
+   }
++  $filters += $extra_filters;
+   $submissions = webform_get_submissions($filters);
+ 
+   // Generate a row for each submission.
+diff --git a/includes/webform.submissions.inc b/includes/webform.submissions.inc
+index a377f99..17202b7 100644
+--- a/includes/webform.submissions.inc
++++ b/includes/webform.submissions.inc
+@@ -595,7 +595,7 @@ function webform_submission_render($node, $submission, $email, $format) {
+ }
+ 
+ /**
+- * Return all the submissions for a particular node.
++ * Return all the submissions for a particular node and/or other filters.
+  *
+  * @param $filters
+  *   An array of filters to apply to this query. Usually in the format
+@@ -620,8 +620,10 @@ function webform_get_submissions($filters = array(), $header = NULL, $pager_coun
+     unset($filters['uid']);
+   }
+ 
+-  // No need to find SIDs if it was given to us.
+-  if (isset($filters['sid'])) {
++  // No need to find SIDs if a single one was given to us and no other filters
++  // were specified. If an array was given, then still run the pager query to
++  // get them in the desired sort order and within the page limit.
++  if (isset($filters['sid']) && !is_array($filters['sid']) && count($filters) == 1) {
+     $sids = array($filters['sid']);
+   }
+   // Build the list of SIDs that need to be retrieved.
+@@ -725,27 +727,39 @@ function webform_get_submissions($filters = array(), $header = NULL, $pager_coun
+ }
+ 
+ /**
+- * Return a count of the total number of submissions for a node.
++ * Return a count of the total number of submissions for a node and/or other filters.
+  *
+- * @param $nid
+- *   The node ID for which submissions are being fetched.
++ * @param $filters
++ *   An array of filters to apply to this query. Usually in the format
++ *   array('nid' => $nid, 'uid' => $uid). A single integer may also be passed
++ *   in, which will be equivalent to specifying a $nid filter.
+  * @param $uid
+- *   Optional; the user ID to filter the submissions by.
++ *   Optional; the user ID to filter the submissions by. Redundant with
++ *   $filters['uid'], but commonly used when passing just a node id in $filters.
++ *   If passed and not NULL, this overrides $filters['uid'].
+  * @return
+  *   An integer value of the number of submissions.
+  */
+-function webform_get_submission_count($nid, $uid = NULL, $reset = FALSE) {
++function webform_get_submission_count($filters, $uid = NULL, $reset = FALSE) {
+   static $counts;
+ 
+-  if (!isset($counts[$nid][$uid]) || $reset) {
+-    $query = db_select('webform_submissions')
+-      ->condition('nid', $nid)
+-      ->condition('is_draft', 0);
+-    $arguments = array($nid);
+-    if ($uid !== NULL) {
+-      $query->condition('uid', $uid);
++  if (!is_array($filters)) {
++    $filters = array('nid' => $filters);
++  }
++  if (isset($uid)) {
++    $filters['uid'] = $uid;
++  }
++  if (!isset($filters['is_draft'])) {
++    $filters['is_draft'] = 0;
++  }
++
++  $cache_key = serialize($filters);
++  if (!isset($counts[$cache_key]) || $reset) {
++    $query = db_select('webform_submissions');
++    foreach ($filters as $column => $value) {
++      $query->condition($column, $value);
+     }
+-    if ($uid === 0) {
++    if (isset($filters['uid']) && $filters['uid'] === 0) {
+       $submissions = isset($_SESSION['webform_submission']) ? $_SESSION['webform_submission'] : NULL;
+       if ($submissions) {
+         $query->condition('sid', $submissions, 'IN');
+@@ -757,9 +771,9 @@ function webform_get_submission_count($nid, $uid = NULL, $reset = FALSE) {
+       }
+     }
+ 
+-    $counts[$nid][$uid] = $query->countQuery()->execute()->fetchField();
++    $counts[$cache_key] = $query->countQuery()->execute()->fetchField();
+   }
+-  return $counts[$nid][$uid];
++  return $counts[$cache_key];
+ }
+ 
+ /**

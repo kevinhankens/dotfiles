@@ -1,0 +1,12 @@
+diff --git a/includes/media.admin.inc b/includes/media.admin.inc
+index 79f1d43..e012d2f 100644
+--- a/includes/media.admin.inc
++++ b/includes/media.admin.inc
+@@ -198,7 +198,6 @@ function media_admin_thumbnails(&$parent_form) {
+ 
+     foreach ($files as $file) {
+       $preview = media_get_thumbnail_preview($file, TRUE);
+-      if (!isset($preview['#file'])) { dpm($file); }
+       $form['files'][$file->fid] = array(
+         '#type' => 'checkbox',
+         '#title' => '',

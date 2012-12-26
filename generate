@@ -1,13 +1,14 @@
 #!/bin/bash
 
 echo "Generating archive of dotfiles."
-cp $HOME/.vimrc .
-cp $HOME/.config/openbox/* .config/openbox/
+cp -pPr $HOME/.drush .
+cp -pPr $HOME/codes .
+cp -pPr $HOME/.config/openbox .config/
 cp -pPr $HOME/.config/roxterm.sourceforge.net/* .config/roxterm.sourceforge.net/
-cp -pPr $HOME/.vim/* .vim/
+cp -pPr $HOME/.vim* .
 cp $HOME/.bash_aliases bash/
 cp $HOME/.bashrc bash/
-cp /etc/conky/* etc/conky/
-cp /etc/rc.local* etc/
+cp -pPr /etc/conky etc/
+cp /etc/rc.local etc/
 dpkg -l > dpkg-installed.txt
 echo "Done."

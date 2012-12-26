@@ -1,0 +1,194 @@
+From b1e061edff9b5328c15df5d596e86bb408c4654f Mon Sep 17 00:00:00 2001
+From: "Matias E. Fernandez" <mfernandez@pisco.ch>
+Date: Sun, 1 Apr 2012 18:10:57 +0200
+Subject: [PATCH] Issue #1509528: restore Views integration for Voting API
+
+---
+ fivestar.info                                |    2 +
+ fivestar.module                              |   12 ++-
+ views/fivestar.views.inc                     |    9 ++
+ views/fivestar_views_handler_field_value.inc |  119 ++++++++++++++++++++++++++
+ 4 files changed, 141 insertions(+), 1 deletion(-)
+ create mode 100644 views/fivestar.views.inc
+ create mode 100644 views/fivestar_views_handler_field_value.inc
+
+diff --git a/fivestar.info b/fivestar.info
+index f4d802c..db568e9 100644
+--- a/fivestar.info
++++ b/fivestar.info
+@@ -6,3 +6,5 @@ dependencies[] = votingapi
+ configure = admin/config/content/fivestar
+ files[] = test/fivestar.base.test
+ files[] = test/fivestar.field.test
++files[] = views/fivestar.views.inc
++files[] = views/fivestar_views_handler_field_value.inc
+diff --git a/fivestar.module b/fivestar.module
+index e3e370c..5861c79 100644
+--- a/fivestar.module
++++ b/fivestar.module
+@@ -159,7 +159,7 @@ function _fivestar_cast_vote($entity_type, $id, $value, $tag = NULL, $uid = NULL
+     }
+ 
+     // Moving the calculationg after saving/deleting the vote but before getting the votes.
+-    votingapi_recalculate_results($entity_type, $id);    
++    votingapi_recalculate_results($entity_type, $id);
+     return fivestar_get_votes($entity_type, $id, $tag, $uid);
+   }
+ }
+@@ -783,3 +783,13 @@ function _fivestar_target_comment_parent_node($entity, $field, $instance, $langc
+     'entity_type' => 'node',
+   );
+ }
++
++/**
++* Implementation of hook_views_api().
++*/
++function fivestar_views_api() {
++  return array(
++    'api' => 3,
++    'path' => drupal_get_path('module', 'fivestar') . '/views',
++  );
++}
+diff --git a/views/fivestar.views.inc b/views/fivestar.views.inc
+new file mode 100644
+index 0000000..4f4f9f6
+--- /dev/null
++++ b/views/fivestar.views.inc
+@@ -0,0 +1,9 @@
++<?php
++
++/**
++* Implements hook_views_data_alter().
++*/
++function fivestar_views_data_alter(&$data) {
++  $data['votingapi_vote']['value']['field']['handler'] = 'fivestar_views_handler_field_value';
++  $data['votingapi_cache']['value']['field']['handler'] = 'fivestar_views_handler_field_value';
++}
+diff --git a/views/fivestar_views_handler_field_value.inc b/views/fivestar_views_handler_field_value.inc
+new file mode 100644
+index 0000000..8165116
+--- /dev/null
++++ b/views/fivestar_views_handler_field_value.inc
+@@ -0,0 +1,119 @@
++<?php
++
++/**
++ * @file
++ * Provide a views handler for votingapi data fields.
++ */
++
++class fivestar_views_handler_field_value extends views_handler_field {
++  function construct() {
++    parent::construct();
++    $this->definition['float'] = TRUE;
++  }
++
++  function option_definition() {
++    $options = parent::option_definition();
++    $options['formatter'] = array(
++      'default' => 'fivestar_formatter_default',
++    );
++    $options['widget']['fivestar_widget'] = array(
++      'default' => 'default',
++    );
++    $options['stars'] = array(
++      'default' => 5,
++    );
++    return $options;
++  }
++
++  function options_form(&$form, &$form_state) {
++    parent::options_form($form, $form_state);
++
++    $form['formatter'] = array(
++      '#type' => 'select',
++      '#title' => t('Formatter'),
++      '#options' => array(
++        'fivestar_formatter_default' => t('As Stars'),
++        'fivestar_formatter_rating' => t('Rating (i.e. 4.2/5)'),
++        'fivestar_formatter_percentage' => t('Percentage (i.e. 92)'),
++      ),
++      '#default_value' => $this->options['formatter'],
++      '#ajax' => array(
++        'path' => views_ui_build_form_url($form_state),
++      ),
++      '#submit' => array('views_ui_config_item_form_submit_temporary'),
++      '#executes_submit_callback' => TRUE,
++    );
++
++    if ($this->options['formatter'] == 'fivestar_formatter_default') {
++      $form['widget'] = array(
++        '#tree' => TRUE,
++        '#type' => 'fieldset',
++        '#title' => t('Star display options'),
++        '#description' => t('Choose a style for your widget.'),
++        '#collapsible' => TRUE,
++        '#collapsed' => TRUE,
++      );
++
++      $widgets = module_invoke_all('fivestar_widgets');
++
++      $form['widget']['fivestar_widget'] = array(
++        '#type' => 'radios',
++        '#options' => array('default' => t('Default')) + $widgets,
++        '#default_value' => $this->options['widget']['fivestar_widget'],
++        '#attributes' => array('class' => array('fivestar-widgets', 'clearfix')),
++        '#pre_render' => array('fivestar_previews_expand'),
++        '#attached' => array('css' => array(drupal_get_path('module', 'fivestar') . '/css/fivestar-admin.css')),
++      );
++    }
++
++    $form['stars'] = array(
++      '#type' => 'select',
++      '#title' => t('Number of stars'),
++      '#options' => drupal_map_assoc(range(1, 10)),
++      '#default_value' => $this->options['stars'],
++    );
++
++  }
++
++  function element_type($none_supported = FALSE, $default_empty = FALSE) {
++    return 'div';
++  }
++
++  /**
++   * Called to determine what to tell the clicksorter.
++   */
++  function click_sort($order) {
++    $this->query->add_orderby(NULL, "COALESCE($this->table_alias.$this->field, 0)", $order, $this->table_alias . '_' . $this->field . '_coalesced');
++  }
++
++  function allow_advanced_render() {
++    return FALSE;
++  }
++
++  function render($values) {
++    $rating = $values->{$this->field_alias};
++    $stars = $this->options['stars'];
++
++    if ($this->options['formatter'] == 'fivestar_formatter_default') {
++      $widgets = module_invoke_all('fivestar_widgets');
++      $active = isset($this->options['widget']['fivestar_widget']) ? $this->options['widget']['fivestar_widget'] : 'default';
++      $variables = array(
++        'rating' => $rating,
++        'stars' => $stars,
++        'widget' => array(
++          'name' => isset($widgets[$active]) ? strtolower($widgets[$active]) : 'default',
++          'css' => $active,
++        ),
++      );
++      return theme('fivestar_static', $variables);
++    }
++    if ($this->options['formatter'] == 'fivestar_formatter_rating') {
++      $rating = round(($rating/100) * $stars, 1);
++      $output = $rating . '/' . $stars;
++      return $output;
++    }
++    if ($this->options['formatter'] == 'fivestar_formatter_percentage') {
++      return round($rating, 1) . '%';
++    }
++  }
++}
+-- 
+1.7.9.4
+
