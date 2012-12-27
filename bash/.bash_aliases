@@ -37,6 +37,7 @@ alias clear_varnish='curl -X PURGE -H "X-Acquia-Purge: SITENAME" -H "Accept-Enco
 
 alias dg='drush @g'
 alias dgr='drush @gr'
+alias dl='drush @dl'
 alias cdg='cd /var/www/gardens'
 alias cdgr='cd /var/www/gardener'
 

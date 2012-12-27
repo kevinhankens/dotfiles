@@ -11,6 +11,11 @@ $aliases['gr'] = array(
   'uri' => 'http://gardener.localhost',
 );
 
+$aliases['dl'] = array(
+  'root' => '/var/www/drupal',
+  'uri' => 'http://drupal.localhost',
+);
+
 $aliases['shawn'] = array(
   'root' => '/var/www/gardens/docroot',
   'uri' => 'http://shawncolvin.wmg-egardens.dev',
