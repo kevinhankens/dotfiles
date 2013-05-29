@@ -1,7 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/var/www/gardener/docroot/sites/all/modules/custom/gardens_signup'
-let g:netrw_dirhist_2='/var/www/gardener/docroot/sites/all/modules/custom/gardener_base'
-let g:netrw_dirhist_3='/var/www/gardener/docroot/sites/all/modules/custom'
-let g:netrw_dirhist_4='/var/www/gardener/docroot/sites/all/modules/custom/gardener_base'
-let g:netrw_dirhist_5='/var/www/gardens/docroot/sites/all/modules/oembed'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/var/www/gardener/docroot/sites/all/modules/custom/wip'

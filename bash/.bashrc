@@ -116,14 +116,12 @@ set -o vi
 ## Gardens
 export GARDENS_GITTOOLS=/var/www/gittools
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
 ## Android
 export PATH=$PATH:/usr/local/src/android-sdk-linux/tools:/usr/local/src/android-sdk-linux/platform-tools
 
 ## Go
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$PATH:/home/khankens/codes/go
 
 ## Create a readable time from a unix timestamp.
 function phptime {
@@ -133,4 +131,16 @@ function phptime {
 }
 
 # libboost
-export PATH=$PATH:/home/khankens/codes/cpp/boost_1_52_0
+#export PATH=$PATH:/home/khankens/codes/cpp/boost_1_52_0:/usr/local/lib:/usr/local/include
+export LD_LIBRARY_PATH=/usr/local/src/boost_1_52_0/stage/lib:$LD_LIBRARY_PATH
+# libmicrohttpd
+# export PATH=$PATH:/usr/local/src/libmicrohttpd/src/include
+
+export FIELDS_ROOT="/home/khankens/Desktop/"
+export EC2_ACCOUNT="gardens-dev"
+export FIELDS_STAGE="gsteamer"
+
+#export GIT_SSH=/usr/local/bin/git-ssh-wrapper
+
+# RVM
+source /etc/profile.d/rvm.sh

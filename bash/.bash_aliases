@@ -1,6 +1,6 @@
 alias lf='ls -lha'
 alias cpr='cp -pPr'
-alias grr='grep -ir'
+alias grr='grep --exclude-dir=.git --exclude=*.css --exclude=*.sql -ir'
 alias dsql='mysql -uroot -p'
 alias spokes='cd /var/www/spokes'
 alias dsqldump='mysqldump -uroot -p'
@@ -11,6 +11,12 @@ alias phpini='sudo vim /etc/php5/apache2/php.ini'
 alias cleangrind='sudo rm /tmp/cachegrind.out.*'
 alias suspend='sudo pm-suspend'
 alias psg='ps aux | grep'
+
+# Mounting
+# Mount sdcard
+# sudo blkid
+alias mountsd='sudo mount -t "vfat" -o uid=khankens,gid=khankens /dev/mmcblk0p1 /mnt/camera'
+alias umountsd='sudo umount /mnt/camera'
 
 # Statsd
 alias statstestg='echo -n "kevin.dev.gauge:600|g"  | nc -w 1 -u 127.0.0.1 8125'
@@ -28,12 +34,13 @@ alias redistest='(echo -en "incr kevin\r\nincr kevin\r\n"; sleep 1) | nc localho
 alias jc='jekyll --no-server'
 
 # Gardens
-alias drush='/var/www/gardens/drush5/drush'
+alias drush='/var/www/gardens/drush/drush'
 alias getsiteutest='drush @g getsite --theme-files-only --stage=utest --db-username=root --db-password= '
 alias getsitewmg='drush @g getsite --theme-files-only --stage=wmg-egardens --db-username=root --db-password= '
 alias getsitefpmg='drush @g getsite --theme-files-only --stage=fpmg-egardens --db-username=root --db-password= '
 alias getsitepfi='drush @g getsite --theme-files-only --stage=enterprise-g1 --db-username=root --db-password= '
 alias clear_varnish='curl -X PURGE -H "X-Acquia-Purge: SITENAME" -H "Accept-Encoding: gzip" '
+alias mg='./make_gardens.rb -v -p /var/www/gardens_profile -r /var/www/gardens_distro/docroot'
 
 alias dg='drush @g'
 alias dgr='drush @gr'

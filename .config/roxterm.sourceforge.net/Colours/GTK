@@ -1,7 +1,7 @@
 
 [roxterm colour scheme]
-foreground=
-background=
+foreground=#c0c0c0c0c0c0
+background=#000000000000
 palette_size=8
 0=#01a00b791bb1
 1=#969600000000
