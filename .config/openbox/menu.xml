@@ -27,13 +27,6 @@
 			</action>
 		</item>
 		<!-- This requires the presence of the 'menu' package to work -->
-		<separator/>
-		<item label="Wireless">
-			<action name="Execute">
-				<execute>wicd-client</execute>
-			</action>
-		</item>
-		<separator/>
 		<menu id="/Debian"/>
 		<menu id="client-list-menu"/>
 		<separator/>

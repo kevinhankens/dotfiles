@@ -34,7 +34,7 @@ alias redistest='(echo -en "incr kevin\r\nincr kevin\r\n"; sleep 1) | nc localho
 alias jc='jekyll --no-server'
 
 # Gardens
-alias drush='/var/www/gardens/drush/drush'
+alias drush='/var/www/gardens_distro/drush/drush'
 alias getsiteutest='drush @g getsite --theme-files-only --stage=utest --db-username=root --db-password= '
 alias getsitewmg='drush @g getsite --theme-files-only --stage=wmg-egardens --db-username=root --db-password= '
 alias getsitefpmg='drush @g getsite --theme-files-only --stage=fpmg-egardens --db-username=root --db-password= '

@@ -17,10 +17,10 @@
 #xfce-mcs-manager &
 
 # conky settings
-(sleep 2 && conky) &
+(sleep 2 && /usr/bin/conky) &
 
 # start chat
-(sleep 2s && pidgin) &
+(sleep 2s && /usr/bin/pidgin) &
 
 # keystroke repeat rate (delay/repeat)
 xset r rate 300 100

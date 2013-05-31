@@ -7,6 +7,7 @@ cp -pPr $HOME/codes .
 cp -pPr $HOME/.config/openbox .config/
 cp -pPr $HOME/.config/roxterm.sourceforge.net/* .config/roxterm.sourceforge.net/
 cp -pPr $HOME/.vim* .
+cp $HOME/.xmodmap .
 rm .viminfo
 cp $HOME/.bash_aliases bash/
 cp $HOME/.bashrc bash/
