@@ -1,3 +1,5 @@
 
 [roxterm options]
 warn_close=1
+profile=Kevin
+colour_scheme=GTK

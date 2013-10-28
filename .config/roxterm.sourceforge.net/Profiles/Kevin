@@ -7,3 +7,5 @@ true_translucence=1
 show_menubar=0
 font=Monospace 10
 login_shell=0
+new_tabs_adjacent=1
+browser=/usr/bin/chromium-browser

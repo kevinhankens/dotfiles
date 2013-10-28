@@ -34,7 +34,6 @@ alias redistest='(echo -en "incr kevin\r\nincr kevin\r\n"; sleep 1) | nc localho
 alias jc='jekyll --no-server'
 
 # Gardens
-alias drush='/var/www/gardens_distro/drush/drush'
 alias getsiteutest='drush @g getsite --theme-files-only --stage=utest --db-username=root --db-password= '
 alias getsitewmg='drush @g getsite --theme-files-only --stage=wmg-egardens --db-username=root --db-password= '
 alias getsitefpmg='drush @g getsite --theme-files-only --stage=fpmg-egardens --db-username=root --db-password= '
@@ -52,6 +51,8 @@ alias gsinfo='drush @g gs-site-info --user=khankens'
 
 alias ssha='ssh -A -p40506'
 alias sshb=' ssh -A -p40506 -i ~/.ssh/bastion_rsa'
+
+alias irs='irssi --connect=irc.mozilla.org --nick=kevinhankens --port=6697'
 
 # Jump to the first web node on atangles
 # master master.e.gardens.f.e2a.us

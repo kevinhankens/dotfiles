@@ -1,0 +1,53 @@
+#!/bin/bash
+
+if [ "$1" = "test" ]; then
+  echo "Dry run.";
+  DRYRUN="TRUE"
+else
+  DRYRUN="FALSE"
+fi
+
+ORIG_PATH="/var/www/html/tangle004/docroot/themes/acquia"
+
+CWD=`pwd`
+
+# Make sure that the user is in the correct directory.
+echo -n "You are currently in $CWD, do you wish to fix files in this directory? [Y,n]: "
+read CONTINUE
+
+# Allow them to bail out.
+if [[ "$CONTINUE" = "y" || "$CONTINUE" = "Y" || "$CONTINUE" = "" ]]; then
+  echo "Attempting to repair files."
+else
+  echo "Terminated."
+  exit 0
+fi
+
+SITESDIR=`pwd`
+for SITE in `cat /mnt/tmp/sites_to_sync`; do
+  cd "g"$SITE
+  CWD=`pwd`
+  # Iterate over the empty template files and if we can
+  # find a suitable replacement, copy it in.
+  for THEME in `ls -1 themes/mythemes/`; do
+    cd themes/mythemes/$THEME
+    echo "EXECUTING IN: " `pwd`
+    for FILE in `find . -size 0 \( -name "*.css" -o -name "*.png" -o -name "*.gif" -o -name "*.jpg" \)`; do
+      ORIG_THEME=`grep -ir base_theme *.info | sed "s/.*'\(.*\)'.*/\1/"`
+      ORIG_FILE="$ORIG_PATH/$ORIG_THEME/$FILE"
+      if [ -f $ORIG_FILE ]; then
+        if [ "$DRYRUN" = "TRUE" ]; then
+          echo "TEST: Replacing $FILE with $ORIG_FILE"
+        else
+          echo "Replacing $FILE with $ORIG_FILE"
+          cp -p $ORIG_FILE $FILE
+        fi
+      else
+        echo "Replacement not found at: $ORIG_FILE"
+      fi
+    done
+    # switch back to the site's directory
+    cd $CWD
+  done
+  cd $SITESDIR
+done

@@ -1,9 +1,9 @@
 <?php
 
 $aliases['g'] = array(
-  'root' => '/var/www/gardens_repos/gardens/docroot/',
+  'root' => '/var/www/gardens_distro/docroot/',
   'uri' => 'http://gardens.localhost',
-  'include' => '/var/www/gardens_repos/gardens/hosting-drush/'
+  'include' => array('/var/www/gardens_repos/gardens/hosting-drush/', '/var/www/aq/')
 );
 
 $aliases['wmg'] = array(

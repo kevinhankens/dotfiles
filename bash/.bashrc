@@ -116,6 +116,17 @@ set -o vi
 ## Gardens
 export GARDENS_GITTOOLS=/var/www/gittools
 
+function wikid {
+        ( cd /usr/local/src/pywikid/wikid && TOKENFILE=WiKIDToken.wkd ./pywikid/pywikid.py 050019123119 )
+}
+ 
+function bastion() {
+	 ssh-add $HOME/.ssh/id_rsa
+	 ssh-add $HOME/.ssh/bastion_rsa
+	 wikid
+	 ssh -CA -p 40506 -l $USER bastion-21.network.hosting.acquia.com 
+}
+
 ## Android
 export PATH=$PATH:/usr/local/src/android-sdk-linux/tools:/usr/local/src/android-sdk-linux/platform-tools
 
@@ -143,4 +154,33 @@ export FIELDS_STAGE="gsteamer"
 #export GIT_SSH=/usr/local/bin/git-ssh-wrapper
 
 # RVM
-source /etc/profile.d/rvm.sh
+source ~/.rvm/scripts/rvm
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+function serve {
+  port="${1:-3000}"
+  ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => $port, :DocumentRoot => Dir.pwd); trap('INT') { s.shutdown }; s.start"
+}
+source /etc/bash_completion.d/password-store
+
+## mark functions
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark { 
+    rm -i $MARKPATH/$1 
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+# java
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_25"
+export PATH="$PATH:$JAVA_HOME/bin"
+
+export PATH="$PATH:/usr/local/src/android/sdk/tools:/usr/local/src/android/sdk/platform-tools"
