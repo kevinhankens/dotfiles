@@ -3,7 +3,7 @@
 echo "Generating archive of dotfiles."
 mkdir -p .drush
 rsync -avrpog $HOME/.drush/*.php .drush/.
-rsync -avrpog $HOME/codes codes
+rsync -avrpog $HOME/codes/* codes/.
 rsync -avrpog $HOME/.config/openbox .config/.
 rsync -avrpog $HOME/.config/roxterm.sourceforge.net/* .config/roxterm.sourceforge.net/.
 rsync -avrpog $HOME/.vim* .
