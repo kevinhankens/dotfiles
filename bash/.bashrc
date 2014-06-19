@@ -54,7 +54,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]|\[\033[01;34m\]\W\[\033[00m\] $(__git_ps1 "(\[\033[01;34m\]%s\[\033[00m\])") '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -111,7 +111,7 @@ EDITOR=vi;
 export EDITOR
 
 ## vi keybindings for bash
-set -o vi
+#set -o vi
 
 ## Gardens
 export GARDENS_GITTOOLS=/var/www/gittools
@@ -132,7 +132,7 @@ export PATH=$PATH:/usr/local/src/android-sdk-linux/tools:/usr/local/src/android-
 
 ## Go
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$PATH:/home/khankens/codes/go
+export GOROOT=/usr/local/go
 
 ## Create a readable time from a unix timestamp.
 function phptime {
@@ -179,8 +179,16 @@ function marks {
     ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+export GARDENS_FIELDS_REPO=/var/www/fields
+
 # java
 export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_25"
 export PATH="$PATH:$JAVA_HOME/bin"
 
 export PATH="$PATH:/usr/local/src/android/sdk/tools:/usr/local/src/android/sdk/platform-tools"
+
+export PATH="$PATH:/usr/local/src/phpstorm/bin"
+
+export PATH="$PATH:/home/khankens/.composer/vendor/bin/"
+
+export PATH="$PATH:/var/www/foreman/bin"

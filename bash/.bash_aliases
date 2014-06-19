@@ -12,6 +12,12 @@ alias cleangrind='sudo rm /tmp/cachegrind.out.*'
 alias suspend='sudo pm-suspend'
 alias psg='ps aux | grep'
 
+# git
+alias gst='git status'
+alias glog='git log -n'
+alias ghist='git history'
+alias gcommit='git commit -am'
+
 # Mounting
 # Mount sdcard
 # sudo blkid

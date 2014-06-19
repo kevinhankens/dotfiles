@@ -13,5 +13,7 @@ cp $HOME/.bash_aliases bash/
 cp $HOME/.bashrc bash/
 rsync -avrpog /etc/conky etc/.
 cp /etc/rc.local etc/
+cp /etc/apt/preferences.d/php5_3 etc/apt/preferences.d/
+cp /etc/apt/sources.list etc/apt/
 dpkg -l > dpkg-installed.txt
 echo "Done."

@@ -18,6 +18,7 @@ runtime! debian.vim
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("autocmd")
+  au BufRead,BufNewFile *.go set filetype=go
   " Drupal *.module and *.install files.
   augroup module
     autocmd BufRead,BufNewFile *.module set filetype=php
@@ -74,3 +75,6 @@ map t :red<CR>
 " Shell
 " set shell=/bin/bash\ -l
 set shellcmdflag=-ic
+
+" Use the old regex engine
+set regexpengine=1

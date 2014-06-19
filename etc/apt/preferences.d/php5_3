@@ -1,0 +1,45 @@
+php5
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-common
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-cli
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-curl
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-dev
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-gd
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-mysql
+Pin: release a=precise
+Pin-Priority: 991
+
+php-pear
+Pin: release a=precise
+Pin-Priority: 991
+
+php5-readline
+Pin: release a=precise
+Pin-Priority: 991
+
+apache2
+Pin: release a=precise
+Pin-Priority: 991
+
+libapache2-mod-php5
+Pin: release a=precise
+Pin-Priority: 991
+
+
