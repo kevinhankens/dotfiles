@@ -71,3 +71,11 @@ alias sshg5='ssh -A -p40506 managed-140.gardens.hosting.acquia.com' # tangle005
 alias sshg6='ssh -A -p40506 managed-159.gardens.hosting.acquia.com' # tangle006
 alias sshg7='ssh -A -p40506 managed-182.gardens.hosting.acquia.com' # tangle007
 alias sshg8='ssh -A -p40506 managed-203.gardens.hosting.acquia.com' # tangle007
+
+# docker
+alias dps='sudo docker ps'
+alias dpsa='sudo docker ps -a'
+alias di='sudo docker images'
+alias dr='sudo docker run -d -t -i -p 8080:80'
+alias da='sudo docker attach'
+

@@ -86,6 +86,7 @@ ii  brasero-common                            3.8.0-1ubuntu3                    
 ii  brltty                                    4.5-3ubuntu1                                  amd64        Access software for a blind person using a braille display
 ii  bsdgames                                  2.17-21                                       amd64        collection of classic textual unix games
 ii  bsdmainutils                              9.0.5ubuntu1                                  amd64        collection of more utilities from FreeBSD
+ii  bsdtar                                    3.1.2-5ubuntu1                                amd64        Implementation of the 'tar' program from FreeBSD
 ii  bsdutils                                  1:2.20.1-5.1ubuntu9                           amd64        Basic utilities from 4.4BSD-Lite
 ii  bsh                                       2.0b4-12ubuntu1                               all          Java scripting environment (BeanShell) Version 2
 ii  bsh-gcj                                   2.0b4-12ubuntu1                               amd64        Java scripting environment (BeanShell) Version 2 (native code)
@@ -165,6 +166,7 @@ ii  dialog                                    1.2-20130523-1                    
 ii  dictionaries-common                       1.20.2                                        all          Common utilities for spelling dictionary tools
 ii  diffstat                                  1.56-1                                        amd64        produces graph of changes introduced by a diff file
 ii  diffutils                                 1:3.2-8                                       amd64        File comparison utilities
+ii  dkms                                      2.2.0.3-1.1ubuntu4                            all          Dynamic Kernel Module Support Framework
 ii  dmidecode                                 2.12-2                                        amd64        SMBIOS/DMI table decoder
 ii  dmsetup                                   2:1.02.77-6ubuntu1                            amd64        Linux Kernel Device Mapper userspace library
 ii  dmz-cursor-theme                          0.4.3ubuntu1                                  all          Style neutral, scalable cursor theme
@@ -459,6 +461,7 @@ ii  gvfs-common                               1.18.2-0ubuntu1                   
 ii  gvfs-daemons                              1.18.2-0ubuntu1                               amd64        userspace virtual filesystem - servers
 ii  gvfs-fuse                                 1.18.2-0ubuntu1                               amd64        userspace virtual filesystem - fuse server
 ii  gvfs-libs:amd64                           1.18.2-0ubuntu1                               amd64        userspace virtual filesystem - private libraries
+ii  gyp                                       0.1~svn1654-1                                 all          Cross-platform build script generator
 ii  gzip                                      1.6-2ubuntu1                                  amd64        GNU compression utilities
 ii  hardening-includes                        2.3ubuntu1                                    all          Makefile for enabling compiler flags for security hardening
 ii  hdparm                                    9.43-1ubuntu2                                 amd64        tune hard disk parameters for high performance
@@ -680,6 +683,8 @@ ii  libburn4                                  1.3.2-1                           
 ii  libbz2-1.0:amd64                          1.0.6-4                                       amd64        high-quality block-sorting file compressor library - runtime
 ii  libbz2-1.0:i386                           1.0.6-4                                       i386         high-quality block-sorting file compressor library - runtime
 ii  libbz2-dev:amd64                          1.0.6-4                                       amd64        high-quality block-sorting file compressor library - development
+ii  libc-ares-dev:amd64                       1.10.0-2                                      amd64        asynchronous name resolver - development files
+ii  libc-ares2:amd64                          1.10.0-2                                      amd64        asynchronous name resolver
 ii  libc-bin                                  2.17-93ubuntu4                                amd64        Embedded GNU C Library: Binaries
 rc  libc-client2007e                          8:2007e~dfsg-3.2ubuntu2                       amd64        c-client library for mail protocols - library files
 ii  libc-dev-bin                              2.17-93ubuntu4                                amd64        Embedded GNU C Library: Development binaries
@@ -1050,6 +1055,7 @@ ii  libgrip0                                  0.3.7+13.10.20130628-0ubuntu1     
 ii  libgs9                                    9.10~dfsg-0ubuntu2                            amd64        interpreter for the PostScript language and for PDF - Library
 ii  libgs9-common                             9.10~dfsg-0ubuntu2                            all          interpreter for the PostScript language and for PDF - common files
 ii  libgsm1:amd64                             1.0.13-4                                      amd64        Shared libraries for GSM speech compressor
+ii  libgsoap3:amd64                           2.8.12-1                                      amd64        Runtime libraries for gSOAP
 ii  libgssapi-krb5-2:amd64                    1.10.1+dfsg-6.1ubuntu1                        amd64        MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
 rc  libgssapi-krb5-2:i386                     1.10.1+dfsg-6.1ubuntu1                        i386         MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
 ii  libgssapi3-heimdal:amd64                  1.6~git20120403+dfsg1-3ubuntu0.1              amd64        Heimdal Kerberos - GSSAPI support library
@@ -1591,6 +1597,7 @@ ii  librsync1:amd64                           0.9.7-10                          
 ii  librtmp-dev                               2.4+20121230.gitdf6c518-1                     amd64        toolkit for RTMP streams (development files)
 ii  librtmp0:amd64                            2.4+20121230.gitdf6c518-1                     amd64        toolkit for RTMP streams (shared library)
 rc  librtmp0:i386                             2.4+20121230.gitdf6c518-1                     i386         toolkit for RTMP streams (shared library)
+ii  libruby1.9.1                              1.9.3.194-8.1ubuntu2.1                        amd64        Libraries necessary to run Ruby 1.9.1
 ii  libsamplerate0:amd64                      0.1.8-5ubuntu1                                amd64        Audio sample rate conversion library
 rc  libsamplerate0:i386                       0.1.8-5ubuntu1                                i386         Audio sample rate conversion library
 ii  libsane:amd64                             1.0.23-0ubuntu3                               amd64        API library for scanners
@@ -1768,6 +1775,8 @@ ii  libv4l-0:amd64                            0.8.9-4                           
 rc  libv4l-0:i386                             0.8.9-4                                       i386         Collection of video4linux support libraries
 ii  libv4lconvert0:amd64                      0.8.9-4                                       amd64        Video4linux frame format conversion library
 rc  libv4lconvert0:i386                       0.8.9-4                                       i386         Video4linux frame format conversion library
+ii  libv8-3.14-dev                            3.14.5.8-4                                    amd64        V8 JavaScript engine - development files for 3.14 branch
+ii  libv8-3.14.5                              3.14.5.8-4                                    amd64        V8 JavaScript engine - runtime library
 ii  libva1:amd64                              1.1.1-3                                       amd64        Video Acceleration (VA) API for Linux -- runtime
 ii  libvisio-0.0-0                            0.0.31-1                                      amd64        library for parsing the visio file structure
 ii  libvisual-0.4-0:amd64                     0.4.0-5                                       amd64        Audio visualization framework
@@ -1988,8 +1997,9 @@ ii  lsb-release                               4.1+Debian11ubuntu4               
 ii  lshw                                      02.16-2                                       amd64        information about hardware configuration
 ii  lsof                                      4.86+dfsg-1ubuntu2                            amd64        Utility to list open files
 ii  ltrace                                    0.5.3-2.1ubuntu3                              amd64        Tracks runtime library calls in dynamically linked programs
-ii  lxc-docker                                0.9.0                                         amd64        Linux container runtime
-ii  lxc-docker-0.9.0                          0.9.0                                         amd64        Linux container runtime
+ii  lxc-docker                                1.1.0                                         amd64        Linux container runtime
+rc  lxc-docker-0.9.0                          0.9.0                                         amd64        Linux container runtime
+ii  lxc-docker-1.1.0                          1.1.0                                         amd64        Linux container runtime
 ii  m4                                        1.4.16-5                                      amd64        a macro processing language
 ii  make                                      3.81-8.2ubuntu3                               amd64        An utility for Directing compilation.
 ii  makedev                                   2.3.1-93ubuntu1                               all          creates device files in /dev
@@ -2049,8 +2059,41 @@ ii  network-manager                           0.9.8.0-0ubuntu22                 
 ii  network-manager-gnome                     0.9.8.0-1ubuntu5.1                            amd64        network management framework (GNOME frontend)
 ii  network-manager-pptp                      0.9.8.2-1ubuntu2                              amd64        network management framework (PPTP plugin core)
 ii  network-manager-pptp-gnome                0.9.8.2-1ubuntu2                              amd64        network management framework (PPTP plugin GNOME GUI)
+ii  node-abbrev                               1.0.4-2                                       all          Like ruby abbrev module, but for Node.js
+ii  node-ansi                                 0.1.2~dfsg1-1                                 all          Advanced ANSI formatting tool for Node.js
+ii  node-archy                                0.0.2-1                                       all          Pretty-print nested hierarchies module for Node.js
+ii  node-block-stream                         0.0.6-1                                       all          Stream of fixed-size blocks, with zero-padding when necessary
+ii  node-fstream                              0.1.22-1                                      all          Advanced filesystem streaming tools for Node.js
+ii  node-fstream-ignore                       0.0.6-2                                       all          Directory reader configurable by .ignore module for Node.js
+ii  node-glob                                 3.2.1-2                                       all          glob functionality for Node.js
+ii  node-graceful-fs                          2.0.0-2                                       all          drop-in replacement improving the Node.js fs module
+ii  node-gyp                                  0.10.9-1                                      all          Native addon build tool for Node.js
+ii  node-inherits                             2.0.0-1                                       all          Exposes inherits function from Node.js environment
+ii  node-ini                                  1.1.0-1                                       all          ini format parser and serializer for Node.js
+ii  node-lockfile                             0.3.1-1                                       all          Asynchronous file lock module for Node.js
+ii  node-lru-cache                            2.3.0-1                                       all          least-recently-used cache object for Node.js
+ii  node-minimatch                            0.2.11-1                                      all          Convert glob expressions into RegExp objects for Node.js
+ii  node-mkdirp                               0.3.3-1                                       all          Node.js module to recursively create directories
+ii  node-mute-stream                          0.0.3-1                                       all          Pass-through stream that can be muted module for Node.js
+ii  node-nopt                                 2.1.2-1                                       all          Command-line option parser for Node.js
+ii  node-npmlog                               0.0.2-1                                       all          Logger with custom levels and colored output for Node.js
+ii  node-once                                 1.1.1-1                                       all          Run a function only once with this module for Node.js
+ii  node-osenv                                0.0.3-1                                       all          Environment settings lookup module for Node.js
+ii  node-read                                 1.0.4-1                                       all          Read user input from stdin module for Node.js
+ii  node-read-package-json                    0.3.1-3                                       all          Read package.json for npm module for Node.js
+ii  node-request                              2.9.153-1                                     all          simplified HTTP request client for NodeJS
+ii  node-retry                                0.6.0-1                                       all          Retry strategies for failed operations module for Node.js
+ii  node-rimraf                               2.0.1-1                                       all          Deep deletion (like rm -rf) module for Node.js
+ii  node-semver                               2.1.0-2                                       all          Semantic Versioning for Node.js
+ii  node-sigmund                              1.0.0-1                                       all          Quick and dirty signatures for Objects module for Node.js
+ii  node-slide                                1.1.4-1                                       all          Simple chain and asyncMap flow control module for Node.js
+ii  node-tar                                  0.1.18-1                                      all          read and write portable tar archives module for Node.js
+ii  node-which                                1.0.5-2                                       all          Cross-platform 'which' module for Node.js
+ii  nodejs                                    0.10.15~dfsg1-4                               amd64        evented I/O for V8 javascript
+ii  nodejs-dev                                0.10.15~dfsg1-4                               amd64        evented I/O for V8 javascript (development files)
 ii  notify-osd                                0.9.35+13.10.20130917.1-0ubuntu1              amd64        daemon that displays passive pop-up notifications
 ii  notify-osd-icons                          0.7                                           all          Notify-OSD icons
+ii  npm                                       1.2.18~dfsg-3                                 all          package manager for Node.js
 ii  ntfs-3g                                   1:2013.1.13AR.1-2ubuntu1                      amd64        read/write NTFS driver for FUSE
 ii  ntpdate                                   1:4.2.6.p5+dfsg-3ubuntu2                      amd64        client for setting system time from NTP servers
 ii  nux-tools                                 4.0.3+13.10.20131011-0ubuntu1                 amd64        Visual rendering toolkit for real-time applications - tools
@@ -2068,7 +2111,6 @@ ii  openbox                                   3.5.2-3                           
 ii  openbox-themes                            1.0.2                                         all          Themes for the Openbox window manager
 ii  openjdk-7-jre:amd64                       7u51-2.4.4-0ubuntu0.13.10.1                   amd64        OpenJDK Java runtime, using Hotspot JIT
 ii  openjdk-7-jre-headless:amd64              7u51-2.4.4-0ubuntu0.13.10.1                   amd64        OpenJDK Java runtime, using Hotspot JIT (headless)
-ii  openjdk-7-jre-lib                         7u51-2.4.4-0ubuntu0.13.10.1                   all          OpenJDK Java runtime (architecture independent libraries)
 ii  openoffice.org-hyphenation                0.7                                           all          Hyphenation patterns for OpenOffice.org
 ii  openprinting-ppds                         20130912-0ubuntu1                             all          OpenPrinting printer support - PostScript PPD files
 ii  openssh-client                            1:6.2p2-6ubuntu0.1                            amd64        secure shell (SSH) client, for secure access to remote machines
@@ -2296,6 +2338,15 @@ ii  roxterm-gtk3                              2.7.2-1                           
 ii  rsync                                     3.0.9-4ubuntu1                                amd64        fast, versatile, remote (and local) file-copying tool
 ii  rsyslog                                   5.8.11-2ubuntu4                               amd64        reliable system and kernel logging daemon
 ii  rtkit                                     0.10-2ubuntu1                                 amd64        Realtime Policy and Watchdog Daemon
+ii  ruby                                      1:1.9.3                                       all          Interpreter of object-oriented scripting language Ruby (default version)
+ii  ruby-childprocess                         0.3.9-2                                       all          Ruby library for controlling external programs running in the background
+ii  ruby-erubis                               2.7.0-2                                       all          fast and extensible eRuby implementation which supports multi-language
+ii  ruby-ffi                                  1.8.1debian-1ubuntu1                          amd64        load dynamic libraries, bind functions from within ruby code
+ii  ruby-i18n                                 0.6.4-1                                       all          I18n and localization solution for Ruby
+ii  ruby-log4r                                1.1.10-2                                      all          Logging library for Ruby
+ii  ruby-net-scp                              1.1.1-1                                       all          pure ruby implementation of the SCP protocol
+ii  ruby-net-ssh                              1:2.6.7-1                                     all          Ruby implementation of the SSH protocol
+ii  ruby1.9.1                                 1.9.3.194-8.1ubuntu2.1                        amd64        Interpreter of object-oriented scripting language Ruby
 ii  samba-common                              2:3.6.18-1ubuntu3.1                           all          common files used by both the Samba server and client
 ii  samba-common-bin                          2:3.6.18-1ubuntu3.1                           amd64        common files used by both the Samba server and client
 ii  sane-utils                                1.0.23-0ubuntu3                               amd64        API library for scanners -- utilities
@@ -2475,6 +2526,7 @@ ii  usbutils                                  1:007-2                           
 ii  util-linux                                2.20.1-5.1ubuntu9                             amd64        Miscellaneous system utilities
 ii  uuid-dev                                  2.20.1-5.1ubuntu9                             amd64        universally unique id library - headers and static libraries
 ii  uuid-runtime                              2.20.1-5.1ubuntu9                             amd64        runtime components for the Universally Unique ID library
+ii  vagrant                                   1:1.6.3                                       amd64        no description given
 ii  vbetool                                   1.1-3                                         amd64        run real-mode video BIOS code to alter hardware state
 rc  velocity                                  1.7-4                                         all          Java-based template engine for web application
 ii  vim                                       2:7.4.000-1ubuntu2                            amd64        Vi IMproved - enhanced vi editor
@@ -2482,6 +2534,12 @@ ii  vim-common                                2:7.4.000-1ubuntu2                
 ii  vim-runtime                               2:7.4.000-1ubuntu2                            all          Vi IMproved - Runtime files
 ii  vim-tiny                                  2:7.4.000-1ubuntu2                            amd64        Vi IMproved - enhanced vi editor - compact version
 ii  vino                                      3.6.2-0ubuntu5                                amd64        VNC server for GNOME
+ii  virtualbox                                4.2.16-dfsg-3ubuntu0.1                        amd64        x86 virtualization solution - base binaries
+ii  virtualbox-dkms                           4.2.16-dfsg-3ubuntu0.1                        all          x86 virtualization solution - kernel module sources for dkms
+ii  virtualbox-guest-dkms                     4.2.16-dfsg-3ubuntu0.1                        all          x86 virtualization solution - guest addition module source for dkms
+ii  virtualbox-guest-utils                    4.2.16-dfsg-3ubuntu0.1                        amd64        x86 virtualization solution - non-X11 guest utilities
+ii  virtualbox-guest-x11                      4.2.16-dfsg-3ubuntu0.1                        amd64        x86 virtualization solution - X11 guest utilities
+ii  virtualbox-qt                             4.2.16-dfsg-3ubuntu0.1                        amd64        x86 virtualization solution - Qt based user interface
 ii  wamerican                                 7.1-1                                         all          American English dictionary words for /usr/share/dict
 ii  wamerican-small                           7.1-1                                         all          American English dictionary words for /usr/share/dict
 ii  wbritish                                  7.1-1                                         all          British English dictionary words for /usr/share/dict
