@@ -2,18 +2,19 @@
 
 echo "Generating archive of dotfiles."
 mkdir -p .drush
-rsync -avrpog $HOME/.drush/*.php .drush/.
-rsync -avrpog $HOME/codes/* codes/.
-rsync -avrpog $HOME/.config/openbox .config/.
-rsync -avrpog $HOME/.config/roxterm.sourceforge.net/* .config/roxterm.sourceforge.net/.
+#rsync -avrpog $HOME/.drush/*.php .drush/.
+#rsync -avrpog $HOME/codes/* codes/.
+#rsync -avrpog $HOME/.config/openbox .config/.
+#rsync -avrpog $HOME/.config/roxterm.sourceforge.net/* .config/roxterm.sourceforge.net/.
 rsync -avrpog $HOME/.vim* .
 #cp $HOME/.xmodmap .
 rm .viminfo
 cp $HOME/.bash_aliases bash/
-cp $HOME/.bashrc bash/
-rsync -avrpog /etc/conky etc/.
-cp /etc/rc.local etc/
-cp /etc/apt/preferences.d/php5_3 etc/apt/preferences.d/
-cp /etc/apt/sources.list etc/apt/
-dpkg -l > dpkg-installed.txt
+#cp $HOME/.bashrc bash/
+cp $HOME/.bash_profile bash/
+#rsync -avrpog /etc/conky etc/.
+#cp /etc/rc.local etc/
+#cp /etc/apt/preferences.d/php5_3 etc/apt/preferences.d/
+#cp /etc/apt/sources.list etc/apt/
+#dpkg -l > dpkg-installed.txt
 echo "Done."

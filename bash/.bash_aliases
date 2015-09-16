@@ -12,12 +12,6 @@ alias cleangrind='sudo rm /tmp/cachegrind.out.*'
 alias suspend='sudo pm-suspend'
 alias psg='ps aux | grep'
 
-# git
-alias gst='git status'
-alias glog='git log -n'
-alias ghist='git history'
-alias gcommit='git commit -am'
-
 # Mounting
 # Mount sdcard
 # sudo blkid
@@ -40,6 +34,7 @@ alias redistest='(echo -en "incr kevin\r\nincr kevin\r\n"; sleep 1) | nc localho
 alias jc='jekyll --no-server'
 
 # Gardens
+alias drush='~/Acquia/www/drush/drush'
 alias getsiteutest='drush @g getsite --theme-files-only --stage=utest --db-username=root --db-password= '
 alias getsitewmg='drush @g getsite --theme-files-only --stage=wmg-egardens --db-username=root --db-password= '
 alias getsitefpmg='drush @g getsite --theme-files-only --stage=fpmg-egardens --db-username=root --db-password= '
@@ -58,8 +53,6 @@ alias gsinfo='drush @g gs-site-info --user=khankens'
 alias ssha='ssh -A -p40506'
 alias sshb=' ssh -A -p40506 -i ~/.ssh/bastion_rsa'
 
-alias irs='irssi --connect=irc.mozilla.org --nick=kevinhankens --port=6697'
-
 # Jump to the first web node on atangles
 # master master.e.gardens.f.e2a.us
 alias sshgm='ssh -A -p40506 master.e.gardens.f.e2a.us'
@@ -72,10 +65,12 @@ alias sshg6='ssh -A -p40506 managed-159.gardens.hosting.acquia.com' # tangle006
 alias sshg7='ssh -A -p40506 managed-182.gardens.hosting.acquia.com' # tangle007
 alias sshg8='ssh -A -p40506 managed-203.gardens.hosting.acquia.com' # tangle007
 
-# docker
-alias dps='sudo docker ps'
-alias dpsa='sudo docker ps -a'
-alias di='sudo docker images'
-alias dr='sudo docker run -d -t -i -p 8080:80'
-alias da='sudo docker attach'
+# statsgod
+alias cdgod='cd /Users/khankens/go/src/github.com/acquia/statsgod'
 
+# fields
+alias f-khankens='facct hosting-dev && fstage khankens'
+alias f-integration='facct platform-health && fstage integration'
+alias f-phprod='facct platform-health && fstage prod'
+alias nemesis='bundle exec /Users/khankens/Acquia/Darwin/nemesis/bin/nemesis'
+alias nemesis-ops='/Users/khankens/Acquia/Darwin/nemesis-puppet/bin/nemesis-ops'

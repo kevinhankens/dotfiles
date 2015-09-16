@@ -15,10 +15,12 @@ runtime! debian.vim
 " options, so any other options should be set AFTER setting 'compatible'.
 "set compatible
 
+" Pathogen
+execute pathogen#infect()
+
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("autocmd")
-  au BufRead,BufNewFile *.go set filetype=go
   " Drupal *.module and *.install files.
   augroup module
     autocmd BufRead,BufNewFile *.module set filetype=php
@@ -26,6 +28,10 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.install set filetype=php
     autocmd BufRead,BufNewFile *.test set filetype=php
     autocmd BufRead,BufNewFile *.profile set filetype=php
+  augroup END
+  augroup go
+    autocmd BufRead,BufNewFile *.go filetype plugin indent on
+    "autocmd BufRead,BufNewFile *.go set filetype=go
   augroup END
 endif
 
@@ -45,16 +51,16 @@ endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
-"if has("autocmd")
-"  filetype plugin indent on
-"endif
+if has("autocmd")
+  " filetype plugin indent on
+endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-" set showcmd		" Show (partial) command in status line.
-" set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
+"set showcmd		" Show (partial) command in status line.
+"set showmatch		" Show matching brackets.
+"set ignorecase		" Do case insensitive matching
+"set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
@@ -74,7 +80,7 @@ map t :red<CR>
 
 " Shell
 " set shell=/bin/bash\ -l
-set shellcmdflag=-ic
+set shell=bash\ --login
+" set shellcmdflag=-ic
 
-" Use the old regex engine
-set regexpengine=1
+set ruler
